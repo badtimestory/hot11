@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
+    	<insert id="join" parameterType="MemberJoinDTO">
+    		INSERT INTO MEMBERJOIN
+    		VALUES (#{id},#{pw},#{name},#{phone},#{email},#{address},SYSDATE)
+    	</insert>
+    
+    </mapper>
