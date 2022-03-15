@@ -6,5 +6,6 @@
   		<typeAliases>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDTO" alias="MemberJoinDTO"/>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDAO" alias="MemberJoinDAO"/>
+  			<typeAlias type="com.shop.s1.board.BoardDTO" alias="BoardDTO"/>
   		</typeAliases>
   </configuration>
