@@ -5,6 +5,9 @@
     
     <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
     
+    	<select id="mypage" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
+    		SELECT ID,NAME,EMAIL,PHONE,ADDRESS,BIRTH FROM MEMBERJOIN WHERE ID=#{id}
+    	</select>
     
     	<select id="login" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
     		SELECT * FROM MEMBERJOIN WHERE ID=#{id} AND PW=#{pw}

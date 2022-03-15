@@ -13,6 +13,24 @@ public class MemberJoinTest extends MyjunitTest{
 	private MemberJoinDAO memberJoinDAO;
 
 	@Test
+	public void mypage() throws Exception{
+		MemberJoinDTO memberJoinDTO = new MemberJoinDTO();
+		memberJoinDTO.setId("K");
+		memberJoinDTO=memberJoinDAO.mypage(memberJoinDTO);
+		assertNotNull(memberJoinDTO);
+	}
+	
+	
+	//@Test
+	public void login() throws Exception{
+		MemberJoinDTO memberJoinDTO= new MemberJoinDTO();
+		memberJoinDTO.setId("2");
+		memberJoinDTO.setPw("I");
+		memberJoinDTO=memberJoinDAO.login(memberJoinDTO);
+		assertNotNull(memberJoinDTO);
+	}
+	
+	//@Test
 	public void join() throws Exception{
 		MemberJoinDTO memberJoinDTO = new MemberJoinDTO();
 		
