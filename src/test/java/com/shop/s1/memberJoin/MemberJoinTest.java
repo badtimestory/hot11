@@ -16,7 +16,7 @@ public class MemberJoinTest extends MyjunitTest{
 	public void join() throws Exception{
 		MemberJoinDTO memberJoinDTO = new MemberJoinDTO();
 		
-		memberJoinDTO.setId("K");
+		memberJoinDTO.setId("2");
 		memberJoinDTO.setPw("I");
 		memberJoinDTO.setName("M");
 		memberJoinDTO.setPhone("010");

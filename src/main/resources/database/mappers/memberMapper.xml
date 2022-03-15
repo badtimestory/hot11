@@ -4,6 +4,12 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
+    
+    
+    	<select id="login" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
+    		SELECT * FROM MEMBERJOIN WHERE ID=#{id} AND PW=#{pw}
+    	</select>
+    	
     	<insert id="join" parameterType="MemberJoinDTO">
     		INSERT INTO MEMBERJOIN
     		VALUES (#{id},#{pw},#{name},#{phone},#{email},#{address},SYSDATE)
