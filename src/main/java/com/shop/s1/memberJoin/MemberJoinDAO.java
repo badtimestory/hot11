@@ -11,6 +11,10 @@ public class MemberJoinDAO {
 	private SqlSession sqlSession;
 	private final String NAMESAPCE="com.shop.s1.memberJoin.MemberJoinDAO.";
 	
+	public int update(MemberJoinDTO memberJoinDTO) throws Exception{
+		return sqlSession.update(NAMESAPCE+"update",memberJoinDTO);
+	}
+	
 	public MemberJoinDTO mypage(MemberJoinDTO memberJoinDTO) throws Exception{
 		return sqlSession.selectOne(NAMESAPCE+"mypage",memberJoinDTO);
 	}

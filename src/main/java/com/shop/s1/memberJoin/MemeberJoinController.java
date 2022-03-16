@@ -19,6 +19,23 @@ public class MemeberJoinController {
 	@Autowired
 	private MemberJoinService memberJoinService;
 	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public String update(MemberJoinDTO memberJoinDTO,HttpSession session) throws Exception{
+		int result=memberJoinService.update(memberJoinDTO);
+		return "redirect:./mypage";
+	}
+	
+	
+	@RequestMapping(value="update",method=RequestMethod.GET)
+	public ModelAndView update(MemberJoinDTO memberJoinDTO) throws Exception{
+		 ModelAndView mv = new ModelAndView();
+		 memberJoinDTO=memberJoinService.mypage(memberJoinDTO);
+		 mv.setViewName("memberJoin/update");
+		 mv.addObject("dto",memberJoinDTO);
+		 return mv;
+	}
+	
+	
 	@RequestMapping(value="mypage",method=RequestMethod.GET)
 	public ModelAndView mypage(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -41,7 +58,7 @@ public class MemeberJoinController {
 	public String login(HttpSession session, MemberJoinDTO memberJoinDTO,String remember, Model model,HttpServletResponse response) throws Exception{
 		System.out.println("remember : "+remember);
 		
-		//이부분 remember에서 "1"이랑 같은걸 꺼내오거나  한사람의 정보를가져오니까?
+		
 		if(remember!=null&&remember.equals("1")) {
 			
 			Cookie cookie = new Cookie("remember", memberJoinDTO.getId());

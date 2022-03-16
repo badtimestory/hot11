@@ -11,11 +11,12 @@ public class MemberJoinTest extends MyjunitTest{
 
 	@Autowired
 	private MemberJoinDAO memberJoinDAO;
+	
 
-	@Test
+	//@Test
 	public void mypage() throws Exception{
 		MemberJoinDTO memberJoinDTO = new MemberJoinDTO();
-		memberJoinDTO.setId("K");
+		memberJoinDTO.setId("id1");
 		memberJoinDTO=memberJoinDAO.mypage(memberJoinDTO);
 		assertNotNull(memberJoinDTO);
 	}

@@ -5,8 +5,13 @@
     
     <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
     
+    	<update id="update" parameterType="MemberJoinDTO">
+    		update memberjoin set pw=#{pw},name=#{name},phone=#{phone},email=#{email},address=#{address}
+			where id=#{id}
+    	</update>
+    	
     	<select id="mypage" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
-    		SELECT ID,NAME,EMAIL,PHONE,ADDRESS,BIRTH FROM MEMBERJOIN WHERE ID=#{id}
+    		SELECT ID,NAME,PHONE,EMAIL,ADDRESS,BIRTH FROM MEMBERJOIN WHERE ID=#{id}
     	</select>
     
     	<select id="login" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
