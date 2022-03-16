@@ -31,7 +31,7 @@ public class MemeberJoinController {
 		 ModelAndView mv = new ModelAndView();
 		 memberJoinDTO=memberJoinService.mypage(memberJoinDTO);
 		 mv.setViewName("memberJoin/update");
-		 mv.addObject("dto",memberJoinDTO);
+		 mv.addObject("member",memberJoinDTO);
 		 return mv;
 	}
 	
@@ -74,15 +74,15 @@ public class MemeberJoinController {
 		
 		memberJoinDTO=memberJoinService.login(memberJoinDTO);
 		String message="Login fail";
-		String loginPath="./login";
+		String p="./login";
 		
 		if(memberJoinDTO!=null) {
 			session.setAttribute("member",memberJoinDTO);
 			message="Login Success";
-			loginPath="../";
+			p="../";
 			
 		}
-		model.addAttribute("path",loginPath);
+		model.addAttribute("path",p);
 		model.addAttribute("message",message);
 		String path="common/result";
 		return path;
@@ -102,4 +102,10 @@ public class MemeberJoinController {
 	public void join() throws Exception{
 		
 	}
+	@RequestMapping(value="delete")
+	public String delete(MemberJoinDTO memberJoinDTO) throws Exception{
+		int result=memberJoinService.delete(memberJoinDTO);
+		return "redirect:../";
+	}
+	
 }

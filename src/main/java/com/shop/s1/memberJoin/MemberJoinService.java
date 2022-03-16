@@ -9,6 +9,10 @@ public class MemberJoinService {
 	@Autowired
 	private MemberJoinDAO memberJoinDAO;
 	
+	public int delete(MemberJoinDTO memberJoinDTO) throws Exception{
+		return memberJoinDAO.delete(memberJoinDTO);
+	}
+	
 	public int update(MemberJoinDTO memberJoinDTO) throws Exception{
 		return memberJoinDAO.update(memberJoinDTO);
 	}

@@ -6,12 +6,12 @@
     <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
     
     	<update id="update" parameterType="MemberJoinDTO">
-    		update memberjoin set pw=#{pw},name=#{name},phone=#{phone},email=#{email},address=#{address}
-			where id=#{id}
+    		UPDATE MEMBERJOIN SET PW=#{pw},NAME=#{name},PHONE=#{phone},EMAIL=#{email},ADDRESS=#{address}
+			WHERE ID=#{id}
     	</update>
     	
     	<select id="mypage" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
-    		SELECT ID,NAME,PHONE,EMAIL,ADDRESS,BIRTH FROM MEMBERJOIN WHERE ID=#{id}
+    		SELECT ID,PW,NAME,PHONE,EMAIL,ADDRESS,BIRTH FROM MEMBERJOIN WHERE ID=#{id}
     	</select>
     
     	<select id="login" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
@@ -23,4 +23,7 @@
     		VALUES (#{id},#{pw},#{name},#{phone},#{email},#{address},SYSDATE)
     	</insert>
     
+    	<delete id="delete" parameterType="MemberJoinDTO">
+    		DELETE MEMBERJOIN WHERE ID=#{id}
+    	</delete>
     </mapper>

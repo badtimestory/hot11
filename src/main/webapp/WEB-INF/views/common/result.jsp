@@ -10,7 +10,7 @@
 	<h1>Result page</h1>
 	<script type="text/javascript">
 		alert('${message}');
-		location.href="{path}"
+		location.href="${path}"
 	</script>
 </body>
 </html>
