@@ -9,11 +9,12 @@
 <body>
 	<h1>Detail Test Page</h1>
 	<!-- model.addAttribute("detail", boardDTO); -->
-	<h3>SUBJECT : ${detail.title}</h3>
-	<h3>NAME : ${detail.writer}</h3>
-	${detail.contents}
+	<h3>SUBJECT : ${dto.title}</h3>
+	<h3>NAME : ${dto.writer}</h3>
+	${dto.contents}
+	<hr>
 	<div>
-		<a>수정</a>
+		<a href="./update?num=${dto.num}">수정</a>
 		<a>삭제</a>
 	</div>
 </body>

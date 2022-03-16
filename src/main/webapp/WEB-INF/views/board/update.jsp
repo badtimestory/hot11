@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Board Update Test</h1>
+	
+	<!-- 서버로 POST 요청 -->
+ 	<form action="./update" method="POST">
+ 		<input type="hidden" name="num" readonly="readonly" value="${dto.num}">
+ 		<div>
+			제목 <input type="text" name="title" value="${dto.title}" placeholder="제목을 입력하세요">
+		</div>
+		<div>
+		<!-- 임시로 작성자 탑텐으로 고정 -->		
+ 		작성자 <input type="text" name="writer" value="탑텐" readonly="readonly">
+ 		</div>
+		<div>
+			내용 <textarea rows="" cols="" name="contents" placeholder="내용을 입력하세요">${dto.contents}</textarea>
+		</div>
+	<button>작성</button>
+ 	</form>
+</body>
+</html>

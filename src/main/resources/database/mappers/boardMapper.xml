@@ -21,7 +21,11 @@
 		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer})
 	</insert>
 	
-
+	<!-- Update Mapper -->
+	<update id="update" parameterType="BoardDTO">
+		UPDATE BOARD SET TITLE = #{title}, CONTENTS = #{contents}
+		WHERE NUM = #{num}
+	</update>
 	
 	
 </mapper>

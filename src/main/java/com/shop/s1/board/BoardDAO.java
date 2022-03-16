@@ -27,7 +27,11 @@ public class BoardDAO {
 		return sqlSession.insert(NAMESPACE+"add", boardDTO);
 	}
 	
-
+	// update
+	public int update(BoardDTO boardDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"update", boardDTO);
+		
+	}
 	
 
 }

@@ -28,7 +28,7 @@ public class BoardController {
 	@RequestMapping(value = "detail", method = RequestMethod.GET)
 	public String detail(BoardDTO boardDTO, Model model) throws Exception {
 		boardDTO = boardService.detail(boardDTO);
-		model.addAttribute("detail", boardDTO);
+		model.addAttribute("dto", boardDTO);
 		
 		return "board/detail";
 	}
@@ -41,6 +41,21 @@ public class BoardController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String add(BoardDTO boardDTO) throws Exception {
 		int result = boardService.add(boardDTO);
+		
+		return "redirect:./list";
+	}
+	
+	// update
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public void update(BoardDTO boardDTO, Model model) throws Exception {
+		boardDTO = boardService.detail(boardDTO);
+		model.addAttribute("dto", boardDTO);
+	}
+	
+	// DB Update
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(BoardDTO boardDTO) throws Exception {
+		int result = boardService.update(boardDTO);
 		
 		return "redirect:./list";
 	}

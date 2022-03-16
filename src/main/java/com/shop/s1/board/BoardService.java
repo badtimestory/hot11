@@ -25,6 +25,9 @@ public class BoardService {
 		return boardDAO.add(boardDTO);		
 	}
 	
-
+	// update
+	public int update(BoardDTO boardDTO) throws Exception {
+		return boardDAO.update(boardDTO);
+	}
 
 }
