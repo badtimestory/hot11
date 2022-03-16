@@ -12,16 +12,14 @@
 	
 		<table>
 			<tr>
-				<th>NUM</th>
-				<th>TITLE</th>
-				<th>CONTENTS</th>
-				<th>WRITER</th>
+				<th>NO.</th>
+				<th>SUBJECT</th>
+				<th>NAME</th>
 			</tr>
 	<c:forEach items="${list}" var="board">
 			<tr>
 				<th>${board.num}</th>
 				<th>${board.title}</th>
-				<th>${board.contents}</th>
 				<th>${board.writer}</th>
 			</tr>
 	</c:forEach>
