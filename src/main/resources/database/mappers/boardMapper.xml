@@ -27,5 +27,10 @@
 		WHERE NUM = #{num}
 	</update>
 	
+	<!-- Delete Mapper -->
+	<delete id="delete" parameterType="BoardDTO">
+		DELETE FROM BOARD WHERE NUM = #{num}
+	</delete>
+	
 	
 </mapper>

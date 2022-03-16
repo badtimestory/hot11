@@ -8,14 +8,13 @@
 </head>
 <body>
 	<h1>Detail Test Page</h1>
-	<!-- model.addAttribute("detail", boardDTO); -->
 	<h3>SUBJECT : ${dto.title}</h3>
 	<h3>NAME : ${dto.writer}</h3>
 	${dto.contents}
 	<hr>
 	<div>
 		<a href="./update?num=${dto.num}">수정</a>
-		<a>삭제</a>
+		<a href="./delete?num=${dto.num}">삭제</a>
 	</div>
 </body>
 </html>

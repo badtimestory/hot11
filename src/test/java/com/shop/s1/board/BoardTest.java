@@ -52,4 +52,13 @@ public class BoardTest extends MyjunitTest{
 		assertNotNull(boardDTO);
 	}
 	
+	// delete Test
+	// @Test
+	public void deleteTest() throws Exception {
+		BoardDTO boardDTO = new BoardDTO();
+		boardDTO.setNum(12L);
+		int result = boardDAO.delete(boardDTO);
+		assertEquals(1, result);
+	}
+	
 }

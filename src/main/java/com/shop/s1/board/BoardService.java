@@ -29,5 +29,10 @@ public class BoardService {
 	public int update(BoardDTO boardDTO) throws Exception {
 		return boardDAO.update(boardDTO);
 	}
+	
+	// delete
+	public int delete(BoardDTO boardDTO) throws Exception {
+		return boardDAO.delete(boardDTO);
+	}
 
 }
