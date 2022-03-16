@@ -39,7 +39,6 @@ public class MemeberJoinController {
 	@RequestMapping(value="mypage",method=RequestMethod.GET)
 	public ModelAndView mypage(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		//코드 중복?
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		memberJoinDTO = memberJoinService.mypage(memberJoinDTO);
 		mv.setViewName("memberJoin/mypage");
