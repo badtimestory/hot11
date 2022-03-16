@@ -39,6 +39,7 @@ public class MemeberJoinController {
 	@RequestMapping(value="mypage",method=RequestMethod.GET)
 	public ModelAndView mypage(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		//코드 중복?
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		memberJoinDTO = memberJoinService.mypage(memberJoinDTO);
 		mv.setViewName("memberJoin/mypage");
@@ -103,8 +104,9 @@ public class MemeberJoinController {
 		
 	}
 	@RequestMapping(value="delete")
-	public String delete(MemberJoinDTO memberJoinDTO) throws Exception{
+	public String delete(HttpSession session,MemberJoinDTO memberJoinDTO) throws Exception{
 		int result=memberJoinService.delete(memberJoinDTO);
+		session.invalidate();
 		return "redirect:../";
 	}
 	

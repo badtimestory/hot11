@@ -8,15 +8,15 @@
 </head>
 <body>
 	<h1>My Page</h1>
-	<h3>${member.id}</h3>
-	<input type="hidden" name="pw" value="${member.pw}" readonly="readonly" >
-	<h3>${member.name}</h3>
-	<h3>${member.phone}</h3>
-	<h3>${member.email}</h3>
-	<h3>${member.address}</h3>
-	<h3>${member.birth }</h3>
+	<h3>${dto.id}</h3>
+	<input type="hidden" name="pw" value="${dto.pw}" readonly="readonly" >
+	<h3>${dto.name}</h3>
+	<h3>${dto.phone}</h3>
+	<h3>${dto.email}</h3>
+	<h3>${dto.address}</h3>
+	<h3>${dto.birth }</h3>
 	
-	<a href="./delete?id=${member.id}" >회원탈퇴</a>
-	<a href="./update?id=${member.id}">회원정보수정</a>
+	<a href="./delete?id=${dto.id}" >회원탈퇴</a>
+	<a href="./update?id=${dto.id}">회원정보수정</a>
 </body>
 </html>
