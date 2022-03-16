@@ -4,13 +4,24 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.shop.s1.board.BoardDAO">
-
+	
+	<!-- List Mapper -->
 	<select id="list" resultType="BoardDTO">
 		SELECT * FROM BOARD ORDER BY NUM DESC
 	</select>
-
+	
+	<!-- detail Mapper -->
+	<select id="detail" resultType="BoardDTO">
+		SELECT * FROM BOARD WHERE NUM = #{num}
+	</select>
+	
+	<!-- Insert Mapper -->
 	<insert id="add" parameterType="BoardDTO">
 		INSERT INTO BOARD (NUM, TITLE, CONTENTS, WRITER)
 		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer})
 	</insert>
+	
+
+	
+	
 </mapper>

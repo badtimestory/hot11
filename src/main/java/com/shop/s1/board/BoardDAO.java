@@ -17,10 +17,17 @@ public class BoardDAO {
 		return sqlSession.selectList(NAMESPACE+"list");
 	}
 	
+	// detail
+	public BoardDTO detail(BoardDTO boardDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"detail", boardDTO);
+	}
+	
 	// insert
 	public int add(BoardDTO boardDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"add", boardDTO);
 	}
+	
+
 	
 
 }

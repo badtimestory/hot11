@@ -22,7 +22,15 @@ public class BoardController {
 		model.addAttribute("list", ar);
 		
 		return "board/list";
+	}
+	
+	// detail
+	@RequestMapping(value = "detail", method = RequestMethod.GET)
+	public String detail(BoardDTO boardDTO, Model model) throws Exception {
+		boardDTO = boardService.detail(boardDTO);
+		model.addAttribute("detail", boardDTO);
 		
+		return "board/detail";
 	}
 	
 	// insert jsp page 이동

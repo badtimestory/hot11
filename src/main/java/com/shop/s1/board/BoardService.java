@@ -15,9 +15,16 @@ public class BoardService {
 		return boardDAO.list();
 	}
 	
+	// detail
+	public BoardDTO detail(BoardDTO boardDTO) throws Exception {
+		return boardDAO.detail(boardDTO);
+	}
+	
 	// insert
 	public int add(BoardDTO boardDTO) throws Exception {
 		return boardDAO.add(boardDTO);		
 	}
+	
+
 
 }

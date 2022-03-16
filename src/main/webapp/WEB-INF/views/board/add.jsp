@@ -9,6 +9,7 @@
 <body>
  	<h1>Board Add Page</h1>
  	
+ 	<!-- 서버로 POST 요청 -->
  	<form action="./add" method="POST">
  		<div>
 			제목 <input type="text" name="title" placeholder="제목을 입력하세요">

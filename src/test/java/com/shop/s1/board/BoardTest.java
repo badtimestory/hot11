@@ -30,7 +30,7 @@ public class BoardTest extends MyjunitTest{
 	}
 	
 	// insert Test
-	@Test
+	// @Test
 	public void addTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
 		for (int i = 1; i <= 10; i++) {
@@ -41,6 +41,15 @@ public class BoardTest extends MyjunitTest{
 			int result = boardDAO.add(boardDTO);
 			assertEquals(1, result);
 		}
+	}
+	
+	// detail Test
+	@Test
+	public void detailTest() throws Exception {
+		BoardDTO boardDTO = new BoardDTO();
+		boardDTO.setNum(1L);
+		boardDTO = boardDAO.detail(boardDTO);
+		assertNotNull(boardDTO);
 	}
 	
 }
