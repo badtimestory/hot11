@@ -15,14 +15,26 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
+	// list
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public String list(Model model) throws Exception {
-		
 		List<BoardDTO> ar = boardService.list();
 		model.addAttribute("list", ar);
 		
 		return "board/list";
 		
+	}
+	
+	// insert jsp page 이동
+	@RequestMapping(value = "add", method = RequestMethod.GET)
+	public void add() throws Exception {}
+	
+	// DB Insert
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public String add(BoardDTO boardDTO) throws Exception {
+		int result = boardService.add(boardDTO);
+		
+		return "redirect:./list";
 	}
 
 }

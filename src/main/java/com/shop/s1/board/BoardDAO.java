@@ -12,8 +12,15 @@ public class BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.shop.s1.board.BoardDAO.";
 	
+	// list 출력
 	public List<BoardDTO> list() throws Exception {
 		return sqlSession.selectList(NAMESPACE+"list");
 	}
+	
+	// insert
+	public int add(BoardDTO boardDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"add", boardDTO);
+	}
+	
 
 }

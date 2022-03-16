@@ -1,5 +1,6 @@
 package com.shop.s1.board;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -27,4 +28,19 @@ public class BoardTest extends MyjunitTest{
 		List<BoardDTO> ar = boardDAO.list();
 		assertNotEquals(0, ar.size());
 	}
+	
+	// insert Test
+	@Test
+	public void addTest() throws Exception {
+		BoardDTO boardDTO = new BoardDTO();
+		for (int i = 1; i <= 10; i++) {
+			boardDTO.setTitle("테스트"+i);
+			boardDTO.setWriter("탑텐");
+			boardDTO.setContents("내용테스트"+i);
+			
+			int result = boardDAO.add(boardDTO);
+			assertEquals(1, result);
+		}
+	}
+	
 }

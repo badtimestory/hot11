@@ -10,8 +10,14 @@ public class BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
 	
+	// list
 	public List<BoardDTO> list() throws Exception {
 		return boardDAO.list();
+	}
+	
+	// insert
+	public int add(BoardDTO boardDTO) throws Exception {
+		return boardDAO.add(boardDTO);		
 	}
 
 }

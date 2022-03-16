@@ -9,4 +9,8 @@
 		SELECT * FROM BOARD ORDER BY NUM DESC
 	</select>
 
+	<insert id="add" parameterType="BoardDTO">
+		INSERT INTO BOARD (NUM, TITLE, CONTENTS, WRITER)
+		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer})
+	</insert>
 </mapper>
