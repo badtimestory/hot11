@@ -11,12 +11,12 @@
 	<form action="./login" method="post">
 		<fieldset>
 			<legend>ID</legend>
-			<input type="text" name="id" value="${cookie.remember.value}">
+			<input type="text" name="m_id" value="${cookie.remember.value}">
 		</fieldset>
 
 		<fieldset>
 			<legend>Password</legend>
-			<input type="password" name="pw">
+			<input type="password" name="m_pw">
 		</fieldset>
 
 		<fieldset>

@@ -10,7 +10,7 @@ public class MemberJoinDTO {
 	private String m_phone;
 	private String m_email;
 	private String m_address;
-	private Date m_birth;
+	private String m_birth;
 	
 	public String getM_id() {
 		return m_id;
@@ -48,12 +48,13 @@ public class MemberJoinDTO {
 	public void setM_address(String m_address) {
 		this.m_address = m_address;
 	}
-	public Date getM_birth() {
+	public String getM_birth() {
 		return m_birth;
 	}
-	public void setM_birth(Date m_birth) {
+	public void setM_birth(String m_birth) {
 		this.m_birth = m_birth;
 	}
+
 	
 	
 

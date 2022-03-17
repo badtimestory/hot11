@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Home Page</h1>
-	<h3>${sessionScope.member.name}님</h3>
+	<h3>${sessionScope.member.m_name}님</h3>
 	<div>
 		<c:if test="${empty member}">
 			<a href="./memberJoin/login">Login</a>
