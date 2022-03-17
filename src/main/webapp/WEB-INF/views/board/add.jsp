@@ -12,14 +12,14 @@
  	<!-- 서버로 POST 요청 -->
  	<form action="./add" method="POST">
  		<div>
-			제목 <input type="text" name="title" placeholder="제목을 입력하세요">
+			제목 <input type="text" name="b_title" placeholder="제목을 입력하세요">
 		</div>
 		<div>
 		<!-- 임시로 작성자 탑텐으로 고정 -->		
- 		작성자 <input type="text" name="writer" value="탑텐" readonly="readonly">
+ 		작성자 <input type="text" name="b_writer" value="탑텐" readonly="readonly">
  		</div>
 		<div>
-			내용 <textarea rows="" cols="" name="contents" placeholder="내용을 입력하세요"></textarea>
+			내용 <textarea rows="" cols="" name="b_contents" placeholder="내용을 입력하세요"></textarea>
 		</div>
 	<button>작성</button>
  	</form>

@@ -7,29 +7,29 @@
 	
 	<!-- List Mapper -->
 	<select id="list" resultType="BoardDTO">
-		SELECT * FROM BOARD ORDER BY NUM DESC
+		SELECT * FROM BOARD ORDER BY B_NUM DESC
 	</select>
 	
 	<!-- detail Mapper -->
 	<select id="detail" resultType="BoardDTO">
-		SELECT * FROM BOARD WHERE NUM = #{num}
+		SELECT * FROM BOARD WHERE B_NUM = #{b_num}
 	</select>
 	
 	<!-- Insert Mapper -->
 	<insert id="add" parameterType="BoardDTO">
-		INSERT INTO BOARD (NUM, TITLE, CONTENTS, WRITER)
-		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer})
+		INSERT INTO BOARD (B_NUM, B_TITLE, B_CONTENTS, B_WRITER)
+		VALUES (BOARD_SEQ.NEXTVAL, #{b_title}, #{b_contents}, #{b_writer})
 	</insert>
 	
 	<!-- Update Mapper -->
 	<update id="update" parameterType="BoardDTO">
-		UPDATE BOARD SET TITLE = #{title}, CONTENTS = #{contents}
-		WHERE NUM = #{num}
+		UPDATE BOARD SET B_TITLE = #{b_title}, B_CONTENTS = #{b_contents}
+		WHERE B_NUM = #{b_num}
 	</update>
 	
 	<!-- Delete Mapper -->
 	<delete id="delete" parameterType="BoardDTO">
-		DELETE FROM BOARD WHERE NUM = #{num}
+		DELETE FROM BOARD WHERE B_NUM = #{b_num}
 	</delete>
 	
 	

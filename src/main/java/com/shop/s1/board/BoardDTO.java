@@ -1,36 +1,37 @@
 package com.shop.s1.board;
 
 public class BoardDTO {
-	private Long num;
-	private String title;
-	private String contents;
-	private String writer;
+	private Long b_num;
+	private String b_title;
+	private String b_contents;
+	private String b_writer;
 	
-	public Long getNum() {
-		return num;
+	public Long getB_num() {
+		return b_num;
 	}
-	public void setNum(Long num) {
-		this.num = num;
+	public void setB_num(Long b_num) {
+		this.b_num = b_num;
 	}
-	public String getTitle() {
-		return title;
+	public String getB_title() {
+		return b_title;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setB_title(String b_title) {
+		this.b_title = b_title;
 	}
-	public String getContents() {
-		return contents;
+	public String getB_contents() {
+		return b_contents;
 	}
-	public void setContents(String contents) {
-		this.contents = contents;
+	public void setB_contents(String b_contents) {
+		this.b_contents = b_contents;
 	}
-	public String getWriter() {
-		return writer;
+	public String getB_writer() {
+		return b_writer;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setB_writer(String b_writer) {
+		this.b_writer = b_writer;
 	}
 	
 	
-
+	
+	
 }

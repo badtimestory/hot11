@@ -30,14 +30,14 @@ public class BoardTest extends MyjunitTest{
 	}
 	
 	// insert Test
-	// @Test
+	@Test
 	public void addTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
 		for (int i = 1; i <= 10; i++) {
-			boardDTO.setTitle("테스트"+i);
-			boardDTO.setWriter("탑텐");
-			boardDTO.setContents("내용테스트"+i);
-			
+			boardDTO.setB_title("테스트"+i);
+			boardDTO.setB_writer("탑텐");
+			boardDTO.setB_contents("내용테스트"+i);
+		
 			int result = boardDAO.add(boardDTO);
 			assertEquals(1, result);
 		}
@@ -47,16 +47,16 @@ public class BoardTest extends MyjunitTest{
 	@Test
 	public void detailTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
-		boardDTO.setNum(1L);
+		boardDTO.setB_num(1L);
 		boardDTO = boardDAO.detail(boardDTO);
 		assertNotNull(boardDTO);
 	}
 	
 	// delete Test
-	// @Test
+	@Test
 	public void deleteTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
-		boardDTO.setNum(12L);
+		boardDTO.setB_num(10L);
 		int result = boardDAO.delete(boardDTO);
 		assertEquals(1, result);
 	}

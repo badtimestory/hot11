@@ -8,13 +8,13 @@
 </head>
 <body>
 	<h1>Detail Test Page</h1>
-	<h3>SUBJECT : ${dto.title}</h3>
-	<h3>NAME : ${dto.writer}</h3>
-	${dto.contents}
+	<h3>SUBJECT : ${dto.b_title}</h3>
+	<h3>NAME : ${dto.b_writer}</h3>
+	${dto.b_contents}
 	<hr>
 	<div>
-		<a href="./update?num=${dto.num}">수정</a>
-		<a href="./delete?num=${dto.num}">삭제</a>
+		<a href="./update?b_num=${dto.b_num}">수정</a>
+		<a href="./delete?b_num=${dto.b_num}">삭제</a>
 	</div>
 </body>
 </html>
