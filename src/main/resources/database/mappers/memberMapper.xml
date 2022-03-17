@@ -6,24 +6,24 @@
     <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
     
     	<update id="update" parameterType="MemberJoinDTO">
-    		UPDATE MEMBERJOIN SET PW=#{pw},NAME=#{name},PHONE=#{phone},EMAIL=#{email},ADDRESS=#{address}
-			WHERE ID=#{id}
+    		UPDATE MEMBERJOIN SET PW=#{m_pw},NAME=#{m_name},PHONE=#{m_phone},EMAIL=#{m_email},ADDRESS=#{m_address}
+			WHERE ID=#{m_id}
     	</update>
     	
     	<select id="mypage" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
-    		SELECT ID,PW,NAME,PHONE,EMAIL,ADDRESS,BIRTH FROM MEMBERJOIN WHERE ID=#{id}
+    		SELECT ID,PW,NAME,PHONE,EMAIL,ADDRESS,BIRTH FROM MEMBERJOIN WHERE ID=#{m_id}
     	</select>
     
     	<select id="login" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
-    		SELECT * FROM MEMBERJOIN WHERE ID=#{id} AND PW=#{pw}
+    		SELECT * FROM MEMBERJOIN WHERE ID=#{m_id} AND PW=#{m_pw}
     	</select>
     	
     	<insert id="join" parameterType="MemberJoinDTO">
     		INSERT INTO MEMBERJOIN
-    		VALUES (#{id},#{pw},#{name},#{phone},#{email},#{address},SYSDATE)
+    		VALUES (#{m_id},#{m_pw},#{m_name},#{m_phone},#{m_email},#{m_address},#{m_birth})
     	</insert>
     
     	<delete id="delete" parameterType="MemberJoinDTO">
-    		DELETE MEMBERJOIN WHERE ID=#{id}
+    		DELETE MEMBERJOIN WHERE ID=#{m_id}
     	</delete>
     </mapper>

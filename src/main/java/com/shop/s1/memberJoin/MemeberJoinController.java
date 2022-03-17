@@ -61,7 +61,7 @@ public class MemeberJoinController {
 		
 		if(remember!=null&&remember.equals("1")) {
 			
-			Cookie cookie = new Cookie("remember", memberJoinDTO.getId());
+			Cookie cookie = new Cookie("remember", memberJoinDTO.getM_id());
 			cookie.setMaxAge(-1);
 			
 			response.addCookie(cookie);
