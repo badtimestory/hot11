@@ -4,6 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
   <configuration>
   		<typeAliases>
+  			<typeAlias type="com.shop.s1.util.Pager" alias="Pager"/>
+  		
+  			<typeAlias type="com.shop.s1.shopQna.ShopQnaDTO" alias="ShopQnaDTO"/>
+  			
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDTO" alias="MemberJoinDTO"/>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDAO" alias="MemberJoinDAO"/>
   		</typeAliases>
