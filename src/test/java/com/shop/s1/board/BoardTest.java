@@ -23,14 +23,14 @@ public class BoardTest extends MyjunitTest{
 	}
 	
 	// List Test
-	@Test
+	// @Test
 	public void ListTest() throws Exception {
 		List<BoardDTO> ar = boardDAO.list();
 		assertNotEquals(0, ar.size());
 	}
 	
 	// insert Test
-	@Test
+	// @Test
 	public void addTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
 		for (int i = 1; i <= 10; i++) {
@@ -44,7 +44,7 @@ public class BoardTest extends MyjunitTest{
 	}
 	
 	// detail Test
-	@Test
+	// @Test
 	public void detailTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
 		boardDTO.setB_num(1L);
@@ -53,7 +53,7 @@ public class BoardTest extends MyjunitTest{
 	}
 	
 	// delete Test
-	@Test
+	// @Test
 	public void deleteTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
 		boardDTO.setB_num(10L);
