@@ -6,5 +6,7 @@
   		<typeAliases>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDTO" alias="MemberJoinDTO"/>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDAO" alias="MemberJoinDAO"/>
+  			<typeAlias type="com.shop.s1.cart.CartDTO" alias="CartDTO"/>
+  			<typeAlias type="com.shop.s1.cart.CartDAO" alias="CartDAO"/>
   		</typeAliases>
   </configuration>

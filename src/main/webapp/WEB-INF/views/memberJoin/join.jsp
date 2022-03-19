@@ -53,7 +53,7 @@
 
         <fieldset>
             <legend>Birth</legend>
-            <input type="text" name="m_birth" id="birth">
+            <input type="date" name="m_birth" id="birth">
         </fieldset>
 
         <fieldset>

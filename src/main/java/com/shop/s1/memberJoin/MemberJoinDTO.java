@@ -1,6 +1,7 @@
 package com.shop.s1.memberJoin;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class MemberJoinDTO {
 	
@@ -11,6 +12,7 @@ public class MemberJoinDTO {
 	private String m_email;
 	private String m_address;
 	private String m_birth;
+	
 	
 	public String getM_id() {
 		return m_id;
