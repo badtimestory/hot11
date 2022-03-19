@@ -5,8 +5,14 @@
     
     <mapper namespace="com.shop.s1.cart.CartDAO">
     
-    	<!-- 카트확인 -->
-    	<select id="cartList" parameterType="CartDTO" resultType="CartDTO">
+    	<!-- m_id 가져오는 부분 수정 필요 -->
+    	<insert id="add" parameterType="CartDTO">
+    		INSERT INTO CART
+			VALUES (cart_seq.nextval, (select m_id from memberjoin),product_seq.currval,category_seq.currval,#{c_amount})
+    	</insert>
+    
+    	<!-- 카트확인 detail -->
+    	<select id="detail" parameterType="CartDTO" resultType="CartDTO">
     		SELECT * FROM CART 
     		WHERE M_ID=#{m_id} 
     	</select>

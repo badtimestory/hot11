@@ -15,11 +15,11 @@ public class CartTest {
 	private CartDAO cartDAO;
 	
 	@Test
-	public void cartList() throws Exception{
+	public void detailTest() throws Exception{
 		CartDTO cartDTO = new CartDTO();
-		cartDTO.setM_id("id1");
-		List<CartDTO> ar = cartDAO.cartList(cartDTO);
-		assertEquals(0, ar.size());
+		cartDTO.setM_id("id");
+		cartDTO=cartDAO.detail(cartDTO);
+		assertNotNull(cartDTO);
 	}
 	
 }

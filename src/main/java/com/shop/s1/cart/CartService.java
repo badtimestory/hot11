@@ -11,11 +11,21 @@ public class CartService {
 	@Autowired
 	private CartDAO cartDAO;
 	
-	public CartDTO cartList(CartDTO cartDTO) throws Exception{
-		return cartDAO.cartList(cartDTO);
+	public int add(CartDTO cartDTO)throws Exception{
+		return cartDAO.add(cartDTO);
+	}
+	
+	public CartDTO detail(CartDTO cartDTO) throws Exception{
+		return cartDAO.detail(cartDTO);
 	}
 	
 	public int delete(CartDTO cartDTO) throws Exception{
 		return cartDAO.delete(cartDTO);
 	}
+	
+	public List<CartDTO> list(CartDTO cartDTO) throws Exception{
+		List<CartDTO> ar = cartDAO.list(cartDTO);
+		return ar;
+	}
 }
+
