@@ -18,4 +18,24 @@ public class ProductDAO {
 		return sqlSession.selectList(NAMESPACE+"list");
 	}
 	
+	// detail
+	public ProductDTO detail(ProductDTO productDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"detail", productDTO);
+	}
+	
+	// insert
+	public int add(ProductDTO productDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"add", productDTO);
+	}
+	
+	// update
+	public int update(ProductDTO productDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"update", productDTO);
+	}
+	
+	// delete
+	public int delete(ProductDTO productDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"delete", productDTO);
+	}
+	
 }

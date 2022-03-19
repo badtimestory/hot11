@@ -7,15 +7,29 @@
 
 	<!-- List Mapper -->
 	<select id="list" resultType="ProductDTO">
-		SELECT * FROM PRODUCT ORDER BY P_NUM ASC
+		SELECT * FROM PRODUCT ORDER BY P_NUM DESC
 	</select>
 	
 	<!-- Detail Mapper -->
+	<select id="detail" resultType="ProductDTO">
+		SELECT * FROM PRODUCT WHERE P_NUM = #{p_num} 
+	</select>
 	
 	<!-- Insert Mapper -->
+	<insert id="add" parameterType="ProductDTO">
+		INSERT INTO PRODUCT (P_NUM, P_NAME, P_PRICE, P_STOCK, P_DETAIL)
+		VALUES (PRODUCT_SEQ.NEXTVAL, #{p_name}, #{p_price}, #{p_stock}, #{p_detail})
+	</insert>
 	
 	<!-- Update Mapper -->
+	<update id="update" parameterType="ProductDTO">
+		UPDATE PRODUCT SET P_NAME = #{p_name}, P_PRICE = #{p_price}, P_STOCK = #{p_stock}, 
+		P_DETAIL = #{p_detail} WHERE P_NUM = #{p_num}
+	</update>
 	
 	<!-- Delete Mapper -->
+	<delete id="delete" parameterType="productDTO">
+		DELETE FROM PRODUCT WHERE P_NUM = #{p_num}
+	</delete>
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.shop.s1.product;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -24,18 +25,41 @@ public class ProductTest extends MyjunitTest{
 	
 	// List Test
 	@Test
-	public void ListTest() throws Exception {
+	public void listTest() throws Exception {
 		List<ProductDTO> ar = productDAO.list();
 		assertNotEquals(0, ar.size());
 	}
 	
 	// Insert Test
+	// @Test
+	public void addTest() throws Exception {
+		ProductDTO productDTO = new ProductDTO();
+		productDTO.setP_name("에어컨");
+		productDTO.setP_price(699800L);
+		productDTO.setP_stock(5L);
+		productDTO.setP_detail("여름 필수품입니다");
+		
+		int result = productDAO.add(productDTO);
+		assertEquals(1, result);
+	}
 	
 	// detail Test
-	
-	// Update Test
+	@Test
+	public void detailTest() throws Exception {
+		ProductDTO productDTO = new ProductDTO();
+		productDTO.setP_num(1L);
+		productDTO = productDAO.detail(productDTO);
+		assertNotNull(productDTO);	
+	}
 	
 	// delete Test
+	@Test
+	public void deleteTest() throws Exception {
+		ProductDTO productDTO = new ProductDTO();
+		productDTO.setP_num(5L);
+		int result = productDAO.delete(productDTO);
+		assertEquals(1, result);
+	}
 	
 	
 	

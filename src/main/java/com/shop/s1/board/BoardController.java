@@ -47,9 +47,11 @@ public class BoardController {
 	
 	// update
 	@RequestMapping(value = "update", method = RequestMethod.GET)
-	public void update(BoardDTO boardDTO, Model model) throws Exception {
+	public String update(BoardDTO boardDTO, Model model) throws Exception {
 		boardDTO = boardService.detail(boardDTO);
 		model.addAttribute("dto", boardDTO);
+		
+		return "board/update";
 	}
 	
 	// DB Update
