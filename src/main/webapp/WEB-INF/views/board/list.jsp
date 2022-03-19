@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>list page</h1>
+	<h1>Board list page</h1>
 		<table>
 			<tr>
 				<th>NO.</th>

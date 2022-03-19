@@ -8,7 +8,6 @@
 </head>
 <body>
 	<h1>Board Update Test</h1>
-	
 	<!-- 서버로 POST 요청 -->
  	<form action="./update" method="POST">
  		<input type="hidden" name="b_num" readonly="readonly" value="${dto.b_num}">
