@@ -1,0 +1,33 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.shop.s1.detailOrder.DetailOrderDAO">
+	
+	<!-- List Mapper -->
+	<select id="list" resultType="DetailOrderDTO">
+		SELECT * FROM DETAIL_ORDERS ORDER BY D_NUM ASC
+	</select>
+	
+	<!-- detail Mapper -->
+	<select id="detail" resultType="DetailOrderDTO">
+		SELECT * FROM DETAIL_ORDERS WHERE D_NUM = #{d_num}
+	</select>
+	
+	<!-- Insert Mapper -->
+	<insert id="add" parameterType="DetailOrderDTO">
+		INSERT INTO DETAIL_ORDERS (D_NUM, D_AMOUNT)
+		VALUES (DETAIL_ORDERS_SEQ.NEXTVAL, #{d_amount})
+	</insert>
+	
+	<!-- Update Mapper -->
+	<update id="update" parameterType="DetailOrderDTO">
+		UPDATE DETAIL_ORDERS SET D_AMOUNT = #{d_amount} WHERE D_NUM = #{d_num}
+	</update>
+	
+	<!-- Delete Mapper -->
+	<delete id="delete" parameterType="DetailOrderDTO">
+		DELETE FROM DETAIL_ORDERS WHERE D_NUM = #{d_num}
+	</delete>
+
+</mapper>

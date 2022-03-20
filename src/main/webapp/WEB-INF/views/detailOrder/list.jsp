@@ -10,21 +10,19 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	<h1>Board list page</h1>
+	<h1>DetailOrders List Page</h1>
 		<table>
 			<tr>
-				<th>NO.</th>
-				<th>SUBJECT</th>
-				<th>NAME</th>
+				<th>상세주문번호</th>
+				<th>주문수량</th>
 			</tr>
-				<c:forEach items="${list}" var="dto">
+			<c:forEach items="${list}" var="dto">
 			<tr>
-				<th>${dto.b_num}</th>
-				<th><a href="./detail?b_num=${dto.b_num}">${dto.b_title}</a></th>
-				<th>${dto.b_writer}</th>
+				<th>${dto.d_num}</th>
+				<th>${dto.d_amount}</th>
+				<th><a href="./update?d_num=${dto.d_num}">수정</a><th>
 			</tr>
-				</c:forEach>
+			</c:forEach>
 		</table>
-		<a href="./add">쓰기</a>
 </body>
 </html>

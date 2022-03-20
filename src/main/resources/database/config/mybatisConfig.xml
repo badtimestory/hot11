@@ -9,5 +9,8 @@
   			<typeAlias type="com.shop.s1.product.ProductDTO" alias="ProductDTO"/>
   			<typeAlias type="com.shop.s1.product.ProductDAO" alias="ProductDAO"/>
   			<typeAlias type="com.shop.s1.board.BoardDTO" alias="BoardDTO"/>
+  			<typeAlias type="com.shop.s1.board.BoardDAO" alias="BoardDAO"/>
+  			<typeAlias type="com.shop.s1.detailOrder.DetailOrderDTO" alias="DetailOrderDTO"/>
+  			<typeAlias type="com.shop.s1.detailOrder.DetailOrderDAO" alias="DetailOrderDAO"/>
   		</typeAliases>
   </configuration>
