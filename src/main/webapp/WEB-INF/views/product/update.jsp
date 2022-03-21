@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="../template/header_css.jsp"></c:import>
+<c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
-<c:import url="../template/header.jsp"></c:import>
+<c:import url="../template/shop_header.jsp"></c:import>
 	<h1>Product Update Page</h1>
 	<form action="./update" method="POST">
 		<input type = "hidden" name="p_num" readonly="readonly" value="${dto.p_num}">

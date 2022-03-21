@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="../template/header_css.jsp"></c:import>
+<c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
-<c:import url="../template/header.jsp"></c:import>
+<c:import url="../template/shop_header.jsp"></c:import>
 	<h1>DetailOrders List Page</h1>
 		<table>
 			<tr>

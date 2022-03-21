@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="../template/header_css.jsp"></c:import>
+<c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
-<c:import url="../template/header.jsp"></c:import>
+<c:import url="../template/shop_header.jsp"></c:import>
  	<h1>Board Add Page</h1>
  	<!-- 서버로 POST 요청 -->
  	<form action="./add" method="POST">

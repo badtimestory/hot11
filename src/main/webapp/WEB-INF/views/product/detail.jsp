@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="../template/header_css.jsp"></c:import>
+<c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
-<c:import url="../template/header.jsp"></c:import>
+<c:import url="../template/shop_header.jsp"></c:import>
 	<h1>Product Detail Page</h1>
 	<h3>상품번호 : ${dto.p_num}</h3>
 	<h3>상품명 : ${dto.p_name}</h3>
