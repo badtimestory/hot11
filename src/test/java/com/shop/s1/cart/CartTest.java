@@ -7,19 +7,20 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.shop.s1.MyjunitTest;
 import com.shop.s1.memberJoin.MemberJoinDTO;
 
-public class CartTest {
+public class CartTest extends MyjunitTest {
 
 	@Autowired
 	private CartDAO cartDAO;
 	
 	@Test
-	public void detailTest() throws Exception{
+	public void list() throws Exception{
 		CartDTO cartDTO = new CartDTO();
 		cartDTO.setM_id("id");
-		cartDTO=cartDAO.detail(cartDTO);
-		assertNotNull(cartDTO);
+//		List<CartDTO> ar=cartDAO.list(cartDTO);
+//		assertNotEquals(0,ar.size());
 	}
 	
 }

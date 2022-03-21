@@ -22,7 +22,8 @@
     	</delete>
     	<!-- 카트목록 -->
     	<select id="list" parameterType="CartDTO" resultType="CartDTO">
-    		SELECT C.C_NUM,C.M_ID,C.P_NUM,C.C_AMOUNT,P.P_NAME,P.P_PRICE FROM CART C LEFT OUTER JOIN PRODUCT P 
+			SELECT C.C_NUM,C.M_ID,C.P_NUM,C.C_AMOUNT,P.P_NAME,P.P_PRICE 
+			FROM CART C LEFT OUTER JOIN PRODUCT P 
 			ON (C.P_NUM=P.P_NUM) WHERE M_ID=#{m_id}
     	</select>
     </mapper>

@@ -19,6 +19,7 @@
 		<c:if test="${not empty member }">
 			<a href="./memberJoin/mypage">My Page</a>
 			<a href="./memberJoin/logout">Logout</a>
+			<a href="./cart/list?m_id=${member.m_id}">장바구니</a>
 		</c:if>
 	</div>
 </body>
