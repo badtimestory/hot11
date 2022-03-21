@@ -19,8 +19,8 @@ public class CartTest extends MyjunitTest {
 	public void list() throws Exception{
 		CartDTO cartDTO = new CartDTO();
 		cartDTO.setM_id("id");
-//		List<CartDTO> ar=cartDAO.list(cartDTO);
-//		assertNotEquals(0,ar.size());
+		List<CartDTO> ar=cartDAO.list(cartDTO);
+		assertNotEquals(0,ar.size());
 	}
 	
 }
