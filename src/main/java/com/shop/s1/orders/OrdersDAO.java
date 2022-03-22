@@ -30,7 +30,7 @@ public class OrdersDAO {
 		return sqlSession.selectOne(NAMESPACE+"detail",ordersDTO);
 	}
 	
-	//관리자 용도
+
 	public List<OrdersDTO> list() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"list");
 	}

@@ -70,7 +70,7 @@ public class OrdersController {
 		List<OrdersDTO> ar = ordersService.list();
 		mv.addObject("list",ar);
 		mv.setViewName("orders/list");
-
+	
 		return mv;
 	}
 

@@ -10,6 +10,7 @@
 	<h1>주문 완료</h1>
 	<form action="./detail" method="get">
 		<!-- o_num, m_id, p_num, t_num, o_name, o_date, o_phone, o_address, o_amount, o_price, o_pay-->
+		<hr>
 		<h5>주문내역</h5>
 		
 		<h5>주문정보</h5>
