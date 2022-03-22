@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -42,14 +43,17 @@ public class OrdersController {
 		System.out.println("주문!!!!!!");
 		int result=ordersService.add(ordersDTO);
 		System.out.println("주문완료");
-		return "redirect:./detail";
+		return "redirect:./list";
 	}
 	
 	@GetMapping(value="add")
 	public void add(OrdersDTO ordersDTO, Model model) throws Exception{
+		if(!ordersDTO.getM_id().equals('1')) {
+			return;
+		}
 		ordersDTO=ordersService.detail(ordersDTO);
 		System.out.println("주문??");
-		model.addAttribute("dto",ordersDTO);
+		model.addAttribute("order",ordersDTO);
 		System.out.println("주문!!");
 		
 	}
@@ -61,6 +65,7 @@ public class OrdersController {
 	}
 
 	//관리자 용도
+	@RequestMapping(value="list",method=RequestMethod.GET)
 	public ModelAndView list(ModelAndView mv) throws Exception{
 		List<OrdersDTO> ar = ordersService.list();
 		mv.addObject("list",ar);

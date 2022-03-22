@@ -13,8 +13,8 @@
 		<!-- 같이 넘어가야할 것  -->
 		
 		<input type="hidden" name="m_id" value="${member.m_id}" >
-		<input type="text" name="p_num" value="${dto.p_num}">
-		<input type="text" name="t_num" value="${dto.t_num}" >
+		<input type="text" name="p_num" value="${order.p_num}">
+		<input type="text" name="t_num" value="${order.t_num}" >
 		
 		<h5>주문내역</h5>
 		<hr>
@@ -29,14 +29,14 @@
 		
 		<div>
 		<h5>결제수단</h5>		
-		무통장입금<input type="radio" name="o_pay" value="1">
-		카드<input type="radio" name="o_pay" value="0">
+		무통장입금<input type="radio" name="o_pay" value="무통장입금">
+		카드<input type="radio" name="o_pay" value="카드">
 		 
 		</div>
 		
 		<h5>최종결제 금액</h5>
-		주문 수량 <input type="text" name="o_amount" value="${dto.o_amount }">
-		결제 금액 <input type="text" name="o_price" value="${dto.o_price }">
+		주문 수량 <input type="text" name="o_amount" value="${order.o_amount }">
+		결제 금액 <input type="text" name="o_price" value="${order.o_price }">
 		<input type="submit" value="add">결제하기
 		
 	</form>

@@ -18,7 +18,7 @@ public class OrdersTest extends MyjunitTest {
 	@Test
 	public void delete() throws Exception {
 		OrdersDTO ordersDTO= new OrdersDTO();
-		ordersDTO.setO_num(4L);
+		ordersDTO.setO_num(10L);
 		int result = ordersDAO.delete(ordersDTO);
 		assertEquals(1, result);
 	}
