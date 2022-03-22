@@ -20,6 +20,7 @@
 			<a href="./memberJoin/mypage">My Page</a>
 			<a href="./memberJoin/logout">Logout</a>
 			<a href="./cart/list?m_id=${member.m_id}">장바구니</a>
+			<a href="./orders/add?m_id=${member.m_id}">주문하기</a>
 		</c:if>
 	</div>
 </body>

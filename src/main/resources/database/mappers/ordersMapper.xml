@@ -4,7 +4,27 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.shop.s1.orders.OrdersDAO">
+
+	<update id="update" parameterType="OrdersDTO">
+		UPDATE ORDERS SET O_ADDRESS=#{o_address}
+		WHERE O_NUM=#{o_num} AND M_ID=#{m_id}
+	</update>
+
+	<insert id="add" parameterType="OrdersDTO">
+		INSERT INTO ORDERS
+		VALUES (ORDERS_SEQ.NEXTVAL,#{m_id},#{p_num},#{t_num},#{o_name},sysdate,
+		#{o_phone},#{o_address},#{o_amount},#{o_price},#{o_message},#{o_pay})
+	</insert>
+	
 	<select id="detail" parameterType="OrdersDTO" resultType="OrdersDTO">
 		SELECT * FROM ORDERS WHERE M_ID=#{m_id}
+	</select>
+	
+	<delete id="delete" parameterType="OrdersDTO">
+		DELETE ORDERS WHERE O_NUM=#{o_num}
+	</delete>
+	
+	<select id="list" resultType="OrdersDTO">
+		SELECT * FROM ORDERS
 	</select>
 </mapper>

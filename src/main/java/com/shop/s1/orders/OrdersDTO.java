@@ -14,7 +14,9 @@ public class OrdersDTO {
 	private String o_address;
 	private Long o_amount;
 	private Long o_price;
+	private String o_message;
 	private String o_pay;
+	
 	
 	public Long getO_num() {
 		return o_num;
@@ -76,12 +78,21 @@ public class OrdersDTO {
 	public void setO_price(Long o_price) {
 		this.o_price = o_price;
 	}
+	public String getO_message() {
+		return o_message;
+	}
+	public void setO_message(String o_message) {
+		this.o_message = o_message;
+	}
 	public String getO_pay() {
 		return o_pay;
 	}
 	public void setO_pay(String o_pay) {
 		this.o_pay = o_pay;
 	}
+
+	
+	
 	
 	
 	
