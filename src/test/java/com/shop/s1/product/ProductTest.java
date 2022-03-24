@@ -60,8 +60,4 @@ public class ProductTest extends MyjunitTest{
 		int result = productDAO.delete(productDTO);
 		assertEquals(1, result);
 	}
-	
-	
-	
-
 }

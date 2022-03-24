@@ -17,7 +17,7 @@
         <ul>
           <li><a href="/s1/board/list">NOTICE</a></li>
           <li><a href="#">Q&A</a></li>
-          <li><a href="#">REVIEW</a></li>
+          <li><a href="/s1/review/list">REVIEW</a></li>
           <li><a href="#">MODEL</a></li>
         </ul>
       </div>  

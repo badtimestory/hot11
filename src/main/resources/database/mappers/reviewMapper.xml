@@ -1,0 +1,47 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.shop.s1.review.ReviewDAO">
+
+	<select id="list" resultType="ReviewDTO">
+		SELECT * FROM REVIEW ORDER BY REF DESC, STEP ASC
+	</select>
+	
+	<select id="detail" resultType="ReviewDTO">
+		SELECT * FROM REVIEW WHERE NUM = #{num}
+	</select>
+
+	<insert id="add" parameterType="ReviewDTO">
+		<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+			SELECT REVIEW_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO REVIEW (NUM, P_NUM, O_NUM, M_ID, T_NUM, TITLE, CONTENTS,
+		 WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+		VALUES (REVIEW_SEQ.NEXTVAL, 0, 0, '탑텐', 0, #{title}, #{contents}, #{writer}, 
+		SYSDATE, 0, REVIEW_SEQ.CURRVAL, 0, 0)
+	</insert>
+	
+	<insert id="reply" parameterType="ReviewDTO">
+		INSERT INTO REVIEW (NUM, P_NUM, O_NUM, M_ID, T_NUM, TITLE, CONTENTS,
+		 WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+		 VALUES (REVIEW_SEQ.NEXTVAL, 0, 0, '탑텐', 0, #{title}, #{contents}, #{writer},
+		 SYSDATE, 0, #{ref}, #{step}, #{depth})
+	</insert>
+	
+	<update id="update" parameterType="ReviewDTO">
+		UPDATE REVIEW SET TITLE = #{title}, CONTENTS = #{contents}, 
+		WRITER = #{writer} WHERE NUM = #{num}
+	</update>
+	
+	<update id="stepUpdate" parameterType="ReviewDTO">
+		UPDATE REVIEW SET STEP = STEP + 1
+		WHERE REF = #{ref} and STEP > #{step}
+	</update>
+	
+	<delete id="delete" parameterType="ReviewDTO">
+		DELETE FROM REVIEW WHERE NUM = #{num}
+	</delete>
+	
+	
+</mapper>
