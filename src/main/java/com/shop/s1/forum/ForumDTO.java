@@ -10,6 +10,10 @@ public class ForumDTO {
 	private String writer;			// 작성자
 	private Date regDate;			// 날짜
 	private Long Hit;				// 추천수
+	
+	private Long ref;
+	private Long step;
+	private Long depth;
 
 	public Long getNum() {
 		return num;
@@ -47,4 +51,25 @@ public class ForumDTO {
 	public void setHit(Long hit) {
 		Hit = hit;
 	}
+	
+	public Long getRef() {
+		return ref;
+	}
+	public void setRef(Long ref) {
+		this.ref = ref;
+	}
+	public Long getStep() {
+		return step;
+	}
+	public void setStep(Long step) {
+		this.step = step;
+	}
+	public Long getDepth() {
+		return depth;
+	}
+	public void setDepth(Long depth) {
+		this.depth = depth;
+	}
+	
+	
 }

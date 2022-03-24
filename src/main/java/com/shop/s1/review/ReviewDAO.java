@@ -40,13 +40,14 @@ public class ReviewDAO implements ForumDAO {
 		return sqlSession.delete(NAMESPACE+"delete", forumDTO);
 	}
 	
+	@Override
 	public int reply(ForumDTO forumDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"reply", forumDTO);
 	}
 	
-	public int stepUpdate(ReviewDTO reviewDTO) throws Exception {
-		return sqlSession.update(NAMESPACE+"stepUpdate", reviewDTO);
-	}
-	
+	@Override
+	public int stepUpdate(ForumDTO forumDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"stepUpdate", forumDTO);
+	}	
 	
 }

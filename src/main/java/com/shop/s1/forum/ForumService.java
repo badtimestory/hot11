@@ -19,4 +19,6 @@ public interface ForumService {
 	// Delete
 	public int delete(ForumDTO forumDTO) throws Exception;
 	
+	// reply
+	public int reply(ForumDTO forumDTO) throws Exception;
 }
