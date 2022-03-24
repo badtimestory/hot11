@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
+<c:import url="../template/shop_header.jsp"></c:import>
 	<h1>주문서 작성 페이지</h1>
 	<form action="./add" method="post">
 		<!-- o_num, m_id, p_num, t_num, o_name, o_date, o_phone, o_address, o_amount, o_price, o_pay-->

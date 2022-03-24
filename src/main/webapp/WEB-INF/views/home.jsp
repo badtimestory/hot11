@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="./template/shop_header_css.jsp"></c:import>
 </head>
 <body>
+<c:import url="./template/shop_header.jsp"></c:import>
 	<h1>Home Page</h1>
 	<h3>${sessionScope.member.m_name}님</h3>
 	<div>

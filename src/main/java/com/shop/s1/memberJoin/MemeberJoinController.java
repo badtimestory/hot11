@@ -108,5 +108,9 @@ public class MemeberJoinController {
 		session.invalidate();
 		return "redirect:../";
 	}
+	@RequestMapping(value="joinCheck",method=RequestMethod.GET)
+	public void joinCheck() throws Exception{
+		
+	}
 	
 }
