@@ -7,11 +7,17 @@ public class MemberJoinDTO {
 	
 	private String m_id;
 	private String m_pw;
+	private String m_confirmPW;
 	private String m_name;
 	private String m_phone;
 	private String m_email;
 	private String m_address;
 	private String m_birth;
+	
+	public boolean CheckM_confirmPW() {
+		return m_pw.equals(m_confirmPW);
+	}
+	
 	
 	
 	public String getM_id() {
@@ -25,6 +31,12 @@ public class MemberJoinDTO {
 	}
 	public void setM_pw(String m_pw) {
 		this.m_pw = m_pw;
+	}
+	public String getM_confirmPW() {
+		return m_confirmPW;
+	}
+	public void setM_confirmPW(String m_confirmPW) {
+		this.m_confirmPW = m_confirmPW;
 	}
 	public String getM_name() {
 		return m_name;
@@ -56,7 +68,9 @@ public class MemberJoinDTO {
 	public void setM_birth(String m_birth) {
 		this.m_birth = m_birth;
 	}
-
+	
+	
+	
 	
 	
 

@@ -4,10 +4,16 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,6 +24,23 @@ public class MemeberJoinController {
 
 	@Autowired
 	private MemberJoinService memberJoinService;
+	
+//	@PostMapping("join")
+//	public String handleStep(MemberJoinDTO memberJoinDTO, Errors errors) throws Exception{
+//		new RegValidator().validate(memberJoinDTO, errors);
+//		if(errors.hasErrors()) 
+//			return "../joinCheck";
+//		
+//			try {
+//				memberJoinService.join(memberJoinDTO);
+//				return "../";
+//			} catch (DuplicateMemberException ex) {
+//				errors.rejectValue("m_email", "duplicate");
+//				errors.reject("notMatchIdPw");
+//				return "../joinCheck";
+//				}
+//		
+//	}
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)
 	public String update(MemberJoinDTO memberJoinDTO,HttpSession session) throws Exception{
@@ -95,12 +118,22 @@ public class MemeberJoinController {
 	
 	@RequestMapping(value="join",method=RequestMethod.POST)
 	public String join(MemberJoinDTO memberJoinDTO) throws Exception{
+//		 System.out.println("---- MemberController::memberJoin() ----");
+//		 System.out.println(memberJoinDTO.toString());
+//		 System.out.println("오류가 있나요? : " +result.hasErrors());
+//		 
+//		 if(result.hasErrors()) {
+//			 return "join";
+//		 }
+		 
 		int result= memberJoinService.join(memberJoinDTO);
 		return "redirect:../";
 	}
 	@RequestMapping(value="join",method=RequestMethod.GET)
 	public void join() throws Exception{
-		
+//		model.addAttribute("memberJoinDTO",new MemberJoinDTO());
+//		return "join";
+		//안되면 join으로 바꿔보기
 	}
 	@RequestMapping(value="delete")
 	public String delete(HttpSession session,MemberJoinDTO memberJoinDTO) throws Exception{
