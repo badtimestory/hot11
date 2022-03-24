@@ -7,9 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-public class RegValidator implements Validator {
-
-	
+public class RegValidator implements Validator{
 	private static final String emailRegex=
 			 "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
 			 "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -50,5 +48,4 @@ public class RegValidator implements Validator {
 		
 		
 	}
-
 }

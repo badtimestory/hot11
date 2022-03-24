@@ -15,6 +15,18 @@ const birth=document.getElementById("birth");
 const frm=document.getElementById("frm");
 const btn=document.getElementById("btn");
 
+
+//이메일 검증할때 사용하는 객체
+// const email_rule= /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+// const email_id=document.getElementById("email_id") 
+// email_id=$("#email_id").val();
+// const email_domain=document.getElementById("email_domain") 
+// email_domain=$("#email_domain").val();
+// var mail="";
+
+//이메일 검증
+
+
 let pwCheck=true;
 
 //비밀번호 길이 검증
@@ -106,5 +118,5 @@ btn.addEventListener("click",function(){
     frm.submit();
     alert("회원가입 되었습니다.");
 
-})
+});
 

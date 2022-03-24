@@ -46,12 +46,21 @@
 
 		<fieldset>
 			<legend>Phone</legend>
-			<input type="text" name="m_phone" id="phone">
+			<input type="tel" name="m_phone" id="phone">
 		</fieldset>
 
 		<fieldset>
-			<legend>Email</legend>
-			<input type="text" name="m_email" id="email">
+			<legend>email *</legend>
+				<input type="text" id="email_id" class="form_w200" value="" title="email ID" placeholder="email" maxlength="18"/>@
+				<input type="text" id="email_domain" class="form_w200" value="" title="email domain" placeholder="email domain" maxlength="18"/>
+				<select class="select" title="이메일 도메인 주소 선택" onclick="setEmailDomain(this.value);return false;">
+					<option value="">-선택-</option>
+					<option value="naver.com">naver.com</option>
+					<option value="gmail.com">gmail.com</option>
+					<option value="hanmail.net">hanmail.net</option>
+					<option value="nate.com">nate.com</option>
+					<option value="hotmail.com">hotmail.com</option>
+				</select>
 		</fieldset>
 
 		<fieldset>
@@ -72,5 +81,34 @@
 		</form>
 
 		<script type="text/javascript" src="../resources/js/join.js"></script>
+        <script> 
+            var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+            var email_id =$("#email_id").val();
+            var email_domain =$("#email_domain").val();
+            var mail ="";
+           
+            if(!email_id){
+                alert("이메일을 입력해주세요");
+              $("#email_id").focus();
+              return false;
+            }
+            if(!email_domain){
+                alert("도메인을 입력해주세요");
+              $("#email_domain").focus();
+              return false;
+            }
+            mail = email_id+"@"+email_domain;
+            $("#mail").val(mail);  
+            
+            if(!email_rule.test(mail)){
+                alert("이메일을 형식에 맞게 입력해주세요.");
+              return false;
+            }
+            
+            function setEmailDomain(domain){
+                  $("#email_domain").val(domain);
+              }
+              
+          </script>
 </body>
 </html>

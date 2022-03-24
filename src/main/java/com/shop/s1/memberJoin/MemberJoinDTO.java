@@ -3,14 +3,24 @@ package com.shop.s1.memberJoin;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class MemberJoinDTO {
 	
 	private String m_id;
+	@Size(min=8)
 	private String m_pw;
+	@NotEmpty
 	private String m_confirmPW;
 	private String m_name;
 	private String m_phone;
+	@NotBlank
+	@Email
 	private String m_email;
+	
 	private String m_address;
 	private String m_birth;
 	
