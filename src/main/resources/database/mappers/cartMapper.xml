@@ -7,8 +7,8 @@
     
     	<!-- m_id 가져오는 부분 수정 필요 -->
     	<insert id="add" parameterType="CartDTO">
-    		INSERT INTO CART (C_NUM,P_NUM,T_NUM,C_AMOUNT)
-			VALUES (cart_seq.nextval,product_seq.currval,category_seq.currval,#{c_amount})
+    		INSERT INTO CART 
+			VALUES (cart_seq.nextval,(select m_id from memberjoin WHERE M_ID=#{m_id}),product_seq.currval,1,#{c_amount})
     	</insert>
     
     	<!-- 카트확인 detail -->
@@ -22,7 +22,7 @@
     	</delete>
     	<!-- 카트목록 -->
     	<select id="list" parameterType="CartDTO" resultType="CartDTO">
-			SELECT C.C_NUM,C.M_ID,C.P_NUM,C.C_AMOUNT,P.P_NAME,P.P_PRICE 
+			SELECT C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,P.P_NAME,P.P_PRICE,P_COUNT 
 			FROM CART C LEFT OUTER JOIN PRODUCT P 
 			ON (C.P_NUM=P.P_NUM) WHERE M_ID=#{m_id}
     	</select>

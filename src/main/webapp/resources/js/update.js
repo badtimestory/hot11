@@ -15,22 +15,6 @@ const birth=document.getElementById("birth");
 const frm=document.getElementById("frm");
 const btn=document.getElementById("btn");
 
-
-//이메일 검증할때 사용하는 아이디 선언
-const email_id=document.getElementById("email_id");
-const email_domain=document.getElementById("email_domain");
-
-let email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-// var email_id =$("#email_id").val();
-// var email_domain =$("#email_domain").val();
-let mail ="";
-// const setEmailDomain=document.getElementById("setEmailDomain");
-
-// onclick="setEmailDomain(this.value); false;"
-
-//이메일 검증
-
-
 let pwCheck=true;
 
 //비밀번호 길이 검증
@@ -115,25 +99,6 @@ btn.addEventListener("click",function(){
     }
    
 
-    // if(email_id.value==""){
-    //     alert("이메일을 입력해주세요");
-    //     email_id.focus();
-    //     return false;
-    // }
-    // if(email_domain.value==""){
-    //     alert("도메인을 입력해주세요");
-    //     email_domain.focus();
-    //     return false;
-    // }
-    // mail = email_id.value+"@"+email_domain.value;
-    // $("#mail").val(mail);
-    // mail.value(mail); ->is not a function at html btn element..
-    
-    // if(!email_rule.test(email_id.value+"@"+email_domain.value)){
-    //     alert("이메일을 형식에 맞게 입력해주세요.");
-    //   return false;
-    // }
- 
     if(address.value==""){
         alert("주소를 입력하세요.");
         address.focus();
@@ -141,10 +106,53 @@ btn.addEventListener("click",function(){
     }
     
     frm.submit();
-    alert("회원가입 되었습니다.");
+    alert("수정 되었습니다.");
 
 });
 
 function setEmailDomain(domain){
     $("#email_domain").val(domain);
 }
+
+btn.addEventListener("click",function(){
+    console.log("click btn");
+
+    if(id.value==''){
+        alert("아이디를 입력하세요.");
+        id.focus();
+        return;
+    }
+
+    if(pw.value==""||pw.value.length<8||pw.value.length>12){
+        alert("비밀번호를 바르게 입력하세요.");
+        pw.focus();
+        return;
+
+    }
+    if(pwCheck){
+        alert("비밀번호가 일치하지 않습니다.");
+        pw2.focus();
+        return;
+    }
+    if(name.value==""){
+        alert("이름을 입력하세요.");
+        name.focus();
+        return;
+    }
+    if(phone.value==""){
+        alert("핸드폰 번호를 입력하세요.");
+        phone.focus();
+        return;
+    }
+    if(email.value==""){
+        alert("이메일을 입력하세요.");
+        email.focus();
+        return;
+
+    }
+    if(address.value==""){
+        alert("주소를 입력하세요.");
+        address.focus();
+        return;
+    }
+})

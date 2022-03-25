@@ -6,7 +6,7 @@
     <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
     
     	<update id="update" parameterType="MemberJoinDTO">
-    		UPDATE MEMBERJOIN SET M_PW=#{m_pw},M_NAME=#{m_name},M_PHONE=#{m_phone},M_EMAIL=#{m_email},M_ADDRESS=#{m_address}
+    		UPDATE MEMBERJOIN SET M_PW=#{m_pw},M_NAME=#{m_name},M_PHONE=#{m_phone},M_EMAIL=#{m_email},M_ADDRESS=#{m_address},M_BIRTH=#{m_birth}
 			WHERE M_ID=#{m_id}
     	</update>
     	

@@ -30,9 +30,13 @@ public class CartController {
 		return mv;
 	}
 	@RequestMapping(value="delete")
-	public String delete(CartDTO cartDTO) throws Exception{
+	public String delete(CartDTO cartDTO,Model model) throws Exception{
 		int result = cartService.delete(cartDTO);
-		return "redirect:./list";
+		
+		List<CartDTO> ar = cartService.list(cartDTO);
+		model.addAttribute("list",ar);
+		
+		return "redirect:../";
 	}
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	public ModelAndView list(ModelAndView mv, CartDTO cartDTO) throws Exception{

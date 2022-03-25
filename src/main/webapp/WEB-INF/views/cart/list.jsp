@@ -10,8 +10,7 @@
 </head>
 <body>
 <c:import url="../template/shop_header.jsp"></c:import>
-	<h1>장바구니 목록</h1>
-
+	<h3>${sessionScope.member.m_name}님의 장바구니 목록</h3>
 	<table>
 		<thead>
 			<tr>
@@ -29,15 +28,15 @@
 				<tr>
 					<td>이미지</td>
 					<td><a href="./detail?p_num=${pageScope.cart.p_num}">${pageScope.cart.p_name}</a></td>
-					<td>${pageScope.cart.p_price}</td>
-					<td><input type="text" class="qunatity" value="1"> 
-						<span>
-							<button class="plus_btn">+</button>
-							<button class="minus_btn">-</button>
-						</span>
-					</td>
-					<td>${pageScope.cart.c_amount}</td>
-					<td>주문하기/<a href="./delete?c_num=${cart.c_num}">삭제</a></td>
+					<td id="price">${pageScope.cart.p_price}</td>
+					<td><input type="number" class="count" name="p_count" readonly="readonly" id="result" value="${pageScope.cart.p_count}"> 
+					
+							<input type="button" id="plus" value="+">
+							<input type="button" id="minus" value="-">
+				
+						</td>
+					<td id="amount">${pageScope.cart.c_amount}</td>
+					<td>주문하기/<a href="./delete?c_num=${pageScope.cart.c_num}&m_id=${member.m_id}">삭제</a></td>
 					
 			
 
@@ -45,6 +44,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
+	<script type="text/javascript" src="../resources/js/cart.js"></script>
 </body>
 </html>

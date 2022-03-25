@@ -3,32 +3,19 @@ package com.shop.s1.memberJoin;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+
 
 public class MemberJoinDTO {
 	
 	private String m_id;
-	@Size(min=8)
 	private String m_pw;
-	@NotEmpty
-	private String m_confirmPW;
 	private String m_name;
 	private String m_phone;
-	@NotBlank
-	@Email
 	private String m_email;
-	
 	private String m_address;
 	private String m_birth;
 	
-	public boolean CheckM_confirmPW() {
-		return m_pw.equals(m_confirmPW);
-	}
-	
-	
+
 	
 	public String getM_id() {
 		return m_id;
@@ -41,12 +28,6 @@ public class MemberJoinDTO {
 	}
 	public void setM_pw(String m_pw) {
 		this.m_pw = m_pw;
-	}
-	public String getM_confirmPW() {
-		return m_confirmPW;
-	}
-	public void setM_confirmPW(String m_confirmPW) {
-		this.m_confirmPW = m_confirmPW;
 	}
 	public String getM_name() {
 		return m_name;

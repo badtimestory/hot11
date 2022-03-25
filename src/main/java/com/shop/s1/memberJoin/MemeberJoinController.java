@@ -3,15 +3,13 @@ package com.shop.s1.memberJoin;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
+
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -118,25 +116,13 @@ public class MemeberJoinController {
 	}
 	
 	@RequestMapping(value="join",method=RequestMethod.POST)
-	public String join(@Valid MemberJoinDTO memberJoinDTO, Errors errors) throws Exception{
+	public String join(MemberJoinDTO memberJoinDTO, Errors errors) throws Exception{
 //		 System.out.println("---- MemberController::memberJoin() ----");
-//		 System.out.println(memberJoinDTO.toString());
 //		 System.out.println("오류가 있나요? : " +result.hasErrors());
 //		 
-		new RegValidator().validate(memberJoinDTO, errors);
 		
-		 if(errors.hasErrors()) 
-			 return "memberJoin/join";
-		 try{
-			int result=memberJoinService.join(memberJoinDTO);
-			return "redirect:../../";
-		 }catch (DuplicateMemberException ex) {
-			 errors.rejectValue("m_email", "duplicate");
-			 return "memberJoin/join";
-		 }
-		 
-//		int result= memberJoinService.join(memberJoinDTO);
-//		return "redirect:../";
+		int result= memberJoinService.join(memberJoinDTO);
+		return "redirect:../";
 	}
 	@RequestMapping(value="join",method=RequestMethod.GET)
 	public void join() throws Exception{

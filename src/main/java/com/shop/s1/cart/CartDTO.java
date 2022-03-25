@@ -11,6 +11,9 @@ public class CartDTO {
 	//product
 	private String p_name;
 	private Long p_price;
+	private Long p_count;
+	//판매가 * 수량 = 합계 
+	
 	
 	public Long getC_num() {
 		return c_num;
@@ -55,6 +58,12 @@ public class CartDTO {
 	}
 	public void setP_price(Long p_price) {
 		this.p_price = p_price;
+	}
+	public Long getP_count() {
+		return p_count;
+	}
+	public void setP_count(Long p_count) {
+		this.p_count = p_count;
 	}
 	
 

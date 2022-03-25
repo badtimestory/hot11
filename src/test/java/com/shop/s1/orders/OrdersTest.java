@@ -41,7 +41,7 @@ public class OrdersTest extends MyjunitTest {
 		OrdersDTO ordersDTO=new OrdersDTO();
 		ordersDTO.setM_id("jae");
 		ordersDTO.setP_num(1L);
-		ordersDTO.setT_num(1L);
+		ordersDTO.setC_num(1L);
 		ordersDTO.setO_name("hu");
 		ordersDTO.setO_phone("010");
 		ordersDTO.setO_address("경기도");

@@ -7,7 +7,7 @@ public class OrdersDTO {
 	private Long o_num;
 	private String m_id;
 	private Long p_num;
-	private Long t_num;
+	private Long c_num;
 	private String o_name;
 	private Date o_date;
 	private String o_phone;
@@ -36,11 +36,11 @@ public class OrdersDTO {
 	public void setP_num(Long p_num) {
 		this.p_num = p_num;
 	}
-	public Long getT_num() {
-		return t_num;
+	public Long getC_num() {
+		return c_num;
 	}
-	public void setT_num(Long t_num) {
-		this.t_num = t_num;
+	public void setC_num(Long c_num) {
+		this.c_num = c_num;
 	}
 	public String getO_name() {
 		return o_name;
@@ -90,8 +90,9 @@ public class OrdersDTO {
 	public void setO_pay(String o_pay) {
 		this.o_pay = o_pay;
 	}
-
 	
+	
+
 	
 	
 	
