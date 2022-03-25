@@ -3,12 +3,24 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.shop.s1.shopQna.ShopQnaDAO">
+<mapper namespace="com.shop.s1.forum.shopQna.ShopQnaDAO">
 		
 		<select id="list" parameterType="Pager" resultType="ShopQnaDTO">
 			SELECT*FROM
 			(SELECT ROWNUM R,B.*FROM
-			(SELECT*FROM SHOPQNA WHERE NUM>0 ORDER BY NUM DESC)B)
+			(SELECT*FROM SHOPQNA WHERE NUM>0
+			AND
+		<choose>
+			<when test="kind=='col1'">
+				TITLE
+			</when>
+			<when test="kind=='col2'">
+				CONTENTS
+			</when>
+			<otherwise> WRITER
+			</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'  ORDER BY REF DESC, STEP ASC)B)
 			WHERE R BETWEEN #{startRow} AND #{lastRow}
 		</select>
 		
@@ -34,7 +46,7 @@
 		
 		<insert id="add" parameterType="ShopQnaDTO">
 			INSERT INTO SHOPQNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
-			VALUES (SHOPQNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, SHOPQNA_SEQ.CURRVAL, 0, 0)
+			VALUES (SHOPQNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, SHOPQNA_SEQ.NEXTVAL, 0, 0, 0)
 		</insert>
 		
 		<delete id="delete" parameterType="ShopQnaDTO">
@@ -42,7 +54,17 @@
 		</delete>
 
 		<update id="update" parameterType="ShopQnaDTO">
-			UPDATE SHOPQNA SET TITLE=#{title}, CONTENTS=#{contents}, WRITER=#{writer}
-			WHERE NUM=#{num}
+		UPDATE SHOPQNA SET TITLE = #{title}, CONTENTS = #{contents}
+		WHERE NUM = #{num}
 		</update>
+		
+		<insert id="reply" parameterType="ShopQnaDTO">
+		INSERT INTO SHOPQNA(NUM, TITLE,	WRITER, CONTENTS, REGDATE, HIT, REF, STEP,DEPTH)
+		VALUES (SHOPQNA_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, SYSDATE, 0, #{ref}, #{step}, #{depth})
+	</insert>
+	
+	<update id="stepUpdate" parameterType="ShopQnaDTO">
+		UPDATE SHOPQNA SET STEP=STEP+1
+		WHERE REF=#{ref} AND STEP>#{step}
+	</update>
 </mapper>

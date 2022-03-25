@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="table-container">
-		<h1 class="title">Shop Qna List Page</h1>
+		<h1 class="title">${forum} List Page</h1>
 
 		<div>
 			<form action="./list" method="get">
@@ -37,7 +37,13 @@
 			<c:forEach items="${list}" var="dto">
 				<tr>
 					<td>${dto.num}</td>
-					<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
+					<td><a href="./detail?num=${dto.num}">
+					<c:catch var="message">
+						<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
+					</c:catch>
+							${dto.title}
+							</a>
+					</td>
 					<td>${dto.writer}</td>
 					<td>${dto.regDate}</td>
 

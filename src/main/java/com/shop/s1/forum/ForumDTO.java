@@ -1,17 +1,16 @@
-package com.shop.s1.shopQna;
+package com.shop.s1.forum;
 
 import java.sql.Date;
 
-public class ShopQnaDTO {
+public class ForumDTO {
+	
 	private Long num;
 	private String title;
 	private String contents;
 	private String writer;
 	private Date regDate;
 	private Long hit;
-	private Long ref;
-	private Long step;
-	private Long depth;
+
 	
 	public Long getNum() {
 		return num;
@@ -49,25 +48,7 @@ public class ShopQnaDTO {
 	public void setHit(Long hit) {
 		this.hit = hit;
 	}
-	public Long getRef() {
-		return ref;
-	}
-	public void setRef(Long ref) {
-		this.ref = ref;
-	}
-	public Long getStep() {
-		return step;
-	}
-	public void setStep(Long step) {
-		this.step = step;
-	}
-	public Long getDepth() {
-		return depth;
-	}
-	public void setDepth(Long depth) {
-		this.depth = depth;
-	}
-	
+
 	
 	
 

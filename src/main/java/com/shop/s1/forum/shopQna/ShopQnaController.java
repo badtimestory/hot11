@@ -1,14 +1,16 @@
-package com.shop.s1.shopQna;
+package com.shop.s1.forum.shopQna;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shop.s1.forum.ForumDTO;
 import com.shop.s1.util.Pager;
 
 @Controller
@@ -17,25 +19,36 @@ public class ShopQnaController {
 	@Autowired
 	private ShopQnaService shopQnaService;
 	
+	@ModelAttribute("forum")
+	public String forum() {
+		return"shopQna";
+	}
+	
 	@RequestMapping(value="list", method = RequestMethod.GET)
 	public String list(Pager pager, Model model) throws Exception{
-		List<ShopQnaDTO> ar = shopQnaService.list(pager);
+		List<ForumDTO> ar = shopQnaService.list(pager);
 		model.addAttribute("list",ar);
 		
-		return "shopQna/list";
+		return "forum/list";
 	}
 	
 	@RequestMapping(value="detail", method = RequestMethod.GET)
-	public String detail(ShopQnaDTO shopQnaDTO, Model model) throws Exception{
-		shopQnaDTO = shopQnaService.detail(shopQnaDTO);
-		model.addAttribute("dto", shopQnaDTO);
+	public ModelAndView detail(ShopQnaDTO shopQnaDTO) throws Exception{
+		ModelAndView mv= new ModelAndView();
+		ForumDTO forumDTO = shopQnaService.detail(shopQnaDTO);
+		mv.addObject("dto",forumDTO);
+		mv.setViewName("forum/detail");
 		
-		return"shopQna/detail";
+		return mv;
 	}
 	
 	@RequestMapping(value="add", method = RequestMethod.GET)
-	public void add() throws Exception{
+	public ModelAndView add() throws Exception{
+		ModelAndView mv = new ModelAndView();
 		
+		mv.setViewName("forum/add");
+		return mv;
+	
 	}
 	//DB에 insert
 	@RequestMapping(value="add", method = RequestMethod.POST)
@@ -53,9 +66,10 @@ public class ShopQnaController {
 	}
 	
 	@RequestMapping(value="update", method = RequestMethod.GET)
-	public void update(ShopQnaDTO shopQnaDTO, Model model) throws Exception{
-		shopQnaDTO = shopQnaService.detail(shopQnaDTO);
+	public String update(ShopQnaDTO shopQnaDTO, Model model) throws Exception{
+		ForumDTO forumDTO= shopQnaService.detail(shopQnaDTO);
 		model.addAttribute("dto", shopQnaDTO);
+		return "forum/update";
 	}
 	
 	@RequestMapping(value="update", method = RequestMethod.POST)
@@ -67,7 +81,7 @@ public class ShopQnaController {
 	@RequestMapping(value="reply", method = RequestMethod.GET)
 	public ModelAndView reply(ShopQnaDTO shopQnaDTO, ModelAndView mv) throws Exception{
 		mv.addObject("dto",shopQnaDTO);
-		mv.setViewName("shopQna/reply");
+		mv.setViewName("forum/reply");
 		return mv;
 	}
 	

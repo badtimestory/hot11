@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.shop.s1.wishlist.WishlistDAO">
+
+	<select id="list" resultType="WishlistDTO" parameterType="Pager">
+		SELECT*FROM
+		(SELECT ROWNUM R,B.*FROM
+		(SELECT*FROM WISHLIST WHERE W_NUM>0
+		AND
+		<choose>
+			<when test="kind=='col1'">
+				M_ID
+			</when>
+			<when test="kind=='col2'">
+				P_NUM
+			</when>
+			<otherwise> T_NUM
+			</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%' ORDER BY W_NUM DESC) B)
+		WHERE R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="total" resultType="Long" parameterType="Pager">
+		SELECT COUNT (W_NUM) FROM WISHLIST
+		WHERE W_NUM>0 AND
+		<choose>
+			<when test="kind=='col1'">
+				M_ID
+			</when>
+			<when test="kind=='col2'">P_NUM</when>
+			<otherwise> 
+			T_NUM
+			</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+	</select>
+	
+	<select id="detail" parameterType="WishlistDTO" resultType="WishlistDTO">
+		SELECT*FROM WISHLIST WHERE W_NUM=#{w_num}
+	</select>
+	
+	<insert id="add" parameterType="WishlistDTO">
+		INSERT INTO WISHLISTDTO(W_NUM, M_ID, P_NUM, T_NUM)
+		VALUES (WISHLIST_SEQ.NEXTVAL,#{m_id}, #{p_num}, #{t_num})
+	</insert>
+	
+	<delete id="delete" parameterType="WishlistDTO">
+		DELETE WISHLIST WHERE W_NUM=#{w_num}
+	</delete>
+	
+	
+
+</mapper>
