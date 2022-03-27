@@ -1,6 +1,9 @@
 package com.shop.s1.orders;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.shop.s1.cart.CartDTO;
 
 public class OrdersDTO {
 	
@@ -16,6 +19,42 @@ public class OrdersDTO {
 	private Long o_price;
 	private String o_message;
 	private String o_pay;
+	
+	private List<CartDTO> cartDTOs;
+	
+	//product
+	private String p_name;
+	private Long p_price;
+	private Long p_count;
+	
+	
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public Long getP_price() {
+		return p_price;
+	}
+	public void setP_price(Long p_price) {
+		this.p_price = p_price;
+	}
+	public Long getP_count() {
+		return p_count;
+	}
+	public void setP_count(Long p_count) {
+		this.p_count = p_count;
+	}
+	
+	
+	public List<CartDTO> getCartDTOs() {
+		return cartDTOs;
+	}
+	public void setCartDTOs(List<CartDTO> cartDTOs) {
+		this.cartDTOs = cartDTOs;
+	}
+	
 	
 	
 	public Long getO_num() {

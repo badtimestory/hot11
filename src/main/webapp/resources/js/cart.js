@@ -1,7 +1,9 @@
 console.log("cart list");
-const result=document.getElementById("result");
+const p_count=document.getElementById("p_count");
 const plus=document.getElementById("plus");
 const minus=document.getElementById("minus");
+const p_price =document.getElementById("p_price");
+const c_amount=document.getElementById("c_amount");
 
 const id=document.getElementById("id");
 const amount=document.getElementById("amount");
@@ -12,30 +14,48 @@ const amount=document.getElementById("amount");
 
 plus.addEventListener("click",function(){
     
-    let number=result.value;
-    number=parseInt(number)+1; 
-    result.value=number; 
+    let count=p_count.value;
+    count=parseInt(count)+1;
+    p_count.value=count; 
+   
+    let price=p_price.value;
+    price=parseInt(price)*1;
+    p_price.value=price;
+
+    let amount=c_amount.value;
+    amount=parseInt(amount)*1;
+    c_amount.value=amount;
+
+    c_amount.value=(p_count.value)*(p_price.value);
+    
   
-    
-    // let pprice=parseInt(price.innerText);
-    // let pamount=parseInt(amount.innerHTML);
-    // pamount=pprice*(result.value);
-    // console.log(pamount);
-    
-    if(result.value>50){
+    if(p_count.value>10){
         alert("재고가 없습니다.")
-        result.value=50;
+        p_count.value=10;
+        c_amount.value=10*(p_price.value);
     } 
 });
 
 minus.addEventListener("click",function(){
-    let number=result.value;
-    number=parseInt(number)-1;
-    result.value=number;
+    let count=p_count.value;
+    count=parseInt(count)-1;
+    p_count.value=count;
+
     
-    if(result.value<0){
+    let price=p_price.value;
+    price=parseInt(price)*1;
+    p_price.value=price;
+
+    let amount=c_amount.value;
+    amount=parseInt(amount)*1;
+    c_amount.value=amount;
+
+    c_amount.value=(p_count.value)*(p_price.value);
+    
+    if(p_count.value<1){
         alert("1개 이상 구매가 가능합니다.");
-        result.value=1;
+        p_count.value=1;
+        c_amount.value=1*(p_price.value);
 }   
 });
 

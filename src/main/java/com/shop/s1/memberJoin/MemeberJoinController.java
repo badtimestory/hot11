@@ -24,22 +24,6 @@ public class MemeberJoinController {
 	@Autowired
 	private MemberJoinService memberJoinService;
 	
-//	@PostMapping("join")
-//	public String handleStep(MemberJoinDTO memberJoinDTO, Errors errors) throws Exception{
-//		new RegValidator().validate(memberJoinDTO, errors);
-//		if(errors.hasErrors()) 
-//			return "../joinCheck";
-//		
-//			try {
-//				memberJoinService.join(memberJoinDTO);
-//				return "../";
-//			} catch (DuplicateMemberException ex) {
-//				errors.rejectValue("m_email", "duplicate");
-//				errors.reject("notMatchIdPw");
-//				return "../joinCheck";
-//				}
-//		
-//	}
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)
 	public String update(MemberJoinDTO memberJoinDTO,HttpSession session) throws Exception{
@@ -117,9 +101,6 @@ public class MemeberJoinController {
 	
 	@RequestMapping(value="join",method=RequestMethod.POST)
 	public String join(MemberJoinDTO memberJoinDTO, Errors errors) throws Exception{
-//		 System.out.println("---- MemberController::memberJoin() ----");
-//		 System.out.println("오류가 있나요? : " +result.hasErrors());
-//		 
 		
 		int result= memberJoinService.join(memberJoinDTO);
 		return "redirect:../";

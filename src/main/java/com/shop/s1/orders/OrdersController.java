@@ -2,6 +2,8 @@ package com.shop.s1.orders;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.shop.s1.memberJoin.MemberJoinDTO;
 
 @Controller
 @RequestMapping("/orders/*")
@@ -47,13 +51,13 @@ public class OrdersController {
 	}
 	
 	@GetMapping(value="add")
-	public void add(OrdersDTO ordersDTO, Model model) throws Exception{
-		if(!ordersDTO.getM_id().equals('1')) {
-			return;
-		}
+	public void add(OrdersDTO ordersDTO, Model model,MemberJoinDTO memberJoinDTO,HttpSession session) throws Exception{
+		memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		ordersDTO.setM_id(memberJoinDTO.getM_id());
+		
 		ordersDTO=ordersService.detail(ordersDTO);
 		System.out.println("주문??");
-		model.addAttribute("order",ordersDTO);
+		model.addAttribute("dto",ordersDTO);
 		System.out.println("주문!!");
 		
 	}

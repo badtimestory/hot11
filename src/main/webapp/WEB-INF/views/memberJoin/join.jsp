@@ -11,64 +11,69 @@
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
 crossorigin="anonymous"></script>
 <c:import url="../template/shop_header_css.jsp"></c:import>
+<link rel="stylesheet" href="../resources/css/join.css">
 </head>
 <body>
 	<c:import url="../template/shop_header.jsp"></c:import>
-	<h1>Join Page</h1>
+	
+	<h3 class="basic-title"> 기본정보</h3>
+	<h3 class="etc"><img src="../resources/image/ico_required.png" alt="필수"> 필수입력사항</h3>
 
 	<form action="./join" method="post" id="frm">
 	
-
-		<fieldset>
-			<legend>ID *</legend>
-			<input type="text" name="m_id" id="id">
-			<div id="idResult"></div>
-		</fieldset>
-
-
-		<fieldset>
-			<legend>Password *</legend>
-			<input type="password" name="m_pw" id="pw"
-				placeholder="8글자이상 12글자 이하로 작성하세요.">
-			<!-- input 안에 placeholder="8글자이상 12글자 이하로 작성하세요." -->
-			<div id="pwResult"></div>
-		</fieldset>
+		<table>
+			<tbody>
+				<tr>
+					<th scope="row">ID <img src="../resources/image/ico_required.png" alt="필수"></th>
+					<td colspan="2"><input type="text" name="m_id" id="id"></td>
+					<td id="idResult"></td>
+				</tr>
 
 
-		<fieldset>
-			<legend>Password 확인 *</legend>
-			<input type="password" name="m_pw2" id="pw2">
-			<div id="pwResult2"></div>
-		</fieldset>
+			<tr>
+				<th scope="row">Password <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<td colspan="2"><input type="password" name="m_pw" id="pw"
+					placeholder="8글자이상 12글자 이하로 작성하세요."></td>
+				<td id="pwResult"></td>
+			</tr>
 
-		<fieldset>
-			<legend>Name *</legend>
-			<input type="text" name="m_name" id="name">
-		</fieldset>
 
-		<fieldset>
-			<legend>Phone *</legend>
-			<input type="tel" placeholder="숫자만 입력해주세요." name="m_phone" id="phone">
-		</fieldset>
+			<tr>
+				<th scope="row">Password 확인 <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<td colspan="2"><input type="password" name="m_pw2" id="pw2"></td>
+				<td id="pwResult2"></td>
+			</tr>
 
-		<fieldset>
-			<legend>Email</legend>
-            <input type="text" placeholder="ex)id@gmail.com" name="m_email" id="email"> 
-		</fieldset>
+			<tr>
+				<th scope="row">Name <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<td><input type="text" name="m_name" id="name"></td>
+			</tr>
 
-		<fieldset>
-			<legend>Address *</legend>
-			<input type="text" name="m_address" id="address">
-		</fieldset>
+			<tr>
+				<th>Phone <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<td><input type="tel" placeholder="숫자만 입력해주세요." name="m_phone" id="phone"></td>
+			</tr>
 
-		<fieldset>
-			<legend>Birth</legend>
-			<input type="date" name="m_birth" id="birth">
-		</fieldset>
+			<tr>
+				<th>Email <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<td><input type="text" placeholder="ex)id@gmail.com" name="m_email" id="email"></td> 
+			</tr>
 
-		<fieldset>
-			<button type="button" id="btn">JOIN</button>
-		</fieldset>
+			<tr>
+				<th>Address <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<td><input type="text" name="m_address" id="address"></td>
+			</tr>
+
+			<tr>
+				<th>Birth</th>
+				<td><input type="date" name="m_birth" id="birth"></td>
+			</tr>
+			
+			<div>
+				<button type="button" id="btn">JOIN</button>
+			</div>
+			</tbody>
+		</table>	
 
 
 		</form>

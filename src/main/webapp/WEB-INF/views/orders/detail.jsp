@@ -10,27 +10,40 @@
 </head>
 <body>
 <c:import url="../template/shop_header.jsp"></c:import>
-	<h1>주문 완료</h1>
 	<form action="./detail" method="get">
 		<!-- o_num, m_id, p_num, t_num, o_name, o_date, o_phone, o_address, o_amount, o_price, o_pay-->
-		<hr>
 		<h5>주문내역</h5>
-		
-		<h5>주문정보</h5>
-		주문하시는 분 
-		주소
-		핸드폰번호
-		<h5>배송정보</h5>
-		배송지 선택
-		받으시는 분
-		주소
-		핸드폰번호
-		<h5>결제수단</h5>		
-		무통장입금 카드결제 
-		
-		<h5>최종결제 금액</h5>
-		결제 금액
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>이미지</th>
+					<th>상품정보</th>
+					<th>판매가</th>
+					<th>수량</th>
+					<th>합계</th>
+					<th>선택</th>
+				</tr>
+			</thead>
 
+			<tbody>
+				<c:forEach items="${dto.cartDTOs}" var="c">
+					<tr>
+						<td><input type="hidden" name="c_num"
+							value="${c.c_num}"></td>
+						<td>이미지</td>
+						<td><a href="./detail?p_num=${c.p_num}">${c.p_name}</a></td>
+						<td><input type="number" readonly id="p_price" name="p_price"
+							value="${c.p_price}"></td>
+						<td><input type="number" class="count" name="p_count" readonly="readonly" id="p_count"
+							value="${c.p_count}"></td>
+						<td><input type="number" name="c_amount" id="c_amount"
+							value="${c.c_amount}" readonly></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</form>
 </body>
 </html>

@@ -11,14 +11,48 @@
 	</update>
 
 	<insert id="add" parameterType="OrdersDTO">
+		<selectKey keyProperty="c_num" order="BEFORE" resultType="Long">
+			SELECT C_NUM FROM CART WHERE M_ID=#{m_id}
+		</selectKey>
 		INSERT INTO ORDERS
-		VALUES (ORDERS_SEQ.NEXTVAL,#{m_id},#{p_num},#{t_num},#{o_name},sysdate,
+		VALUES (ORDERS_SEQ.NEXTVAL,#{m_id},#{p_num},#{c_num},#{o_name},sysdate,
 		#{o_phone},#{o_address},#{o_amount},#{o_price},#{o_message},#{o_pay})
+		
+		<!--  SELECT 
+		C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,
+		P.P_NAME,P.P_PRICE,P.P_COUNT 
+		FROM CART C LEFT OUTER JOIN PRODUCT P 
+		ON (C.P_NUM=P.P_NUM) 
+		WHERE M_ID=#{m_id}, C_NUM=#{c_num} -->
 	</insert>
 	
-	<select id="detail" parameterType="OrdersDTO" resultType="OrdersDTO">
-		SELECT * FROM ORDERS WHERE M_ID=#{m_id}
+	<select id="detail" parameterType="OrdersDTO" resultMap="detailResult">
+		SELECT 
+			C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,
+			P.P_NAME,P.P_PRICE,P.P_COUNT 
+		FROM CART C LEFT OUTER JOIN PRODUCT P 
+		ON (C.P_NUM=P.P_NUM) 
+		WHERE M_ID=#{m_id} and C_NUM=#{c_num}
+	
 	</select>
+	
+	<resultMap type="OrdersDTO" id="detailResult">
+		<id column="p_num" property="p_num"/>
+	
+	<collection property="cartDTOs" javaType="List" ofType="CartDTO">
+		<id column="c_num" property="c_num"/>
+		<result column="c_amount" property="c_amount"/>
+		<result column="m_id" property="m_id"/>
+		<result column="p_price" property="p_price"/>
+		<result column="p_count" property="p_count"/>
+		<result column="p_name" property="p_name"/>
+	</collection>
+		
+	</resultMap>
+	
+	<!--  <select id="detail" parameterType="OrdersDTO" resultType="OrdersDTO">
+		SELECT * FROM ORDERS WHERE M_ID=#{m_id}
+	</select>-->
 	
 	<delete id="delete" parameterType="OrdersDTO">
 		DELETE ORDERS WHERE O_NUM=#{o_num}
