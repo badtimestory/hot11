@@ -18,11 +18,5 @@ public interface ForumDAO {
 	
 	// Delete
 	public int delete(ForumDTO forumDTO) throws Exception;
-	
-	// Reply
-	public int reply(ForumDTO forumDTO) throws Exception;
-	
-	// StepUpdate
-	public int stepUpdate(ForumDTO forumDTO) throws Exception;
-	
+		
 }

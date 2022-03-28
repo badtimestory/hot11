@@ -40,40 +40,22 @@ public class ReviewService implements ForumService {
 		return reviewDAO.delete(forumDTO);
 	}
 	
-	@Override
-	public int reply(ForumDTO forumDTO) throws Exception {
-		ReviewDTO reviewDTO = (ReviewDTO) reviewDAO.detail(forumDTO);
-	
-		System.out.println(reviewDTO.getTitle());
-		System.out.println(reviewDTO.getRef());
-		System.out.println(reviewDTO.getStep());
-		System.out.println(reviewDTO.getDepth());
+	public int reply(ReviewDTO reviewDTO) throws Exception {
+
+		// 부모의 정보를 조회(Ref, Step, Depth)
+		ForumDTO forumDTO = reviewDAO.detail(reviewDTO);
+		ReviewDTO parent = (ReviewDTO)forumDTO;
 		
-		forumDTO.setRef(reviewDTO.getRef());
-		forumDTO.setStep(reviewDTO.getStep() + 1);
-		forumDTO.setDepth(reviewDTO.getDepth() + 1);
-		
-		System.out.println("getRef : " + forumDTO.getStep());
-		
-		
-		
-		int result = reviewDAO.stepUpdate(forumDTO);
-		result = reviewDAO.reply(forumDTO);
-		
-//		// 부모의 정보를 조회(Ref, Step, Depth)
-//		ForumDTO forumDTO = reviewDAO.detail(reviewDTO);
-//		ReviewDTO parent = (ReviewDTO)forumDTO;
-//		
-//		// 답글의 ref는 부모의 ref값
-//		reviewDTO.setRef(parent.getRef());
-//		// 답글의 step은 부모의 step + 1 
-//		reviewDTO.setStep(parent.getStep() + 1);
-//		// 답글의 depth는 부모의 depth + 1
-//		reviewDTO.setDepth(parent.getDepth() + 1);
-//		// step Update
-//		int result = reviewDAO.stepUpdate(parent);
-//		// 답글 Insert
-//		result = reviewDAO.reply(reviewDTO);
+		// 답글의 ref는 부모의 ref값
+		reviewDTO.setRef(parent.getRef());
+		// 답글의 step은 부모의 step + 1 
+		reviewDTO.setStep(parent.getStep() + 1);
+		// 답글의 depth는 부모의 depth + 1
+		reviewDTO.setDepth(parent.getDepth() + 1);
+		// step Update
+		int result = reviewDAO.stepUpdate(parent);
+		// 답글 Insert
+		result = reviewDAO.reply(reviewDTO);
 		
 		return result;
 	}

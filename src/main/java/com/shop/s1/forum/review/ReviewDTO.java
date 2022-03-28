@@ -10,6 +10,10 @@ public class ReviewDTO extends ForumDTO {
 	private Long o_num;
 	private String m_id;
 	
+	private Long ref;
+	private Long step;
+	private Long depth;
+	
 	public Long getP_num() {
 		return p_num;
 	}
@@ -27,5 +31,25 @@ public class ReviewDTO extends ForumDTO {
 	}
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
-	}	
+	}
+	public Long getRef() {
+		return ref;
+	}
+	public void setRef(Long ref) {
+		this.ref = ref;
+	}
+	public Long getStep() {
+		return step;
+	}
+	public void setStep(Long step) {
+		this.step = step;
+	}
+	public Long getDepth() {
+		return depth;
+	}
+	public void setDepth(Long depth) {
+		this.depth = depth;
+	}
+	
+	
 }
