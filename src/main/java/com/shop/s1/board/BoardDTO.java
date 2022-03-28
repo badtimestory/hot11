@@ -1,9 +1,13 @@
 package com.shop.s1.board;
 
 public class BoardDTO {
+	// 글 번호
 	private Long b_num;
+	// 제목
 	private String b_title;
+	// 내용
 	private String b_contents;
+	// 작성자
 	private String b_writer;
 	
 	public Long getB_num() {

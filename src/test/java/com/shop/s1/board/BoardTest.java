@@ -24,14 +24,21 @@ public class BoardTest extends MyjunitTest{
 	}
 	
 	// List Test
-	// @Test
-	public void ListTest(Pager pager) throws Exception {
+	@Test
+	public void ListTest() throws Exception {
+		Pager pager = new Pager();
+		// 시작번호와 끝번호 계산
+		pager.makeRow();
 		List<BoardDTO> ar = boardDAO.list(pager);
-		assertNotEquals(0, ar.size());
+		// 한 페이지에 10개의 글을 보여주기로 함
+		System.out.println("게시글 시작번호: " + ar.get(0).getB_num());
+		System.out.println("게시글 마지막번호: " + ar.get(9).getB_num());
+		System.out.println("가져온 글의 갯수: " + ar.size());
+		assertEquals(10, ar.size());
 	}
 	
 	// insert Test
-	@Test
+	// @Test
 	public void addTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
 		for (int i = 1; i <= 100; i++) {

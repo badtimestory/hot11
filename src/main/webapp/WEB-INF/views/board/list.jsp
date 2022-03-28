@@ -27,14 +27,17 @@
 		</table>
 		
 		<div>
+		  <!-- PREVIEW -->
 	      <c:if test="${pager.pre}">
 	        <a href="./list?page=${pager.startNum - 1}">PREVIEW</a>
 	      </c:if>
 	    
+	      <!-- 시작번호 ~ 끝번호 출력 -->
 	      <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 	        <a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 	      </c:forEach>
 	      
+	      <!-- NEXT -->
 	      <c:if test="${pager.next}">
 	        <a href="./list?page=${pager.lastNum + 1}">NEXT</a>
 	      </c:if>
