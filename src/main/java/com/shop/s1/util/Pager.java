@@ -47,10 +47,10 @@ public class Pager {
 		this.lastNum=curBlock*perBlock;
 	
 	
-	this.next=false;
+	this.pre=false;
 	if(curBlock>1) {
 		
-		this.next=true;
+		this.pre=true;
 	}
 		
 	this.next=false;
