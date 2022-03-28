@@ -2,6 +2,7 @@ package com.shop.s1.forum;
 
 import java.util.List;
 
+
 public interface ForumService {
 	
 	// List
@@ -21,4 +22,5 @@ public interface ForumService {
 	
 	// reply
 	public int reply(ForumDTO forumDTO) throws Exception;
+
 }

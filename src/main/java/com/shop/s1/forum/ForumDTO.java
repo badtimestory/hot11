@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class ForumDTO {
 	
+
 	private Long num;				// 글번호
 	private String title;			// 제목
 	private String contents;		// 내용
@@ -14,7 +15,6 @@ public class ForumDTO {
 	private Long ref;
 	private Long step;
 	private Long depth;
-
 	public Long getNum() {
 		return num;
 	}
@@ -51,7 +51,6 @@ public class ForumDTO {
 	public void setHit(Long hit) {
 		Hit = hit;
 	}
-	
 	public Long getRef() {
 		return ref;
 	}
@@ -70,6 +69,6 @@ public class ForumDTO {
 	public void setDepth(Long depth) {
 		this.depth = depth;
 	}
-	
-	
+
+
 }
