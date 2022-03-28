@@ -2,8 +2,6 @@ package com.shop.s1.util;
 
 public class Pager {
 	
-
-	
 	// 페이지당 보여줄 row의 갯수
 	private Long perPage;
 	// 페이지 번호
@@ -195,5 +193,4 @@ public class Pager {
 		this.kind = kind;
 	}
 	
-}
 }

@@ -11,6 +11,7 @@ import com.shop.s1.MyjunitTest;
 import com.shop.s1.forum.ForumDTO;
 import com.shop.s1.forum.review.ReviewDAO;
 import com.shop.s1.forum.review.ReviewDTO;
+import com.shop.s1.util.Pager;
 
 public class ReviewTest extends MyjunitTest {
 	@Autowired
@@ -25,7 +26,8 @@ public class ReviewTest extends MyjunitTest {
 	// List Test
 	@Test
 	public void listTest() throws Exception {
-		List<ForumDTO> ar = reviewDAO.list();
+		Pager pager = new Pager();
+		List<ForumDTO> ar = reviewDAO.list(pager);
 		assertNotEquals(0, ar.size());
 	}
 	

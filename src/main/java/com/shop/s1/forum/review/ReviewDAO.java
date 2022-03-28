@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.shop.s1.forum.ForumDAO;
 import com.shop.s1.forum.ForumDTO;
+import com.shop.s1.util.Pager;
 
 @Repository
 public class ReviewDAO implements ForumDAO {
@@ -16,10 +17,16 @@ public class ReviewDAO implements ForumDAO {
 	private final String NAMESPACE = "com.shop.s1.review.ReviewDAO.";
 	
 	@Override
-	public List<ForumDTO> list() throws Exception {
-		return sqlSession.selectList(NAMESPACE+"list");
+	public List<ForumDTO> list(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"list", pager);
 	}
 	
+	@Override
+	public Long total(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Override
 	public ForumDTO detail(ForumDTO forumDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"detail", forumDTO);

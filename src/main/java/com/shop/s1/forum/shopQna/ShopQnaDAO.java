@@ -30,7 +30,6 @@ public class ShopQnaDAO implements ForumDAO{
 	//total
 	@Override
 	public Long total(Pager pager) throws Exception {
-	
 		return sqlSession.selectOne(NAMESPACE+"total", pager);
 	}
 

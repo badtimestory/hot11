@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shop.s1.forum.ForumDTO;
+import com.shop.s1.util.Pager;
 
 @Controller
 @RequestMapping("review/*")
@@ -20,8 +21,8 @@ public class ReviewController {
 	
 	// List
 	@GetMapping("list")
-	public String list(Model model) throws Exception {
-		List<ForumDTO> ar = reviewService.list();
+	public String list(Pager pager, Model model) throws Exception {
+		List<ForumDTO> ar = reviewService.list(pager);
 		model.addAttribute("list", ar);
 		
 		return "review/list";
