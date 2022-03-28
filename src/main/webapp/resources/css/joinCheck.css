@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.rule-container{
+    width: 60%;
+    margin: 0 auto;
+    
+
+}
+
+.rule{
+    margin-top: 50px;
+    font-size: 11px;
+
+}
+
+.rule div{
+    height: 150px;
+    background-color: antiquewhite;
+
+}
+
+fieldset{
+    border:0;
+}
+
