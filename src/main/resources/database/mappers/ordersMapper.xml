@@ -11,8 +11,8 @@
 	</update>
 
 	<insert id="add" parameterType="OrdersDTO">
-		<selectKey keyProperty="c_num" order="BEFORE" resultType="Long">
-			SELECT C_NUM FROM CART WHERE M_ID=#{m_id}
+		<selectKey keyProperty="p_num,c_num" keyColumn="p_num,c_num" order="BEFORE" resultType="Long">
+			SELECT P_NUM,C_NUM FROM CART WHERE M_ID=#{m_id}
 		</selectKey>
 		INSERT INTO ORDERS
 		VALUES (ORDERS_SEQ.NEXTVAL,#{m_id},#{p_num},#{c_num},#{o_name},sysdate,

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shop.s1.cart.CartDTO;
 import com.shop.s1.memberJoin.MemberJoinDTO;
 
 @Controller
@@ -51,10 +52,10 @@ public class OrdersController {
 	}
 	
 	@GetMapping(value="add")
-	public void add(OrdersDTO ordersDTO, Model model,MemberJoinDTO memberJoinDTO,HttpSession session) throws Exception{
+	public void add(OrdersDTO ordersDTO, Model model,MemberJoinDTO memberJoinDTO,HttpSession session,CartDTO cartDTO) throws Exception{
 		memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		ordersDTO.setM_id(memberJoinDTO.getM_id());
-		
+		ordersDTO.setP_num(cartDTO.getP_num());
 		ordersDTO=ordersService.detail(ordersDTO);
 		System.out.println("주문??");
 		model.addAttribute("dto",ordersDTO);
