@@ -8,6 +8,7 @@ import org.springframework.validation.Validator;
 
 import com.shop.s1.forum.ForumDTO;
 import com.shop.s1.forum.ForumService;
+import com.shop.s1.util.Pager;
 
 @Service
 public class ReviewService implements ForumService {
@@ -16,8 +17,8 @@ public class ReviewService implements ForumService {
 	private ReviewDAO reviewDAO;
 
 	@Override
-	public List<ForumDTO> list() throws Exception {
-		return reviewDAO.list();
+	public List<ForumDTO> list(Pager pager) throws Exception {
+		return reviewDAO.list(pager);
 	}
 
 	@Override

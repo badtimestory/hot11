@@ -14,7 +14,7 @@ import com.shop.s1.util.Pager;
 public class ShopQnaService implements ForumService {
 	@Autowired
 	private ShopQnaDAO shopQnaDAO;
-
+	
 	@Override
 	public List<ForumDTO>list(Pager pager) throws Exception{
 		pager.makeRow();

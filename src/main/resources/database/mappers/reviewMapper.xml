@@ -8,6 +8,21 @@
 		SELECT * FROM REVIEW ORDER BY REF DESC, STEP ASC
 	</select>
 	
+	<select id="total" resultType="Long">
+		SELECT COUNT (NUM) FROM REVIEW
+			WHERE NUM> 0 AND
+		<choose>
+			<when test="kind=='col1'">
+				TITLE
+			</when>
+			<when test="kind=='col2'">CONTENTS</when>
+			<otherwise>
+				WRITER
+			</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+	</select>
+	
 	<select id="detail" resultType="ReviewDTO">
 		SELECT * FROM REVIEW WHERE NUM = #{num}
 	</select>
