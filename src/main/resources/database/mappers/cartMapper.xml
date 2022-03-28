@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.shop.s1.cart.CartDAO">
+    
+    	<!-- m_id 가져오는 부분 수정 필요 -->
+    	<insert id="add" parameterType="CartDTO">
+    		INSERT INTO CART 
+			VALUES (cart_seq.nextval,(select m_id from memberjoin WHERE M_ID=#{m_id}),product_seq.currval,1,#{c_amount})
+    	</insert>
+    
+    	<!-- 카트확인 detail -->
+    	<select id="detail" parameterType="CartDTO" resultType="CartDTO">
+    		SELECT * FROM CART 
+    		WHERE M_ID=#{m_id} 
+    	</select>
+    	
+    	<delete id="delete" parameterType="CartDTO">
+    		DELETE CART WHERE C_NUM=#{c_num}
+    	</delete>
+    	<!-- 카트목록 -->
+    	<select id="list" parameterType="CartDTO" resultType="CartDTO">
+			SELECT C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,P.P_NAME,P.P_PRICE,P_COUNT 
+			FROM CART C LEFT OUTER JOIN PRODUCT P 
+			ON (C.P_NUM=P.P_NUM) WHERE M_ID=#{m_id}
+    	</select>
+    </mapper>
