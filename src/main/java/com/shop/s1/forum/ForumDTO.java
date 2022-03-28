@@ -4,13 +4,13 @@ import java.sql.Date;
 
 public class ForumDTO {
 	
+
 	private Long num;				// 글번호
 	private String title;			// 제목
 	private String contents;		// 내용
 	private String writer;			// 작성자
 	private Date regDate;			// 날짜
 	private Long Hit;				// 추천수
-
 
 	public Long getNum() {
 		return num;

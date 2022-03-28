@@ -2,6 +2,7 @@ package com.shop.s1.forum;
 
 import java.util.List;
 
+
 public interface ForumService {
 	
 	// List

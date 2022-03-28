@@ -4,7 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
   <configuration>
   		<typeAliases>
+
+  			
+  			<typeAlias type="java.util.List" alias="List"/>
   			<typeAlias type="java.lang.Long" alias="Long"/>
+  		
+  			<typeAlias type="com.shop.s1.forum.ForumDTO" alias="ForumDTO"/>	
+  		
+  			<typeAlias type="com.shop.s1.forum.shopQna.ShopQnaDTO" alias="ShopQnaDTO"/>
+  			
+  			<typeAlias type="com.shop.s1.wishlist.WishlistDTO" alias="WishlistDTO"/>
+  			
+
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDTO" alias="MemberJoinDTO"/>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDAO" alias="MemberJoinDAO"/>
 

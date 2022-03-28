@@ -1,6 +1,8 @@
 package com.shop.s1.forum;
 
 import java.util.List;
+import com.shop.s1.util.Pager;
+
 
 public interface ForumDAO {
 
@@ -18,5 +20,5 @@ public interface ForumDAO {
 	
 	// Delete
 	public int delete(ForumDTO forumDTO) throws Exception;
-		
+
 }
