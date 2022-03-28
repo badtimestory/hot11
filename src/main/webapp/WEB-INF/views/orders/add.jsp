@@ -11,7 +11,7 @@
 <body>
 	<c:import url="../template/shop_header.jsp"></c:import>
 	<h1>주문서 작성 페이지</h1>
-	<form action="./add" method="post">
+	<form action="./add" method="post" id="frm">
 		<!-- o_num, m_id, p_num, t_num, o_name, o_date, o_phone, o_address, o_amount, o_price, o_pay-->
 		<!-- 같이 넘어가야할 것  -->
 		<h5>주문내역</h5>
@@ -72,7 +72,7 @@
 				</tr>
 
 				<tr>
-					<th>배송메시지</th>
+					<th>배송메시지 <img src="../resources/image/ico_required.png"alt="필수"></th>
 					<td><textarea rows="" cols="" name="o_message" id="o_message" ></textarea></td>
 				</tr>
 
@@ -94,10 +94,13 @@
 	
 
 		<h5>최종결제 금액</h5>
-		주문 수량 <input type="text" name="o_amount" value="${sessionScope.cart.p_count}">
-		결제 금액 <input type="text" name="o_price" value="${sessionScope.cart.c_amount}">
-		<input type="submit" value="add">결제하기
+		<c:forEach items="#{dto.cartDTOs}" var="c">
+		주문 수량 <input type="text" name="o_amount" value="${c.p_count}">
+		결제 금액 <input type="text" name="o_price" value="${c.c_amount}">
+		</c:forEach>
+		<input type="button" id="btn1" value="add">결제하기
 
 	</form>
+	<script src="../resources/js/orders.js"></script>
 </body>
 </html>
