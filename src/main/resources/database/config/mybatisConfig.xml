@@ -7,6 +7,7 @@
   			<typeAlias type="java.lang.Long" alias="Long"/>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDTO" alias="MemberJoinDTO"/>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDAO" alias="MemberJoinDAO"/>
+
   			<typeAlias type="com.shop.s1.product.ProductDTO" alias="ProductDTO"/>
   			<typeAlias type="com.shop.s1.product.ProductDAO" alias="ProductDAO"/>
   			<typeAlias type="com.shop.s1.board.BoardDTO" alias="BoardDTO"/>
@@ -15,5 +16,11 @@
   			<typeAlias type="com.shop.s1.detailOrder.DetailOrderDAO" alias="DetailOrderDAO"/>
   			<typeAlias type="com.shop.s1.forum.review.ReviewDTO" alias="ReviewDTO"/> 
   			<typeAlias type="com.shop.s1.util.Pager" alias="Pager"/> 			
+
+  			<typeAlias type="com.shop.s1.cart.CartDTO" alias="CartDTO"/>
+  			<typeAlias type="com.shop.s1.cart.CartDAO" alias="CartDAO"/>
+  			<typeAlias type="com.shop.s1.orders.OrdersDTO" alias="OrdersDTO"/>
+  			<typeAlias type="com.shop.s1.orders.OrdersDAO" alias="OrdersDAO"/>
+
   		</typeAliases>
   </configuration>
