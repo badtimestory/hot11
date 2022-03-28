@@ -6,7 +6,7 @@ public class Pager {
 	
 	private Long page;
 	
-	private Long stsrtRow;
+	private Long startRow;
 	
 	private Long lastRow;
 	
@@ -20,7 +20,7 @@ public class Pager {
 	private boolean next;
 	
 	public void makeRow() {
-		this.stsrtRow=(this.getPage()-1)*this.getPerPage()+1;
+		this.startRow=(this.getPage()-1)*this.getPerPage()+1;
 		this.lastRow=this.getPage()*this.getPerPage();
 	}
 	
@@ -88,11 +88,11 @@ public class Pager {
 	}
 
 	public Long getStartRow() {
-		return stsrtRow;
+		return startRow;
 	}
 
 	public void setStartRow(Long startRow) {
-		this.stsrtRow = startRow;
+		this.startRow = startRow;
 	}
 
 	public Long getLastRow() {

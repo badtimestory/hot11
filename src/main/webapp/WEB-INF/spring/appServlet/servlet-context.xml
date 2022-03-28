@@ -23,6 +23,12 @@
 	
 	<context:component-scan base-package="com.shop.s1" />
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/whislist/**"/>
+			<beans:bean class="com.shop.s1.interceptor.WishlistInterceptor"></beans:bean>
+		</interceptor>
 	
+	</interceptors>
 	
 </beans:beans>

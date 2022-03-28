@@ -16,10 +16,7 @@ public class WishlistDAOTest extends MyjunitTest{
 	@Autowired
 	private WishlistDAO wishlistDAO;
 	
-	@Test
-	public void check() {
-		assertNotNull(wishlistDAO);
-	}
+
 
 
 }

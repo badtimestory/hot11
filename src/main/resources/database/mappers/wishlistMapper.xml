@@ -44,8 +44,8 @@
 	</select>
 	
 	<insert id="add" parameterType="WishlistDTO">
-		INSERT INTO WISHLISTDTO(W_NUM, M_ID, P_NUM, T_NUM)
-		VALUES (WISHLIST_SEQ.NEXTVAL,#{m_id}, #{p_num}, #{t_num})
+		INSERT INTO WISHLIST (W_NUM, M_ID, P_NUMBER, T_NUM)
+		VALUES (WISHLIST_SEQ.NEXTVAL,#{m_id}, PRODUCT_SEQ.CURRVAL, PRODUCT_SEQ.CURRVAL)
 	</insert>
 	
 	<delete id="delete" parameterType="WishlistDTO">
