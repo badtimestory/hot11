@@ -1,4 +1,4 @@
-package com.shop.s1.review;
+package com.shop.s1.forum.review;
 
 import java.util.List;
 

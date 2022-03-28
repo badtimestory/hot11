@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.shop.s1.MyjunitTest;
 import com.shop.s1.forum.ForumDTO;
+import com.shop.s1.forum.review.ReviewDAO;
+import com.shop.s1.forum.review.ReviewDTO;
 
 public class ReviewTest extends MyjunitTest {
 	@Autowired

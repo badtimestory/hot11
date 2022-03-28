@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.shop.s1.util.Pager;
+
 @Controller
 @RequestMapping("board/*")
 public class BoardController {
@@ -17,8 +19,8 @@ public class BoardController {
 	
 	// list
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public String list(Model model) throws Exception {
-		List<BoardDTO> ar = boardService.list();
+	public String list(Pager pager, Model model) throws Exception {
+		List<BoardDTO> ar = boardService.list(pager);
 		model.addAttribute("list", ar);
 		
 		return "board/list";

@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.shop.s1.MyjunitTest;
+import com.shop.s1.util.Pager;
 
 public class BoardTest extends MyjunitTest{
 	
@@ -24,16 +25,16 @@ public class BoardTest extends MyjunitTest{
 	
 	// List Test
 	// @Test
-	public void ListTest() throws Exception {
-		List<BoardDTO> ar = boardDAO.list();
+	public void ListTest(Pager pager) throws Exception {
+		List<BoardDTO> ar = boardDAO.list(pager);
 		assertNotEquals(0, ar.size());
 	}
 	
 	// insert Test
-	// @Test
+	@Test
 	public void addTest() throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
-		for (int i = 1; i <= 10; i++) {
+		for (int i = 1; i <= 100; i++) {
 			boardDTO.setB_title("테스트"+i);
 			boardDTO.setB_writer("탑텐");
 			boardDTO.setB_contents("내용테스트"+i);

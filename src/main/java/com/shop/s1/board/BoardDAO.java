@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.shop.s1.util.Pager;
+
 @Repository
 public class BoardDAO {
 	@Autowired
@@ -13,8 +15,8 @@ public class BoardDAO {
 	private final String NAMESPACE = "com.shop.s1.board.BoardDAO.";
 	
 	// list 출력
-	public List<BoardDTO> list() throws Exception {
-		return sqlSession.selectList(NAMESPACE+"list");
+	public List<BoardDTO> list(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"list", pager);
 	}
 	
 	// detail
@@ -37,5 +39,9 @@ public class BoardDAO {
 		return sqlSession.delete(NAMESPACE+"delete", boardDTO);
 	}
 	
+	// total
+	public Long total(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"total", pager);
+	}
 
 }

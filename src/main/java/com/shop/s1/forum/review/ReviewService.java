@@ -1,4 +1,4 @@
-package com.shop.s1.review;
+package com.shop.s1.forum.review;
 
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class ReviewService implements ForumService {
 		forumDTO.setStep(reviewDTO.getStep() + 1);
 		forumDTO.setDepth(reviewDTO.getDepth() + 1);
 		
-		System.out.println("getRef : " + forumDTO.getRef());
+		System.out.println("getRef : " + forumDTO.getStep());
 		
 		
 		

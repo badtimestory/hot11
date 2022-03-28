@@ -6,8 +6,20 @@
 <mapper namespace="com.shop.s1.board.BoardDAO">
 	
 	<!-- List Mapper -->
-	<select id="list" resultType="BoardDTO">
-		SELECT * FROM BOARD ORDER BY B_NUM DESC
+	<select id="list" parameterType="Pager" resultType="BoardDTO">
+		SELECT * FROM
+			(SELECT ROWNUM R, B.* FROM
+				(SELECT * FROM BOARD WHERE B_NUM > 0
+				 ORDER BY B_NUM DESC
+				 ) B
+			)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<!-- DB의 총 컬럼 갯수를 구하는 Mapper -->
+	<select id="total" resultType="Long">
+		SELECT COUNT(B_NUM) FROM BOARD
+	 		WHERE B_NUM > 0
 	</select>
 	
 	<!-- detail Mapper -->

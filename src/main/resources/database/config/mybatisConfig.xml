@@ -13,6 +13,7 @@
   			<typeAlias type="com.shop.s1.board.BoardDAO" alias="BoardDAO"/>
   			<typeAlias type="com.shop.s1.detailOrder.DetailOrderDTO" alias="DetailOrderDTO"/>
   			<typeAlias type="com.shop.s1.detailOrder.DetailOrderDAO" alias="DetailOrderDAO"/>
-  			<typeAlias type="com.shop.s1.review.ReviewDTO" alias="ReviewDTO"/>  			
+  			<typeAlias type="com.shop.s1.forum.review.ReviewDTO" alias="ReviewDTO"/> 
+  			<typeAlias type="com.shop.s1.util.Pager" alias="Pager"/> 			
   		</typeAliases>
   </configuration>

@@ -5,14 +5,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.shop.s1.util.Pager;
+
 @Service
 public class BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
 	
 	// list
-	public List<BoardDTO> list() throws Exception {
-		return boardDAO.list();
+	public List<BoardDTO> list(Pager pager) throws Exception {
+		pager.makeRow();
+		pager.makeNum(boardDAO.total(pager));
+		
+		return boardDAO.list(pager);
 	}
 	
 	// detail
