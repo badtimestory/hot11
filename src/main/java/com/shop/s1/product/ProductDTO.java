@@ -8,12 +8,17 @@ public class ProductDTO {
 	private Long p_price;
 	private Long p_stock;
 	private String p_detail;
-	
 	public Long getP_num() {
 		return p_num;
 	}
 	public void setP_num(Long p_num) {
 		this.p_num = p_num;
+	}
+	public Long getT_num() {
+		return t_num;
+	}
+	public void setT_num(Long t_num) {
+		this.t_num = t_num;
 	}
 	public String getP_name() {
 		return p_name;
@@ -39,12 +44,8 @@ public class ProductDTO {
 	public void setP_detail(String p_detail) {
 		this.p_detail = p_detail;
 	}
-	public Long getT_num() {
-		return t_num;
-	}
-	public void setT_num(Long t_num) {
-		this.t_num = t_num;
-	}
+	
+	
 	
 	
 }
