@@ -17,13 +17,13 @@
 	
 	<!-- Insert Mapper -->
 	<insert id="add" parameterType="ProductDTO">
-		INSERT INTO PRODUCT (P_NUM, P_NAME, P_PRICE, P_STOCK, P_DETAIL)
-		VALUES (PRODUCT_SEQ.NEXTVAL, #{p_name}, #{p_price}, #{p_stock}, #{p_detail})
+		INSERT INTO PRODUCT (P_NUM,T_NUM, P_NAME, P_PRICE, P_STOCK, P_DETAIL)
+		VALUES (PRODUCT_SEQ.NEXTVAL,#{t_num},#{p_name}, #{p_price}, #{p_stock}, #{p_detail})
 	</insert>
 	
 	<!-- Update Mapper -->
 	<update id="update" parameterType="ProductDTO">
-		UPDATE PRODUCT SET P_NAME = #{p_name}, P_PRICE = #{p_price}, P_STOCK = #{p_stock}, 
+		UPDATE PRODUCT SET P_NAME = #{p_name},T_NUM=#{t_num}, P_PRICE = #{p_price}, P_STOCK = #{p_stock}, 
 		P_DETAIL = #{p_detail} WHERE P_NUM = #{p_num}
 	</update>
 	

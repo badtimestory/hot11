@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +9,11 @@
 <c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
-<c:import url="../template/shop_header.jsp"></c:import>
+	<c:import url="../template/shop_header.jsp"></c:import>
 	<h1>Product Update Page</h1>
 	<form action="./update" method="POST">
-		<input type = "hidden" name="p_num" readonly="readonly" value="${dto.p_num}">
+		<input type="hidden" name="p_num" readonly="readonly"
+			value="${dto.p_num}">
 		<div>
 			상품명 <input type="text" name="p_name" value="${dto.p_name}">
 		</div>

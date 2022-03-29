@@ -32,6 +32,6 @@
   			<typeAlias type="com.shop.s1.cart.CartDAO" alias="CartDAO"/>
   			<typeAlias type="com.shop.s1.orders.OrdersDTO" alias="OrdersDTO"/>
   			<typeAlias type="com.shop.s1.orders.OrdersDAO" alias="OrdersDAO"/>
-
+  			
   		</typeAliases>
   </configuration>

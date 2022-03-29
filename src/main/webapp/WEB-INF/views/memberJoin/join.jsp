@@ -69,9 +69,9 @@ crossorigin="anonymous"></script>
 				<td><input type="date" name="m_birth" id="birth"></td>
 			</tr>
 			
-			<div>
-				<button type="button" id="btn">JOIN</button>
-			</div>
+			<tr>
+				<th><button type="button" id="btn">JOIN</button></th>
+			</tr>
 			</tbody>
 		</table>	
 

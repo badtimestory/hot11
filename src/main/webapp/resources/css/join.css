@@ -24,7 +24,7 @@ th{
     font-size: 11px;
 }
 
-button{
+/* button{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -36,7 +36,7 @@ button{
     top:700px;
 
 
-}
+} */
 
 input{
     width: 70%;
