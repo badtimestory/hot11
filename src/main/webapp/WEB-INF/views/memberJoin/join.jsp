@@ -68,14 +68,11 @@ crossorigin="anonymous"></script>
 				<th>Birth</th>
 				<td><input type="date" name="m_birth" id="birth"></td>
 			</tr>
-			
-			<div>
-				<button type="button" id="btn">JOIN</button>
-			</div>
+		
 			</tbody>
 		</table>	
-
-
+		
+			<div><button type="button" id="btn">JOIN</button></div>
 		</form>
 
 		<script type="text/javascript" src="../resources/js/join.js"></script>

@@ -35,17 +35,20 @@ let pwCheck=true;
 
 //비밀번호 길이 검증
 pw.addEventListener("blur",function(){
+    pwCheck=true;
+    pw2.value="";
+    pwResult2.value=""; 
     if(pw.value.length<8||pw.value.length>12){
         pwResult.innerHTML="8글자 이상 12글자 이하로 입력해주세요."
     }else{
         pwResult.innerHTML="사용가능한 비밀번호입니다.";
     }
 
-})
+});
 
 //pw와 pw2가 같은지 검증
 pw2.addEventListener("blur",function(){
-
+    pwCheck=true;
     let message="비밀번호가 일치합니다";
     if(pw.value!=pw2.value){
         pwCheck=true;
@@ -56,17 +59,17 @@ pw2.addEventListener("blur",function(){
         pwCheck=false;
     }
     pwResult2.innerHTML=message;
-})
+});
 
 //검증이 끝나고 pw 를 수정했을경우
-pw.addEventListener("change",function(){
-    pwCheck=true;
-    pw2.value="";
-    pwResult2.value=""; //이거 둘중에 하나만 있어도 되지 않나
-    pw2.focus();
+// pw.addEventListener("change",function(){
+//     pwCheck=true;
+//     pw2.value="";
+//     pwResult2.value=""; //이거 둘중에 하나만 있어도 되지 않나
+//     // pw2.focus();
 
     
-})
+// })
 
 //아이디 입력 후 검증 
 id.addEventListener("blur",function(){
@@ -75,11 +78,11 @@ id.addEventListener("blur",function(){
     }else{
         idResult.innerHTML="";
     }
-})
+});
 
 
 btn.addEventListener("click",function(){
-
+    console.log(pwCheck);
     if(id.value==''){
         alert("아이디를 입력하세요.");
         id.focus();
