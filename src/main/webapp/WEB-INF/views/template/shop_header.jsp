@@ -32,7 +32,7 @@
       <div class="header_sub">
         <ul>
           <li><a href="/s1/board/list">NOTICE</a></li>
-          <li><a href="#">QNA</a></li>
+          <li><a href="/s1/shopQna/list">QNA</a></li>
           <li><a href="/s1/review/list">REVIEW</a></li>
           <li><a href="#">MODEL</a></li>
         </ul>

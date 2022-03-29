@@ -6,10 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/shop_header_css.jsp"></c:import>
 <link rel="stylesheet" href="../resources/css/table.css">
 <link rel="stylesheet" href="../resources/css/list.css">
 </head>
 <body>
+<c:import url="../template/shop_header.jsp"></c:import>
 	<div class="table-container">
 		<h1 class="title">${forum} List Page</h1>
 

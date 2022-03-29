@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,13 +20,18 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 	
+	@ModelAttribute("forum")
+	public String forum() {
+		return "review";
+	}
+	
 	// List
 	@GetMapping("list")
 	public String list(Pager pager, Model model) throws Exception {
 		List<ForumDTO> ar = reviewService.list(pager);
 		model.addAttribute("list", ar);
 		
-		return "review/list";
+		return "forum/list";
 	}
 	
 	// Detail
@@ -34,7 +40,7 @@ public class ReviewController {
 		ForumDTO forumDTO = reviewService.detail(reviewDTO);
 		model.addAttribute("detail", forumDTO);
 		
-		return "review/detail";
+		return "forum/detail";
 	}
 	
 	// Insert
@@ -55,7 +61,7 @@ public class ReviewController {
 		ForumDTO forumDTO = reviewService.detail(reviewDTO);
 		model.addAttribute("update", forumDTO);
 		
-		return "review/update";
+		return "forum/update";
 	}
 	
 	// Update DB
@@ -79,7 +85,7 @@ public class ReviewController {
 	public String reply(ReviewDTO reviewDTO, Model model) throws Exception {
 		model.addAttribute("reply", reviewDTO);
 		
-		return "review/reply";
+		return "forum/reply";
 	}
 	
 	// Reply DB
