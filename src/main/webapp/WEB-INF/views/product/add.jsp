@@ -16,6 +16,14 @@
 		상품명 <input type="text" name="p_name">
 	</div>
 	<div>
+		카테고리 
+		<select name="t_num">
+			<option value="1">OUTER</option>
+			<option value="2">TOP</option>
+			<option value="3">BOTTOM</option>
+		</select>
+	</div>
+	<div>
 		상품가격 <input type="text" name="p_price">
 	</div>
 	<div>

@@ -3,6 +3,7 @@ package com.shop.s1.product;
 public class ProductDTO {
 
 	private Long p_num;
+	private Long t_num;
 	private String p_name;
 	private Long p_price;
 	private Long p_stock;
@@ -13,6 +14,12 @@ public class ProductDTO {
 	}
 	public void setP_num(Long p_num) {
 		this.p_num = p_num;
+	}
+	public Long getT_num() {
+		return t_num;
+	}
+	public void setT_num(Long t_num) {
+		this.t_num = t_num;
 	}
 	public String getP_name() {
 		return p_name;
