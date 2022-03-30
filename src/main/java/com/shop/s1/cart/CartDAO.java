@@ -17,6 +17,10 @@ public class CartDAO {
 		return sqlSession.insert(NAMESPACE+"add",cartDTO);
 	}
 	
+	public int update(CartDTO cartDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"update",cartDTO);
+	}
+	
 	public CartDTO detail(CartDTO cartDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"detail",cartDTO);
 	}

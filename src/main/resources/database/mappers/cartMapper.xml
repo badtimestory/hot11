@@ -5,12 +5,17 @@
     
     <mapper namespace="com.shop.s1.cart.CartDAO">
     
-    	<!-- m_id 가져오는 부분 수정 필요 -->
+    	<!-- 장바구니 등록 -->
     	<insert id="add" parameterType="CartDTO">
-    		INSERT INTO CART 
-			VALUES (cart_seq.nextval,(select m_id from memberjoin WHERE M_ID=#{m_id}),product_seq.currval,1,#{c_amount})
+    		INSERT INTO CART (C_NUM,P_NUM)
+			VALUES (cart_seq.nextval,#{p_num})
     	</insert>
     
+    	<!-- 로그인 한사람의 장바구니에 아이디 넣어주기 -->
+    	<update id="update" parameterType="CartDTO">
+    		UPDATE CART SET M_ID=#{m_id} WHERE C_NUM=#{c_num};
+    	</update>
+    	
     	<!-- 카트확인 detail -->
     	<select id="detail" parameterType="CartDTO" resultType="CartDTO">
     		SELECT * FROM CART 

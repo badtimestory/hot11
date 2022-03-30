@@ -1,19 +1,24 @@
 package com.shop.s1.cart;
 
+
+import com.shop.s1.memberJoin.MemberJoinDTO;
+import com.shop.s1.product.ProductDTO;
+
 public class CartDTO {
 	
-	private Long c_num;
-	private String m_id;
-	private Long p_num;
-	private Long t_num;
-	private Long c_amount;
-	
+	private Long c_num;    //장바구니 번호
+	private String m_id;   //회원 아이디
+	private Long p_num;    //상품 번호
+	private Long t_num;    //카테고리 번호
+	private Long c_amount; //총금액 
+//	private Date c_cklimit;//쿠키제한시간(삭제용)
+//	private String c_ckid;  //쿠키 value값
+//	private String c_option; //옵션내용
+//	private Long c_option_num; //옵션 번호
+//	
 	//product
-	private String p_name;
-	private Long p_price;
-	private Long p_count;
-	//판매가 * 수량 = 합계 
-	
+	private ProductDTO productDTO;
+	private MemberJoinDTO memberJoinDTO;
 	
 	public Long getC_num() {
 		return c_num;
@@ -45,26 +50,20 @@ public class CartDTO {
 	public void setC_amount(Long c_amount) {
 		this.c_amount = c_amount;
 	}
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
+	public MemberJoinDTO getMemberJoinDTO() {
+		return memberJoinDTO;
+	}
+	public void setMemberJoinDTO(MemberJoinDTO memberJoinDTO) {
+		this.memberJoinDTO = memberJoinDTO;
+	}
 	
 	
-	public String getP_name() {
-		return p_name;
-	}
-	public void setP_name(String p_name) {
-		this.p_name = p_name;
-	}
-	public Long getP_price() {
-		return p_price;
-	}
-	public void setP_price(Long p_price) {
-		this.p_price = p_price;
-	}
-	public Long getP_count() {
-		return p_count;
-	}
-	public void setP_count(Long p_count) {
-		this.p_count = p_count;
-	}
 	
 
 	

@@ -18,5 +18,6 @@
 	<h3>상품상세정보 : ${dto. p_detail}</h3>
 	<a href="./update?p_num=${dto.p_num}">수정</a>
 	<a href="./delete?p_num=${dto.p_num}">삭제</a>
+	<a href="../cart/list?p_num=${dto.p_num}">장바구니 추가</a>
 </body>
 </html>
