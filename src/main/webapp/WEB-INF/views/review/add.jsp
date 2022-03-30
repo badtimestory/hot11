@@ -12,11 +12,20 @@
 <c:import url="../template/shop_header.jsp"></c:import>
 	<h1>Review Add Page</h1>
 	<form action="./add" method="POST">
+	<input type="hidden" name="m_id" value="${member.m_id}" readonly="readonly"/>
 		<div>
 		제목 <input type="text" name="title">
 		</div>
 		<div>
-		작성자 <input type="text" name="writer">
+		작성자 <input type="text" name="writer" value="${member.m_id}">
+		</div>
+		<div>
+			카테고리 
+			<select name="t_num">
+				<option value="1">OUTER</option>
+				<option value="2">TOP</option>
+				<option value="3">BOTTOM</option>
+			</select>
 		</div>
 		<div>
 		내용 <textarea rows="" cols="" name="contents"></textarea>

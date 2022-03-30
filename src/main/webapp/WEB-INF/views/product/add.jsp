@@ -13,10 +13,11 @@
 	<h1>Product Add Page</h1>
 	<form action="./add" method="POST">
 	<div>
-		상품명 <input type="text" name="p_name">
+		<label>상품명</label>
+		<input type="text" name="p_name">
 	</div>
 	<div>
-		카테고리 
+		<label>카테고리</label> 
 		<select name="t_num">
 			<option value="1">OUTER</option>
 			<option value="2">TOP</option>
@@ -24,14 +25,22 @@
 		</select>
 	</div>
 	<div>
-		상품가격 <input type="text" name="p_price">
+		<label>상품가격</label>
+		<input type="text" name="p_price">
 	</div>
 	<div>
-		재고량 <input type="text" name="p_stock">
+		<label>재고량</label> 
+		<input type="text" name="p_stock">
 	</div>
 	<div>
-		<textarea rows="10" cols="" name="p_detail" placeholder="상품정보를 입력하세요"></textarea>
+		<label>상품정보</label>
+		<textarea rows="5" cols="50" name="p_detail" placeholder="상품정보를 입력하세요"></textarea>
 	</div>
+	<div>
+		<label>이미지</label>
+		<input type="file">
+	</div>
+	
 	<button>작성</button>
 	</form>
 </body>

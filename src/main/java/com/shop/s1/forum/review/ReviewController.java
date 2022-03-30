@@ -38,7 +38,7 @@ public class ReviewController {
 	@GetMapping("detail")
 	public String detail(ReviewDTO reviewDTO, Model model) throws Exception {
 		ForumDTO forumDTO = reviewService.detail(reviewDTO);
-		model.addAttribute("detail", forumDTO);
+		model.addAttribute("dto", forumDTO);
 		
 		return "forum/detail";
 	}

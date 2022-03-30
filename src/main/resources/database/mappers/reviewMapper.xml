@@ -33,14 +33,14 @@
 		</selectKey>
 		INSERT INTO REVIEW (NUM, P_NUM, O_NUM, M_ID, T_NUM, TITLE, CONTENTS,
 		 WRITER, REGDATE, HIT, REF, STEP, DEPTH)
-		VALUES (REVIEW_SEQ.NEXTVAL, 0, 0, '탑텐', 0, #{title}, #{contents}, #{writer}, 
+		VALUES (REVIEW_SEQ.NEXTVAL, 0, 0, #{m_id}, 0, #{title}, #{contents}, #{writer}, 
 		SYSDATE, 0, REVIEW_SEQ.CURRVAL, 0, 0)
 	</insert>
 	
 	<insert id="reply" parameterType="ReviewDTO">
 		INSERT INTO REVIEW (NUM, P_NUM, O_NUM, M_ID, T_NUM, TITLE, CONTENTS,
 		 WRITER, REGDATE, HIT, REF, STEP, DEPTH)
-		 VALUES (REVIEW_SEQ.NEXTVAL, 0, 0, '탑텐', 0, #{title}, #{contents}, #{writer},
+		 VALUES (REVIEW_SEQ.NEXTVAL, #{p_num}, #{o_num}, #{m_id}, #{t_num}, #{title}, #{contents}, #{writer},
 		 SYSDATE, 0, #{ref}, #{step}, #{depth})
 	</insert>
 	

@@ -6,9 +6,9 @@ import com.shop.s1.forum.ForumDTO;
 
 public class ReviewDTO extends ForumDTO {
 
-	private Long p_num;
-	private Long o_num;
-	private String m_id;
+	private Long p_num;		// 상품번호
+	private Long o_num;		// 주문번호
+	private String m_id;	// 아이디
 	
 	private Long ref;
 	private Long step;

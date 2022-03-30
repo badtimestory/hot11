@@ -33,10 +33,9 @@ button{
     font-size: 11px;
     border-radius: 20px;
     position: relative;
-    top:700px;
+    
 
-
-}
+} 
 
 input{
     width: 70%;
