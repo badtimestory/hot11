@@ -12,9 +12,9 @@
 <c:import url="./template/shop_header.jsp"></c:import>
 
 	<div>
-		<img alt="제품1_outer" src="./resources/image/product1_outer.jpg">
-		<img alt="제품2_top" src="./resources/image/product2_top.jpg">
-		<img alt="제품3_bottom" src="./resources/image/product3_bottom.jpg" style="width:620px;height:700px;">
+		<img alt="제품1_outer" src="./resources/images/product1_outer.jpg">
+		<img alt="제품2_top" src="./resources/images/product2_top.jpg">
+		<img alt="제품3_bottom" src="./resources/images/product3_bottom.jpg" style="width:620px;height:700px;">
 	</div>
 </body>
 </html>

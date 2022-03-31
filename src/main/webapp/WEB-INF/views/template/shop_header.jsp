@@ -20,7 +20,7 @@
 		<c:if test="${not empty member }">
 			<li><a href="/s1/memberJoin/mypage">My Page</a></li>
 			<li><a href="/s1/memberJoin/logout">Logout</a></li>
-			<li><a href="/s1/cart/list?m_id=${member.m_id}">장바구니</a></li>
+			<li><a href="/s1/cart/cartList?m_id=${member.m_id}">장바구니</a></li>
 			<li><a href="#">주문조회</a></li>
 			<li><a href="/s1/orders/add?m_id=${member.m_id}">주문하기</a></li>
 		</c:if>

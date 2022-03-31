@@ -17,21 +17,21 @@ crossorigin="anonymous"></script>
 	<c:import url="../template/shop_header.jsp"></c:import>
 	
 	<h3 class="basic-title"> 기본정보</h3>
-	<h3 class="etc"><img src="../resources/image/ico_required.png" alt="필수"> 필수입력사항</h3>
+	<h3 class="etc"><img src="../resources/images/ico_required.png" alt="필수"> 필수입력사항</h3>
 
 	<form action="./join" method="post" id="frm">
 	
 		<table>
 			<tbody>
 				<tr>
-					<th scope="row">ID <img src="../resources/image/ico_required.png" alt="필수"></th>
+					<th scope="row">ID <img src="../resources/images/ico_required.png" alt="필수"></th>
 					<td colspan="2"><input type="text" name="m_id" id="id"></td>
 					<td id="idResult"></td>
 				</tr>
 
 
 			<tr>
-				<th scope="row">Password <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<th scope="row">Password <img src="../resources/images/ico_required.png" alt="필수"></th>
 				<td colspan="2"><input type="password" name="m_pw" id="pw"
 					placeholder="8글자이상 12글자 이하로 작성하세요."></td>
 				<td id="pwResult"></td>
@@ -39,28 +39,28 @@ crossorigin="anonymous"></script>
 
 
 			<tr>
-				<th scope="row">Password 확인 <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<th scope="row">Password 확인 <img src="../resources/images/ico_required.png" alt="필수"></th>
 				<td colspan="2"><input type="password" name="m_pw2" id="pw2"></td>
 				<td id="pwResult2"></td>
 			</tr>
 
 			<tr>
-				<th scope="row">Name <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<th scope="row">Name <img src="../resources/images/ico_required.png" alt="필수"></th>
 				<td><input type="text" name="m_name" id="name"></td>
 			</tr>
 
 			<tr>
-				<th>Phone <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<th>Phone <img src="../resources/images/ico_required.png" alt="필수"></th>
 				<td><input type="tel" placeholder="숫자만 입력해주세요." name="m_phone" id="phone"></td>
 			</tr>
 
 			<tr>
-				<th>Email <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<th>Email <img src="../resources/images/ico_required.png" alt="필수"></th>
 				<td><input type="text" placeholder="ex)id@gmail.com" name="m_email" id="email"></td> 
 			</tr>
 
 			<tr>
-				<th>Address <img src="../resources/image/ico_required.png" alt="필수"></th>
+				<th>Address <img src="../resources/images/ico_required.png" alt="필수"></th>
 				<td><input type="text" name="m_address" id="address"></td>
 			</tr>
 

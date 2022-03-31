@@ -5,16 +5,10 @@
     
     <mapper namespace="com.shop.s1.cart.CartDAO">
     
-    	<!-- 장바구니 등록 -->
     	<insert id="add" parameterType="CartDTO">
-    		INSERT INTO CART (C_NUM,P_NUM)
-			VALUES (cart_seq.nextval,#{p_num})
+    		INSERT INTO CART (C_NUM,M_ID,P_NUM,T_NUM,C_AMOUNT)
+			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num},#{c_amount})
     	</insert>
-    
-    	<!-- 로그인 한사람의 장바구니에 아이디 넣어주기 -->
-    	<update id="update" parameterType="CartDTO">
-    		UPDATE CART SET M_ID=#{m_id} WHERE C_NUM=#{c_num};
-    	</update>
     	
     	<!-- 카트확인 detail -->
     	<select id="detail" parameterType="CartDTO" resultType="CartDTO">
@@ -26,9 +20,10 @@
     		DELETE CART WHERE C_NUM=#{c_num}
     	</delete>
     	<!-- 카트목록 -->
-    	<select id="list" parameterType="CartDTO" resultType="CartDTO">
-			SELECT C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,P.P_NAME,P.P_PRICE,P_COUNT 
-			FROM CART C LEFT OUTER JOIN PRODUCT P 
-			ON (C.P_NUM=P.P_NUM) WHERE M_ID=#{m_id}
+    	<select id="cartList" resultType="CartListDTO">
+		SELECT C.C_NUM, C.M_ID,C.P_NUM,
+		P.P_NAME,P.P_PRICE
+		FROM CART C INNER JOIN PRODUCT P ON C.P_NUM=P.P_NUM
+		WHERE C.M_ID=#{m_id}
     	</select>
     </mapper>

@@ -13,9 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.s1.memberJoin.MemberJoinDTO;
+import com.shop.s1.product.ProductDTO;
 
 @Controller
 @RequestMapping(value="/cart/*")
@@ -24,19 +26,27 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 	
+	//카트담기 
+	@ResponseBody
+	@RequestMapping(value="add",method=RequestMethod.POST)
+	public ModelAndView add(HttpSession session,CartDTO cartDTO) throws Exception{
+		
 	
-	@RequestMapping(value="list",method=RequestMethod.POST)
-	public int add(HttpSession session, HttpServletRequest request, HttpServletResponse response,CartDTO cartDTO) throws Exception{
-		System.out.println("Cart: "+cartDTO.getM_id());
-		if(session.getAttribute("member")!=null) {
-			MemberJoinDTO memberJoinDTO = (MemberJoinDTO) session.getAttribute("member");
-			Cookie cookie= new Cookie("cart",cartDTO.getM_id());
-			cookie.setMaxAge(-1);
-			response.addCookie(cookie);
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		ModelAndView mv= new ModelAndView();
+		if(memberJoinDTO!=null) {
+			cartDTO.setM_id(memberJoinDTO.getM_id());		
+			int result=cartService.add(cartDTO);
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+			
+		}else {
+		
+		int result=0;
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
 		}
-		cartService.add(cartDTO);
-		String message="장바구니에 담았습니다.";
-		return 1;
+		return mv;
 	}
 	
 	
@@ -48,20 +58,24 @@ public class CartController {
 		mv.setViewName("cart/detail");
 		return mv;
 	}
-	@RequestMapping(value="delete")
-	public String delete(CartDTO cartDTO,Model model) throws Exception{
-		int result = cartService.delete(cartDTO);
+//	@RequestMapping(value="delete")
+//	public String delete(CartDTO cartDTO,Model model) throws Exception{
+//		int result = cartService.delete(cartDTO);
+//		
+//		List<CartDTO> ar = cartService.list(cartDTO);
+//		model.addAttribute("list",ar);
+//		
+//		return "redirect:../";
+//	}
+	@RequestMapping(value="cartList",method=RequestMethod.GET)
+	public ModelAndView cartList(ModelAndView mv, CartListDTO cartListDTO,HttpSession session) throws Exception{
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		String m_id=memberJoinDTO.getM_id();
 		
-		List<CartDTO> ar = cartService.list(cartDTO);
-		model.addAttribute("list",ar);
+		List<CartListDTO> cartList = cartService.cartList(cartListDTO);
 		
-		return "redirect:../";
-	}
-	@RequestMapping(value="list",method=RequestMethod.GET)
-	public ModelAndView list(ModelAndView mv, CartDTO cartDTO) throws Exception{
-		List<CartDTO> ar = cartService.list(cartDTO);
-		mv.addObject("list",ar);
-		mv.setViewName("cart/list");
+		mv.addObject("cartList",cartList);
+		mv.setViewName("cart/cartList");
 		return mv;
 	}
 	
