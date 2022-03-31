@@ -11,7 +11,7 @@
 <body>
 <c:import url="../template/shop_header.jsp"></c:import>
 	<h1>Product Add Page</h1>
-	<form action="./add" method="POST">
+	<form action="./add" method="POST" enctype="multipart/form-data">
 	<div>
 		<label>상품명</label>
 		<input type="text" name="p_name">
@@ -38,7 +38,7 @@
 	</div>
 	<div>
 		<label>이미지</label>
-		<input type="file">
+		<input type="file" name="photo" id="photo">
 	</div>
 	
 	<button>작성</button>

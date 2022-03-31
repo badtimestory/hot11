@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.s1.board.BoardDTO;
 
@@ -41,8 +42,13 @@ public class ProductController {
 	
 	// insert DB
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(ProductDTO productDTO) throws Exception {
-		int result = productService.add(productDTO);
+	// product/add의 image 추가 parameter name이 photo
+	public String add(ProductDTO productDTO, MultipartFile photo) throws Exception {
+		
+		System.out.println("파일의 원본이름: "+photo.getOriginalFilename());
+		System.out.println("파일의 크기: "+photo.getSize());
+				
+		// int result = productService.add(productDTO);
 		
 		return "redirect:./list";
 	}
