@@ -3,16 +3,19 @@ package com.shop.s1.wishlist;
 import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.product.ProductDTO;
 
-public class WishlistDTO {
-	
+public class WishlistListDTO {
+
 	private Long w_num;
 	private String m_id;
 	private Long p_num;
 	private Long t_num;
 	
+	private Long num;
+	private String p_name;
+	private Long p_price;
+	
 	private ProductDTO productDTO;
 	private MemberJoinDTO memberJoinDTO;
-	
 	
 	public Long getW_num() {
 		return w_num;
@@ -38,6 +41,24 @@ public class WishlistDTO {
 	public void setT_num(Long t_num) {
 		this.t_num = t_num;
 	}
+	public Long getNum() {
+		return num;
+	}
+	public void setNum(Long num) {
+		this.num = num;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public Long getP_price() {
+		return p_price;
+	}
+	public void setP_price(Long p_price) {
+		this.p_price = p_price;
+	}
 	public ProductDTO getProductDTO() {
 		return productDTO;
 	}
@@ -52,6 +73,4 @@ public class WishlistDTO {
 	}
 	
 	
-	
-
 }

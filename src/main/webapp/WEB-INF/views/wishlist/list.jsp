@@ -6,28 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>관심상품 목록</title>
+<c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
+<c:import url="../template/shop_header.jsp"></c:import>
 
-	<h1>관심상품 목록</h1>
+	<h1>${sessionScope.member.m_name}님의 관심상품 목록</h1>
 	
 	<table>
 		<thead>
 			<tr>
+				<th>체크박스</th>
 				<th>이미지</th>
 				<th>상품정보</th>
 				<th>판매가</th>
-				<th>선택</th>				
+							
 			</tr>
 		</thead>
 		
 		<tbody>
-			<c:forEach items="${list}" var="wishlist">
+			<c:forEach items="${wishlistList}" var="wishlistList">
 				<tr>
+					<td><input type="hidden" name="w_num" value="${pageScope.wishlistList.w_num}"> </td>
 					<td>이미지</td>
-					<td><a href="./detail?p_num=${pageScope.cart.p_num}">${pageScope.wishlist.p_name}</a></td>
-					<td>${pageScope.wishlist.p_price}</td>
-					<td>주문하기/<a href="./delete?p_num=${wishlist.p_num}">삭제</a></td>
+					<td><a href="./detail?p_num=${pageScope.wishlist.p_num}">${pageScope.wishlistList.p_name}</a>정보</td>
+					<td><input type="number" readonly id="p_price" name="p_price" value="${pageScope.wishlistList.p_price}">가격</td>
+					<td><a href="..orders/add?m_id=${sessionScope.member.m_id}&w_num=${wishlistList.w_num}$p_num=${pageScope.wishlistList.p_num}">주문하기</a></td>
+					<td><a href="./delete?p_num=${wishlist.p_num}">삭제</a></td>
 				</tr>
 			
 			</c:forEach>
@@ -35,26 +40,11 @@
 		
 	</table>
 	
-	<div>
-			<c:if test="${pager.pre}">
-				<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
-			</c:if>
-		
-			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-			
-			<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
-			</c:forEach>
-		
-			<c:if test="${pager.next}">
-				<a href="./list?page=${pager.lastNum+1}">NEXT</a>
-			</c:if>
-		
-		</div>
 		<c:if test="${not empty member}">
 		<a href="./delete?num=${dto.num}">삭제</a>
 		</c:if>
 	</div>
 	
-
+	<script type="text/javascript" src="../resources/js/wishlist"></script>
 </body>
 </html>

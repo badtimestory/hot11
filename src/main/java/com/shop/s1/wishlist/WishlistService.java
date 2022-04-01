@@ -15,12 +15,9 @@ public class WishlistService {
 	private WishlistDAO wishlistDAO;
 	
 	//list
-	public List<WishlistDTO> list(Pager pager) throws Exception{
-		pager.makeRow();
-		
-		pager.makeNum(wishlistDAO.total(pager));
-		
-		return wishlistDAO.list(pager);
+	public List<WishlistListDTO> list(WishlistListDTO wishlistListDTO) throws Exception{
+		List<WishlistListDTO> ar = wishlistDAO.list(wishlistListDTO);
+		return ar;
 	
 	}
 	

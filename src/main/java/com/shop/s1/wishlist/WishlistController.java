@@ -19,19 +19,24 @@ import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.util.Pager;
 
 @Controller
-@RequestMapping("/wishlist/*")
+@RequestMapping(value="/wishlist/*")
 public class WishlistController {
 	
 	@Autowired
 	private WishlistService wishlistService;
 	
-	@RequestMapping(value="list", method = RequestMethod.GET)
-	public String list(Pager pager, Model model) throws Exception{
-		List<WishlistDTO> ar = wishlistService.list(pager);
-		model.addAttribute("list", ar);
+	@RequestMapping(value="wishlistList", method = RequestMethod.GET)
+	public ModelAndView wishlistList(ModelAndView mv, WishlistListDTO wishlistListDTO, HttpSession session) throws Exception{
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		String m_id=memberJoinDTO.getM_id();
 		
-		return "wishlist/list";
+		List<WishlistListDTO> wishlistList = wishlistService.list(wishlistListDTO);
+		
+		mv.addObject("wishlistList", wishlistList);
+		mv.setViewName("wishlist/list");
+		return mv;
 	}
+	
 	
 	@RequestMapping(value="detail", method =  RequestMethod.GET)
 	public ModelAndView detail(ModelAndView mv, WishlistDTO wishlistDTO) throws Exception{
@@ -48,16 +53,21 @@ public class WishlistController {
 	}
 	
 	@ResponseBody
-	@PostMapping(value="add")
-	public String add(@ModelAttribute WishlistDTO wishlistDTO, HttpServletRequest httpServletRequest) throws Exception{
-		HttpSession session = httpServletRequest.getSession();
-		MemberJoinDTO memberJoinDTO= (MemberJoinDTO)session.getAttribute("member");
-		if(memberJoinDTO==null) {
-			return "memberJoin/join";
-		}
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public ModelAndView add(HttpSession session, WishlistDTO wishlistDTO) throws Exception{
 		
-		int result = wishlistService.add(wishlistDTO);
-		
-		return result+"";
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		if(memberJoinDTO!=null) {
+			wishlistDTO.setM_id(memberJoinDTO.getM_id());
+			int result = wishlistService.add(wishlistDTO);
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+			}else {
+			int result=0;
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+			}
+		return mv;
 	}
 }
