@@ -1,6 +1,7 @@
 package com.shop.s1.memberJoin;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,6 +25,28 @@ public class MemeberJoinController {
 
 	@Autowired
 	private MemberJoinService memberJoinService;
+	
+	// 아이디 확인
+	@ResponseBody
+	@RequestMapping(value="idCheck",method=RequestMethod.POST)
+	public ModelAndView idCheck(HttpServletRequest request) throws Exception{
+		System.out.println("post idCheck");
+		// logger.info ("post idCheck") 를 쓰면 에러발생시 추적할 수 있는 최소한의 정보가 나온다고 함
+		ModelAndView mv = new ModelAndView();
+		String m_id= request.getParameter("m_id");
+		MemberJoinDTO idCheck = memberJoinService.idCheck(m_id);
+		
+		if(idCheck!=null) {
+			int result = 1;
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+		}else {
+			int result=0;
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+		}
+		return mv;
+	}
 	
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)

@@ -21,7 +21,8 @@
     	</delete>
     	<!-- 카트목록 -->
     	<select id="cartList" resultType="CartListDTO">
-		SELECT C.C_NUM, C.M_ID,C.P_NUM,
+		SELECT  ROW_NUMBER() OVER(ORDER BY C.C_NUM DESC) AS NUM,
+		C.C_NUM, C.M_ID,C.P_NUM,
 		P.P_NAME,P.P_PRICE
 		FROM CART C INNER JOIN PRODUCT P ON C.P_NUM=P.P_NUM
 		WHERE C.M_ID=#{m_id}

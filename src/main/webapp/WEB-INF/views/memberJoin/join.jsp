@@ -27,6 +27,7 @@ crossorigin="anonymous"></script>
 					<th scope="row">ID <img src="../resources/images/ico_required.png" alt="필수"></th>
 					<td colspan="2"><input type="text" name="m_id" id="id"></td>
 					<td id="idResult"></td>
+					<td><button type="button" class="idCheck">아이디 확인</button></td>
 				</tr>
 
 
