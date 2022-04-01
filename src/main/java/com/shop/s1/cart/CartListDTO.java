@@ -13,7 +13,7 @@ public class CartListDTO {
 	private Long c_amount; //총금액 
 
 	//product
-	private Long num;  //이게 왜 들어갈까
+	private Long num;  
 	private String p_name;
 	private Long p_price;
 	

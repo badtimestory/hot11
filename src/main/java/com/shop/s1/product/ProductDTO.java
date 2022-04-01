@@ -6,8 +6,11 @@ public class ProductDTO {
 	private Long t_num;
 	private String p_name;
 	private Long p_price;
+	private Long p_count;
 	private Long p_stock;
 	private String p_detail;
+
+	
 	public Long getP_num() {
 		return p_num;
 	}
@@ -43,6 +46,12 @@ public class ProductDTO {
 	}
 	public void setP_detail(String p_detail) {
 		this.p_detail = p_detail;
+	}
+	public Long getP_count() {
+		return p_count;
+	}
+	public void setP_count(Long p_count) {
+		this.p_count = p_count;
 	}
 	
 	

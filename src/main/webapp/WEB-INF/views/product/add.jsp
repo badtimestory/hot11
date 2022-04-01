@@ -25,6 +25,7 @@
 	<div>
 		상품가격 <input type="text" name="p_price">
 	</div>
+	
 	<div>
 		재고량 <input type="text" name="p_stock">
 	</div>

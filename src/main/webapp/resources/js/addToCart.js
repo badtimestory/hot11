@@ -34,10 +34,10 @@ addCart_btn.addEventListener("click",function(event){
     
         
         let gdsNum=event.target.getAttribute("data-pNum");
-        let c_amount=event.target.getAttribute("data-cAmount");
+        let pPrice=event.target.getAttribute("data-p_price");
         let t_num=event.target.getAttribute("data-tNum");
         console.log(gdsNum);
-        console.log(c_amount);
+        console.log(pPrice);
         console.log(t_num);
         
         //ajax
@@ -53,7 +53,7 @@ addCart_btn.addEventListener("click",function(event){
 
         //요청 전송
         //post 요청시 파라미터 
-        xhttp.send("p_num="+gdsNum+"&c_amount="+c_amount+"&t_num="+t_num);
+        xhttp.send("p_num="+gdsNum+"&c_amount="+pPrice+"&t_num="+t_num);
         // xhttp.send("p_num="+gdsNum);
         // xhttp.send("c_amount="+c_amount);
 
