@@ -8,12 +8,12 @@
 
 .allCheck label{
     margin-left: 10px;
-}
+} 
 
 .delBtn{
     float: right; width: 300px; text-align: right;
 }
-
+ 
 .delBtn button{
     font-size: 18px; padding: 5px 10px; border: 1px solid #eee; background: #eee; 
 }
@@ -24,4 +24,4 @@
 
 .checkBox input{
     width: 16px; height: 16px;
-}
+} 

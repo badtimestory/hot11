@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -58,15 +59,31 @@ public class CartController {
 		mv.setViewName("cart/detail");
 		return mv;
 	}
-//	@RequestMapping(value="delete")
-//	public String delete(CartDTO cartDTO,Model model) throws Exception{
-//		int result = cartService.delete(cartDTO);
-//		
-//		List<CartDTO> ar = cartService.list(cartDTO);
-//		model.addAttribute("list",ar);
-//		
-//		return "redirect:../";
-//	}
+	
+	// 카트 삭제
+	@ResponseBody
+	@RequestMapping(value="deleteCart",method=RequestMethod.POST)
+	public ModelAndView delete(ModelAndView mv,HttpSession session,CartDTO cartDTO) throws Exception{
+		System.out.println("delete Cart");
+		
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		
+		
+		if(memberJoinDTO!=null) {
+			cartDTO.setM_id(memberJoinDTO.getM_id());		
+			int result=cartService.delete(cartDTO);
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+			
+		}else {
+		
+		int result=0;
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		}
+		return mv;
+	}
+	
 	@RequestMapping(value="cartList",method=RequestMethod.GET)
 	public ModelAndView cartList(ModelAndView mv, CartListDTO cartListDTO,HttpSession session) throws Exception{
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
