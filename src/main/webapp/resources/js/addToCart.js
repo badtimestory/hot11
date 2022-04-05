@@ -2,7 +2,7 @@ const addToCart=document.querySelector(".addToCart");
 const addCart_btn=document.querySelector(".addCart_btn");
 const p_num=document.querySelector("#p_num");
 const p_price=document.querySelector("#p_price");
-
+const amountResult=document.querySelector("#amountResult");
 
 
 //**장바구니 추가 */
@@ -30,15 +30,18 @@ addCart_btn.addEventListener("click",function(event){
     // console.log(p_price.value);
     
     // let cn=event.target;
-    
+ 
     
         
         let gdsNum=event.target.getAttribute("data-pNum");
-        let pPrice=event.target.getAttribute("data-p_price");
         let t_num=event.target.getAttribute("data-tNum");
+        let c_stock=numBox.value;
+      
         console.log(gdsNum);
-        console.log(pPrice);
         console.log(t_num);
+        console.log(c_stock);
+        
+        
         
         //ajax
         //JS에서 요청객체(내장객체) 생성 (준비)
@@ -53,7 +56,7 @@ addCart_btn.addEventListener("click",function(event){
 
         //요청 전송
         //post 요청시 파라미터 
-        xhttp.send("p_num="+gdsNum+"&c_amount="+pPrice+"&t_num="+t_num);
+        xhttp.send("p_num="+gdsNum+"&c_stock="+c_stock+"&t_num="+t_num);
         // xhttp.send("p_num="+gdsNum);
         // xhttp.send("c_amount="+c_amount);
 
@@ -78,4 +81,5 @@ addCart_btn.addEventListener("click",function(event){
 
         
     
-})
+});
+

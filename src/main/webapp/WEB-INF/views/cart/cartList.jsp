@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/shop_header_css.jsp"></c:import>
+
 </head>
-<body>
 <c:import url="../template/shop_header.jsp"></c:import>
 	<h3>${sessionScope.member.m_name}님의 장바구니 목록</h3>
 
@@ -32,13 +32,10 @@
 					<td>이미지</td>
 					<td><a href="./detail?p_num=${pageScope.cart.p_num}">${pageScope.cartList.p_name}</a></td>
 					<td><input type="number" readonly id="p_price" name="p_price" value="${pageScope.cartList.p_price}"></td>
-					<!-- <td><input type="number" class="count" name="p_count" readonly="readonly" id="p_count" value="${pageScope.cart.p_count}"> --> 
-					
-							<!-- <input type="button" id="plus" value="+">
-							<input type="button" id="minus" value="-"> 
-				
-						</td> -->
-					<!-- <td><input type="number" name="c_amount" id="c_amount" value="${pageScope.cart.c_amount}" readonly></td> -->
+					<td>
+					<input type="number" class="count" name="c_stock" readonly="readonly" id="c_stock" value="${pageScope.cartList.c_stock}">
+					</td> 
+					<td><input type="number" id="c_amount" value="${pageScope.cartList.p_price * pageScope.cartList.c_stock}" readonly></td> 
 					
 					<td><a href="../orders/add?m_id=${sessionScope.member.m_id }&c_num=${cartList.c_num}&p_num=${pageScope.cartList.p_num}">주문</a></td>
 					<td><a href="./delete?c_num=${pageScope.cartList.c_num}">삭제</a></td>

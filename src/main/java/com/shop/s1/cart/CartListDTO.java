@@ -1,6 +1,8 @@
 package com.shop.s1.cart;
 
 
+import java.sql.Date;
+
 import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.product.ProductDTO;
 
@@ -10,12 +12,13 @@ public class CartListDTO {
 	private String m_id;   //회원 아이디
 	private Long p_num;    //상품 번호
 	private Long t_num;    //카테고리 번호
-	private Long c_amount; //총금액 
-
+	private Long c_stock;  
+	private Date addDate;
 	//product
 	private Long num;  
 	private String p_name;
 	private Long p_price;
+	
 	
 	private ProductDTO productDTO;
 	private MemberJoinDTO memberJoinDTO;
@@ -44,23 +47,17 @@ public class CartListDTO {
 	public void setT_num(Long t_num) {
 		this.t_num = t_num;
 	}
-	public Long getC_amount() {
-		return c_amount;
+	public Long getC_stock() {
+		return c_stock;
 	}
-	public void setC_amount(Long c_amount) {
-		this.c_amount = c_amount;
+	public void setC_stock(Long c_stock) {
+		this.c_stock = c_stock;
 	}
-	public ProductDTO getProductDTO() {
-		return productDTO;
+	public Date getAddDate() {
+		return addDate;
 	}
-	public void setProductDTO(ProductDTO productDTO) {
-		this.productDTO = productDTO;
-	}
-	public MemberJoinDTO getMemberJoinDTO() {
-		return memberJoinDTO;
-	}
-	public void setMemberJoinDTO(MemberJoinDTO memberJoinDTO) {
-		this.memberJoinDTO = memberJoinDTO;
+	public void setAddDate(Date addDate) {
+		this.addDate = addDate;
 	}
 	public Long getNum() {
 		return num;
@@ -80,7 +77,18 @@ public class CartListDTO {
 	public void setP_price(Long p_price) {
 		this.p_price = p_price;
 	}
-	
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
+	public MemberJoinDTO getMemberJoinDTO() {
+		return memberJoinDTO;
+	}
+	public void setMemberJoinDTO(MemberJoinDTO memberJoinDTO) {
+		this.memberJoinDTO = memberJoinDTO;
+	}
 	
 	
 

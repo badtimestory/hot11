@@ -17,8 +17,8 @@
 	
 	<!-- Insert Mapper -->
 	<insert id="add" parameterType="ProductDTO">
-		INSERT INTO PRODUCT (P_NUM,T_NUM, P_NAME, P_PRICE,P_COUNT,P_STOCK, P_DETAIL)
-		VALUES (PRODUCT_SEQ.NEXTVAL,#{t_num},#{p_name}, #{p_price},1, #{p_stock}, #{p_detail})
+		INSERT INTO PRODUCT (P_NUM,T_NUM, P_NAME, P_PRICE,P_STOCK, P_DETAIL)
+		VALUES (PRODUCT_SEQ.NEXTVAL,#{t_num},#{p_name}, #{p_price}, #{p_stock}, #{p_detail})
 	</insert>
 	
 	<!-- Update Mapper -->

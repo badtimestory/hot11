@@ -1,6 +1,8 @@
 package com.shop.s1.cart;
 
 
+import java.sql.Date;
+
 import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.product.ProductDTO;
 
@@ -10,16 +12,8 @@ public class CartDTO {
 	private String m_id;   //회원 아이디
 	private Long p_num;    //상품 번호
 	private Long t_num;    //카테고리 번호
-	private Long c_amount; //총금액 
-//	private Date c_cklimit;//쿠키제한시간(삭제용)
-//	private String c_ckid;  //쿠키 value값
-//	private String c_option; //옵션내용
-//	private Long c_option_num; //옵션 번호
-//	
-	//product
-	private ProductDTO productDTO;
-	private MemberJoinDTO memberJoinDTO;
-	
+	private Long c_stock;  
+	private Date addDate;
 	public Long getC_num() {
 		return c_num;
 	}
@@ -44,24 +38,19 @@ public class CartDTO {
 	public void setT_num(Long t_num) {
 		this.t_num = t_num;
 	}
-	public Long getC_amount() {
-		return c_amount;
+	public Long getC_stock() {
+		return c_stock;
 	}
-	public void setC_amount(Long c_amount) {
-		this.c_amount = c_amount;
+	public void setC_stock(Long c_stock) {
+		this.c_stock = c_stock;
 	}
-	public ProductDTO getProductDTO() {
-		return productDTO;
+	public Date getAddDate() {
+		return addDate;
 	}
-	public void setProductDTO(ProductDTO productDTO) {
-		this.productDTO = productDTO;
+	public void setAddDate(Date addDate) {
+		this.addDate = addDate;
 	}
-	public MemberJoinDTO getMemberJoinDTO() {
-		return memberJoinDTO;
-	}
-	public void setMemberJoinDTO(MemberJoinDTO memberJoinDTO) {
-		this.memberJoinDTO = memberJoinDTO;
-	}
+
 	
 	
 	

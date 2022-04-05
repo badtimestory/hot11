@@ -6,9 +6,8 @@
     <mapper namespace="com.shop.s1.cart.CartDAO">
     
     	<insert id="add" parameterType="CartDTO">
-    		INSERT INTO CART (C_NUM,M_ID,P_NUM,T_NUM,C_AMOUNT)
-			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num},
-			((SELECT P_COUNT FROM PRODUCT WHERE P_NUM=#{p_num})*(SELECT P_PRICE FROM PRODUCT WHERE P_NUM=#{p_num})))
+    		INSERT INTO CART (C_NUM,M_ID,P_NUM,T_NUM,C_STOCK)
+			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num},#{c_stock})
 			
     	</insert>
     	
@@ -24,7 +23,7 @@
     	<!-- 카트목록 -->
     	<select id="cartList" resultType="CartListDTO">
 		SELECT  ROW_NUMBER() OVER(ORDER BY C.C_NUM DESC) AS NUM,
-		C.C_NUM, C.M_ID,C.P_NUM,
+		C.C_NUM, C.M_ID,C.P_NUM,C.C_STOCK,C.ADDDATE,
 		P.P_NAME,P.P_PRICE
 		FROM CART C INNER JOIN PRODUCT P ON C.P_NUM=P.P_NUM
 		WHERE C.M_ID=#{m_id}
