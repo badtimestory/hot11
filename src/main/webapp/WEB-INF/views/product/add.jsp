@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#preview > img {
+		margin: 20px;
+		width: 200px;
+		height: 200px;
+	}
+</style>
 <c:import url="../template/shop_header_css.jsp"></c:import>
 </head>
 <body>
@@ -36,12 +43,15 @@
 		<label>상품정보</label>
 		<textarea rows="5" cols="50" name="p_detail" placeholder="상품정보를 입력하세요"></textarea>
 	</div>
-	<div>
-		<label>이미지</label>
-		<input type="file" name="photo" id="photo">
+	<div class="container">
+	 	<label>이미지</label>
+	 	<!-- accept="image/*" ==> 모든 타입의 이미지 파일 허용 -->
+	 	<input type="file" id="photo" name="photo" accept="image/*" onchange="previewImage(this)"/>
+		 <div id="preview"></div>
 	</div>
-	
+
 	<button>작성</button>
 	</form>
+	<script type="text/javascript" src="../resources/js/productAdd.js"></script>
 </body>
 </html>

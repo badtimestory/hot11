@@ -11,14 +11,49 @@
 	</select>
 	
 	<!-- Detail Mapper -->
-	<select id="detail" resultType="ProductDTO">
-		SELECT * FROM PRODUCT WHERE P_NUM = #{p_num} 
+	<select id="detail" parameterType="ProductDTO" resultMap="ProductDetailResult">
+		SELECT P.*, PF.*
+		FROM
+			PRODUCT P
+				LEFT OUTER JOIN
+			PRODUCTFILE PF
+			ON P.P_NUM = PF.P_NUM
+		WHERE P.P_NUM = #{p_num}
 	</select>
+	
+	<resultMap type="ProductDTO" id="ProductDetailResult">
+		<!-- PK -->
+		<id column="p_num" property="p_num"/>
+		<!-- PK를 제외한 나머지 -->
+		<result column="t_num" property="t_num"/>
+		<result column="p_name" property="p_name"/>
+		<result column="p_price" property="p_price"/>
+		<result column="p_count" property="p_count"/>
+		<result column="p_stock" property="p_stock"/>
+		<result column="p_detail" property="p_detail"/>
+		<!-- 1:1일 때 사용 -->
+		<association property="productFileDTO" javaType="ProductFileDTO">
+			<!-- PK -->
+			<id column="pf_num" property="pf_num"/>
+			<!-- PK를 제외한 나머지 -->
+			<result column="pf_fileName" property="pf_fileName"/>
+			<result column="pf_oriName" property="pf_oriName"/>
+		</association>
+	</resultMap>
 	
 	<!-- Insert Mapper -->
 	<insert id="add" parameterType="ProductDTO">
-		INSERT INTO PRODUCT (P_NUM, T_NUM, P_NAME, P_PRICE, P_STOCK, P_DETAIL)
-		VALUES (PRODUCT_SEQ.NEXTVAL, #{t_num}, #{p_name}, #{p_price}, #{p_stock}, #{p_detail})
+		<selectKey keyProperty="p_num" order="BEFORE" resultType="Long">
+			SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+			INSERT INTO PRODUCT (P_NUM, T_NUM, P_NAME, P_PRICE, P_STOCK, P_DETAIL)
+			VALUES (#{p_num}, #{t_num}, #{p_name}, #{p_price}, #{p_stock}, #{p_detail})
+	</insert>
+	
+	<!-- File Insert Mapper -->
+	<insert id="addFile" parameterType="ProductFileDTO">
+		INSERT INTO PRODUCTFILE (PF_NUM, P_NUM, PF_FILENAME, PF_ORINAME)
+		VALUES (PRODUCTFILE_SEQ.NEXTVAL, #{p_num}, #{pf_fileName}, #{pf_oriName})
 	</insert>
 	
 	<!-- Update Mapper -->
@@ -28,8 +63,8 @@
 	</update>
 	
 	<!-- Delete Mapper -->
-	<delete id="delete" parameterType="productDTO">
+	<delete id="delete" parameterType="ProductDTO">
 		DELETE FROM PRODUCT WHERE P_NUM = #{p_num}
 	</delete>
-
+	
 </mapper>

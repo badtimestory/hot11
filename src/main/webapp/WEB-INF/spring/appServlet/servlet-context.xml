@@ -24,12 +24,12 @@
 	<context:component-scan base-package="com.shop.s1" />
 	
 	<!-- Review쪽에서 TestInterceptor 발생 -->
-	<interceptors>
+<!-- <interceptors>
 		<interceptor>
 			<mapping path="/review/**"/>
 			<beans:bean class="com.shop.s1.interceptor.TestInterceptor"></beans:bean>
 		</interceptor>
-	</interceptors>
+	 </interceptors> -->
 	
 	<interceptors>
 		<interceptor>

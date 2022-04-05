@@ -44,11 +44,11 @@ public class ProductController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	// product/add의 image 추가 parameter name이 photo
 	public String add(ProductDTO productDTO, MultipartFile photo) throws Exception {
-		
-		System.out.println("파일의 원본이름: "+photo.getOriginalFilename());
-		System.out.println("파일의 크기: "+photo.getSize());
+		System.out.println("ProductController add 메서드 실행");
+		System.out.println("파일의 원본이름: " + photo.getOriginalFilename());
+		System.out.println("파일의 크기: " + photo.getSize());
 				
-		// int result = productService.add(productDTO);
+		int result = productService.add(productDTO, photo);
 		
 		return "redirect:./list";
 	}

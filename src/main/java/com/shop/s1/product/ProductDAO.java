@@ -38,4 +38,9 @@ public class ProductDAO {
 		return sqlSession.delete(NAMESPACE+"delete", productDTO);
 	}
 	
+	// add file
+	public int addFile(ProductFileDTO productFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"addFile", productFileDTO);
+	}
+	
 }
