@@ -13,43 +13,40 @@
 	<c:import url="../template/shop_header.jsp"></c:import>
 
 	<h1>Wish List</h1>
-	
+	<div class="mi">
 	<ul>
 		<li>
-			<div c>
-			</div>
-		
+			<div class= "checkAll">
+				모두 선택<input type="checkbox" id="checkAll">
+			</div>			
+			
 		</li>
 	</ul>
 
-
+	<table class="table">
 	
-	<div class="mi">
-		
-			<div class="rule-container">
-			
-			<div class="middle">
-				<div class="rule">
-					<span class="col1"><input type="checkbox" id="checkAll"></span> <span class="col2">이미지</span>
-					<span class="col3">상품정보</span> <span class="col4">판매가</span>
-
-				</div>
-			</div>
-			
-			<tbody>
+	<thead>
+		<tr class="middle">
+			<th>모두선택</th>
+			<th class="col2">이미지</th>
+			<th class="col3">상품정보</th>
+			<th class="col3">판매가</th>
+			<th class="col4">선택</th>
+		</tr>
+	</thead>
+					
+	<tbody>
 				<c:forEach items="${wishlistList}" var="wishlistList">
-					<div id="rules">
-						<div class="rule">
-							<fieldset>
-								<input type="checkbox" class="check"> <span></span>
-								<input type="hidden" name="w_num"value="${pageScope.wishlistList.w_num}">
-								<span>이미지</span> 
-								<span> <a href="./detail?p_num=${pageScope.wishlist.p_num}">${pageScope.wishlistList.p_name}</a></span>
-								<span><input type="number" readonly id="p_price" name="p_price" value="${pageScope.wishlistList.p_price}"></span>
-								<p class="delToWish">
-								<span><button class="del" type="button" data-w_num="${wishlistList.w_num}">삭제</button></span>
-								</p>
-							</fieldset>
+					<tr id="rules">	
+					
+						<td><input type="checkbox" class="check"></td>
+						<td>이미지</td> 
+						<td><a href="./detail?p_num=${pageScope.wishlist.p_num}">${pageScope.wishlistList.p_name}</a></td>
+						<td><input type="number" readonly id="p_price" name="p_price" value="${pageScope.wishlistList.p_price}"></td>
+						<p class="delToWish">
+						<td><button class="del" type="button" data-w_num="${wishlistList.w_num}">삭제</button></td>
+						</p>
+							
 							<!-- <div>
 				
 					 <span></span> <input type="hidden" name="w_num" value="${pageScope.wishlistList.w_num}"> </td>
@@ -60,17 +57,14 @@
 					<span><a href="./delete?p_num=${wishlist.p_num}">삭제</a></span>
 				
 				</div>-->
-						</div>
-					</div>
+						
+					</tr>
 			</div>
 			</c:forEach>
 		</tbody>
 		</div>
+	</table>
 	
-
-	<c:if test="${not empty member}">
-		<button type="button" id="btnDelete" >관심상품 비우기</button>
-	</c:if>
 	</div>
 
 	<script src="../resources/js/wishlist.js"></script>

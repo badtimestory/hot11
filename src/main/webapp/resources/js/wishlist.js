@@ -67,8 +67,22 @@ del.addEventListener("click", function(event){
 });
 
 //-----------전체 제거---------------------
-const btnDelete = document.getElementById("btnDelete");
+const btnDel = document.getElementsByClassName("btnDel");
+const Delbtn = document.querySelector(".Delbtn");
+const del_btn = document.getElementById("del_btn");
+const table = document.querySelector(".table");
 
-btnDelete.addEventListener("click", function(event){
+Delbtn.addEventListener("click", function(){
+    let confirm_val=confirm("삭제하시겠습니까>");
+    if(confirm_val){
+        table.addEventListener("click", function(event){
+            let check=event.target;
+
+            for(let i=o;i<check.length;i++){
+                console.log("삭제합니다");
+            }
+        });
+    }
 
 });
+
