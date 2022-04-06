@@ -26,7 +26,7 @@
 
 	<input type="number" readonly id="p_price" name="p_price" value="${dto. p_price}">
 	
-	<div id="amountResult">
+	<div>
 		<span>구입 수량</span>
 
 		<button type="button" class="minus">-</button>

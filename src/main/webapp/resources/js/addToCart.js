@@ -2,7 +2,7 @@ const addToCart=document.querySelector(".addToCart");
 const addCart_btn=document.querySelector(".addCart_btn");
 const p_num=document.querySelector("#p_num");
 const p_price=document.querySelector("#p_price");
-const amountResult=document.querySelector("#amountResult");
+
 
 
 //**장바구니 추가 */

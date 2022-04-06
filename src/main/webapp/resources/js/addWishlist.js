@@ -1,6 +1,6 @@
 const addToWish=document.querySelector(".addToWish");
 const addWish_btn = document.querySelector(".addWish_btn");
-const p_price=document.querySelector("#p_price");
+
 
 //관심상품 추가//
 function getWish(){
