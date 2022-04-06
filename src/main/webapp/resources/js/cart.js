@@ -1,12 +1,58 @@
 console.log("cart list");
 
 
-const delete_btn=document.querySelector(".delete_btn");
+const delete_btn=document.getElementsByClassName("delete_btn");
 const check=document.getElementsByClassName("check");
 
 const allCheck=document.querySelector("#allCheck")
 const selectDelBtn=document.getElementById("selectDelBtn");
+const checks=document.querySelector("#checks");
+const delBtn=document.querySelector(".delBtn");
+const list=document.querySelector(".list");
 
+delBtn.addEventListener("click",function(){
+    let confirm_val=confirm("삭제하시겠습니까?");
+    if(confirm_val){
+        list.addEventListener("click",function(event){
+            let check=event.target;
+            //선택자
+            for(let i=0;i<check.length;i++){
+                console.log();
+            // if(check.classList.contains("check").checked){
+
+            //     let c_num= event.target.getAttribute("data-c_num");
+ 
+            //     console.log(c_num);
+             
+            //     const xhttp = new XMLHttpRequest();
+            
+            //     xhttp.open("POST","../cart/deleteCart");
+            
+            //     xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            
+            //     xhttp.send("c_num="+c_num);
+            
+            //     xhttp.onreadystatechange=function(){
+            //         if(this.readyState==4&&this.status==200){
+            
+            //             console.log(this.responseText);
+            //             let result=this.responseText.trim();
+            
+            //             if(result=='1'){
+            //                 alert("삭제하였습니다.");
+            
+            
+            //             }else {
+            //                 alert("삭제 실패");
+            //             } 
+            //         }       
+            //     }
+            //     }
+            }
+        })
+    }
+
+});
 
 allCheck.addEventListener("click",function(){
     // console.log("click all");
@@ -34,35 +80,42 @@ for(ch of check){
 };
 
 
+list.addEventListener("click",function(event){
+    let delete_btn=event.target;
 
-delete_btn.addEventListener("click",function(event){
+    if(delete_btn.classList.contains("delete_btn")){
 
-    let c_num= event.target.getAttribute("data-c_num");
+        let c_num= event.target.getAttribute("data-c_num");
  
-    console.log(c_num);
- 
-    const xhttp = new XMLHttpRequest();
+        console.log(c_num);
+     
+        const xhttp = new XMLHttpRequest();
+    
+        xhttp.open("POST","../cart/deleteCart");
+    
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    
+        xhttp.send("c_num="+c_num);
+    
+        xhttp.onreadystatechange=function(){
+            if(this.readyState==4&&this.status==200){
+    
+                console.log(this.responseText);
+                let result=this.responseText.trim();
+    
+                if(result=='1'){
+                    alert("삭제하였습니다.");
+    
+    
+                }else {
+                    alert("삭제 실패");
+                } 
+            }       
+        }
+    
 
-    xhttp.open("POST","../cart/deleteCart");
-
-    xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-
-    xhttp.send("c_num="+c_num);
-
-    xhttp.onreadystatechange=function(){
-        if(this.readyState==4&&this.status==200){
-
-            console.log(this.responseText);
-            let result=this.responseText.trim();
-
-            if(result=='1'){
-                alert("삭제하였습니다.");
-
-
-            }else {
-                alert("삭제 실패");
-            } 
-        }       
     }
 
 });
+
+

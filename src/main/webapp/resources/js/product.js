@@ -13,21 +13,20 @@ plus.addEventListener("click",function(){
     count=parseInt(count)+1;
     numBox.value=count; 
    
+
     let price=p_price.value;
-    price=parseInt(price)*1;
-    p_price.value=price;
-
-    let total=p_total.value;
-    total=parseInt(total)*1;
-    p_total.value=total;
-
-    p_total.value=(numBox.value)*(p_price.value);
-    
+    price=parseInt(price.trim());
   
-    if(numBox.value>numBox.max){
+
+    p_total.value=(numBox.value)*(price);
+    
+    // console.log(numBox.max);
+    // console.log(numBox.value);
+    
+    if(numBox.value*1 > numBox.max*1){
         alert("재고가 없습니다.")
         numBox.value=numBox.max;
-        p_total.value=(numBox.max)*(p_price.value);
+        p_total.value=(numBox.max)*(price);
      
     } 
   
@@ -41,20 +40,19 @@ minus.addEventListener("click",function(){
     count=parseInt(count)-1;
     numBox.value=count; 
    
+
     let price=p_price.value;
-    price=parseInt(price)*1;
-    p_price.value=price;
+    price=parseInt(price.trim());
+  
 
-    let total=p_total.value;
-    total=parseInt(total)*1;
-    p_total.value=total;
-
-    p_total.value=(numBox.value)*(p_price.value);
+    p_total.value=(numBox.value)*(price);
     
+    // console.log(numBox.max);
+    // console.log(numBox.value);
     
-    if(numBox.value<1){
+    if(numBox.value*1<1){
         alert("1개 이상 구매가 가능합니다.");
         numBox.value=1;
-        p_total.value=1*(p_price.value);
+        p_total.value=1*(price);
 }   
 });
