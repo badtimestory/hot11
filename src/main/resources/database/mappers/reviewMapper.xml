@@ -2,10 +2,29 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.shop.s1.review.ReviewDAO">
+<mapper namespace="com.shop.s1.forum.review.ReviewDAO">
 
-	<select id="list" resultType="ReviewDTO">
-		SELECT * FROM REVIEW ORDER BY REF DESC, STEP ASC
+	<select id="list" parameterType="Pager" resultType="ReviewDTO">
+		SELECT * FROM
+			(SELECT ROWNUM R, B.* FROM
+				(SELECT * FROM REVIEW WHERE NUM > 0
+					AND
+						<choose>
+							<when test="kind=='col1'">
+								TITLE
+							</when>
+							<when test="kind=='col2'">
+								CONTENTS
+							</when>
+							<otherwise>
+								WRITER
+							</otherwise>
+						</choose>
+						LIKE '%'||#{search}||'%'
+			 		ORDER BY NUM DESC
+				) B
+			)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
 	<select id="total" resultType="Long">
@@ -28,19 +47,16 @@
 	</select>
 
 	<insert id="add" parameterType="ReviewDTO">
-		<selectKey keyProperty="num" order="BEFORE" resultType="Long">
-			SELECT REVIEW_SEQ.NEXTVAL FROM DUAL
-		</selectKey>
-		INSERT INTO REVIEW (NUM, P_NUM, O_NUM, M_ID, T_NUM, TITLE, CONTENTS,
+		INSERT INTO REVIEW (NUM, M_ID, T_NUM, TITLE, CONTENTS,
 		 WRITER, REGDATE, HIT, REF, STEP, DEPTH)
-		VALUES (REVIEW_SEQ.NEXTVAL, 0, 0, '탑텐', 0, #{title}, #{contents}, #{writer}, 
+		VALUES (REVIEW_SEQ.NEXTVAL, #{m_id}, #{t_num}, #{title}, #{contents}, #{writer}, 
 		SYSDATE, 0, REVIEW_SEQ.CURRVAL, 0, 0)
 	</insert>
 	
 	<insert id="reply" parameterType="ReviewDTO">
 		INSERT INTO REVIEW (NUM, P_NUM, O_NUM, M_ID, T_NUM, TITLE, CONTENTS,
 		 WRITER, REGDATE, HIT, REF, STEP, DEPTH)
-		 VALUES (REVIEW_SEQ.NEXTVAL, 0, 0, '탑텐', 0, #{title}, #{contents}, #{writer},
+		 VALUES (REVIEW_SEQ.NEXTVAL, #{p_num}, #{o_num}, #{m_id}, #{t_num}, #{title}, #{contents}, #{writer},
 		 SYSDATE, 0, #{ref}, #{step}, #{depth})
 	</insert>
 	

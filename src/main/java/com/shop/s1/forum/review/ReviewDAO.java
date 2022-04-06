@@ -14,7 +14,7 @@ import com.shop.s1.util.Pager;
 public class ReviewDAO implements ForumDAO {
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.shop.s1.review.ReviewDAO.";
+	private final String NAMESPACE = "com.shop.s1.forum.review.ReviewDAO.";
 	
 	@Override
 	public List<ForumDTO> list(Pager pager) throws Exception {
@@ -23,8 +23,7 @@ public class ReviewDAO implements ForumDAO {
 	
 	@Override
 	public Long total(Pager pager) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"total", pager);
 	}
 
 	@Override

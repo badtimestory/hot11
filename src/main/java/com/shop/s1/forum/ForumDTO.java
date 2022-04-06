@@ -3,8 +3,6 @@ package com.shop.s1.forum;
 import java.sql.Date;
 
 public class ForumDTO {
-	
-
 	private Long num;				// 글번호
 	private String title;			// 제목
 	private String contents;		// 내용
