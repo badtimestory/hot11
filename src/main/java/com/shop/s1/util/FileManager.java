@@ -18,6 +18,7 @@ public class FileManager {
 	// Web application과 외부(OS)간의 연결정보를 담고 있는 객체
 	private ServletContext servletContext;
 
+	// HDD에 File을 저장
 	public String save(MultipartFile multipartFile, String path) throws Exception {
 		// path = resources/images/products
 		String realPath = servletContext.getRealPath(path);
@@ -44,5 +45,16 @@ public class FileManager {
 		
 		// 파일의 이름을 반환
 		return fileName;
+	}
+	
+	// 파일을 HDD에서 삭제
+	// 저장된 폴더명, 저장된 파일명
+	public boolean remove(String path, String fileName) throws Exception {
+		path = servletContext.getRealPath(path);		// 실제 경로를 받아옴
+		System.out.println("remove 메서드 경로 확인: " + path);
+		
+		File file = new File(path, fileName);
+		
+		return file.delete();
 	}
 }

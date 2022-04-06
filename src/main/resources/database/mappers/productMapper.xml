@@ -56,6 +56,11 @@
 		VALUES (PRODUCTFILE_SEQ.NEXTVAL, #{p_num}, #{pf_fileName}, #{pf_oriName})
 	</insert>
 	
+	<!-- File Lookup -->
+	<select id="lookUpFile" parameterType="ProductDTO" resultType="ProductFileDTO">
+		SELECT * FROM PRODUCTFILE WHERE P_NUM = #{p_num}
+	</select>
+	
 	<!-- Update Mapper -->
 	<update id="update" parameterType="ProductDTO">
 		UPDATE PRODUCT SET P_NAME = #{p_name}, T_NUM = #{t_num}, P_PRICE = #{p_price}, 

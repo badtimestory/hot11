@@ -19,17 +19,13 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1"/>
 	</beans:bean>
 	
-	<context:component-scan base-package="com.shop.s1" />
-	
-	<!-- Review쪽에서 TestInterceptor 발생 -->
-<!-- <interceptors>
-		<interceptor>
-			<mapping path="/review/**"/>
-			<beans:bean class="com.shop.s1.interceptor.TestInterceptor"></beans:bean>
-		</interceptor>
-	 </interceptors> -->
+	<!-- View의 이름이 객체의 이름과 같은게 있는지 체크 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>
 	
 	<interceptors>
 		<interceptor>
@@ -37,5 +33,9 @@
 			<beans:bean class="com.shop.s1.interceptor.WishlistInterceptor"></beans:bean>
 		</interceptor>
 	</interceptors>
+	
+	<context:component-scan base-package="com.shop.s1" />
+		
+
 	
 </beans:beans>

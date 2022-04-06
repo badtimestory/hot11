@@ -43,4 +43,9 @@ public class ProductDAO {
 		return sqlSession.insert(NAMESPACE+"addFile", productFileDTO);
 	}
 	
+	// File Lookup
+	public ProductFileDTO lookUpFile(ProductDTO productDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"lookUpFile", productDTO);
+	}
+	
 }
