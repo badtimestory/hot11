@@ -13,7 +13,7 @@
 			<a href="/s1/memberJoin/login">Login</a>
 			<a href="/s1/memberJoin/joinCheck">Join</a>
 			<a href="/s1/memberJoin/login">장바구니</a>
-			<a href=/s1/memberJoin/login">관심상품</a>
+			<a href="/s1/memberJoin/login">관심상품</a>
 			<li><a href="#">주문조회</a></li>
 			<a href="/s1/memberJoin/login">주문하기</a>
 		</c:if>

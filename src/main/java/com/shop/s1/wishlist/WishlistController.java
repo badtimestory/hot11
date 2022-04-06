@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -46,10 +47,32 @@ public class WishlistController {
 		return mv;
 	}
 	
-	@RequestMapping(value="delete")
-	public String delete(WishlistDTO wishlistDTO) throws Exception{
-		int result = wishlistService.delete(wishlistDTO);
-		return "redirect:./list";
+
+//	@RequestMapping(value="delete", method = RequestMethod.GET)
+//	public String delete(WishlistDTO wishlistDTO) throws Exception{
+//		int result = wishlistService.delete(wishlistDTO);
+//		
+//		return"redirect:./list";
+//		
+//	}
+	@ResponseBody
+	@RequestMapping(value="delete",method = RequestMethod.POST)
+	public ModelAndView delete(ModelAndView mv,HttpSession session,WishlistDTO wishlistDTO) throws Exception{
+		System.out.println("delete");
+		
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		
+		if(memberJoinDTO!=null) {
+			wishlistDTO.setM_id(memberJoinDTO.getM_id());
+			int result=wishlistService.delete(wishlistDTO);
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+		}else {
+			int result=0;
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+		}
+		return mv;
 	}
 	
 	@ResponseBody

@@ -14,6 +14,7 @@
   			<typeAlias type="com.shop.s1.forum.shopQna.ShopQnaDTO" alias="ShopQnaDTO"/>
   			
   			<typeAlias type="com.shop.s1.wishlist.WishlistDTO" alias="WishlistDTO"/>
+  			<typeAlias type="com.shop.s1.wishlist.WishlistDAO" alias="WishlistDAO"/>
   			<typeAlias type="com.shop.s1.wishlist.WishlistListDTO" alias="WishlistListDTO"/>
   			
 

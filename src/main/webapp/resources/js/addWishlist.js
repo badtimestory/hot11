@@ -17,11 +17,19 @@ xhttp2.onreadystatechange=function(){
 }
 
 addWish_btn.addEventListener("click", function(event){
+  
+
+
+
     let wdsNum=event.target.getAttribute("data_pNum");
+    
     let t_num = event.target.getAttribute("data_tNum");
+   
+   
 
     console.log(wdsNum);
     console.log(t_num); 
+  
 
      //ajax
     //JS에서 요청객체(내장객체) 생성 (준비)
@@ -29,11 +37,12 @@ addWish_btn.addEventListener("click", function(event){
 
     //요청정보 입력
     //open("method형식","url주소")
-     xhttp.open("POST","../wishlist/add");
-
+    xhttp.open("POST","../wishlist/add");
+    
+    xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
      //요청 전송
      //Post 요청시 파라미터
-     xhttp.send("p_num"+wdsNum+"&t_num="+t_num);
+     xhttp.send("p_num="+wdsNum+"&t_num="+t_num);
 
      //응답처리
      xhttp.onreadystatechange=function(){
@@ -42,7 +51,7 @@ addWish_btn.addEventListener("click", function(event){
              let result=this.responseText.trim();
 
              if(result=='1'){
-                 alert("관심상품에 추가히였습니다.");
+                 alert("관심상품에 추가하였습니다.");
              }else if(result=='0'){
                  alert("로그인이 필요합니다.");
              }else {

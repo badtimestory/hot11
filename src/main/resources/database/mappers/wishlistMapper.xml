@@ -24,7 +24,8 @@
 	</insert>
 	
 	<delete id="delete" parameterType="WishlistDTO">
-		DELETE WISHLIST WHERE W_NUM=#{w_num}
+		DELETE WISHLIST WHERE W_NUM =#{w_num} AND M_ID=#{m_id}
+		
 	</delete>
 	
 	

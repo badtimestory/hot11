@@ -29,7 +29,7 @@ public class WishlistService {
 		return wishlistDAO.add(wishlistDTO);
 	}
 	
-	public int delete(WishlistDTO wishlistDTO) throws Exception{
+	public int delete(WishlistDTO wishlistDTO) throws Exception{		
 		return wishlistDAO.delete(wishlistDTO);
 	}
 }
