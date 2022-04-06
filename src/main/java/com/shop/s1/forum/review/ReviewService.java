@@ -18,6 +18,9 @@ public class ReviewService implements ForumService {
 
 	@Override
 	public List<ForumDTO> list(Pager pager) throws Exception {
+		pager.makeRow();
+		pager.makeNum(reviewDAO.total(pager));
+		
 		return reviewDAO.list(pager);
 	}
 

@@ -42,11 +42,6 @@ public class ProductService {
 		productFileDTO.setPf_oriName(photo.getOriginalFilename());
 		result = productDAO.addFile(productFileDTO);
 		
-		System.out.println("pf_num: " + productFileDTO.getPf_num());
-		System.out.println("p_num: " + productFileDTO.getP_num());
-		System.out.println("pf_fileName: " + productFileDTO.getPf_fileName());
-		System.out.println("pf_oriName: " + productFileDTO.getPf_oriName());
-		
 		return result;
 	}
 	

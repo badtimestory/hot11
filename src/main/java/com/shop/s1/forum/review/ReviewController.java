@@ -45,7 +45,10 @@ public class ReviewController {
 	
 	// Insert
 	@GetMapping("add")
-	public void add() throws Exception {}
+	public String add() throws Exception {
+		
+		return "forum/add";
+	}
 	
 	// Insert DB
 	@PostMapping("add")
