@@ -24,7 +24,7 @@
 
 			<a href="/s1/memberJoin/mypage">My Page</a>
 			<a href="/s1/memberJoin/logout">Logout</a>
-			<a href="/s1/cart/list?m_id=${member.m_id}">장바구니</a>
+			<a href="/s1/cart/cartList?m_id=${member.m_id}">장바구니</a>
 			<a href="/s1/wishlist/wishlistList?m_id=${member.m_id}">관심상품</a>
 
 			<li><a href="#">주문조회</a></li>
