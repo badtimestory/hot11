@@ -14,7 +14,7 @@
 	<h3>${sessionScope.member.m_name}님의 장바구니 목록</h3>
 	<ul>
 		<li>
-			<div calss="allCheck">
+			<div class="allCheck">
 				모두 선택<input type="checkbox" id="allCheck"> 
 			</div>
 			

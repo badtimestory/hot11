@@ -13,7 +13,14 @@
 	<c:import url="../template/shop_header.jsp"></c:import>
 
 	<h1>Wish List</h1>
-
+	
+	<ul>
+		<li>
+			<div c>
+			</div>
+		
+		</li>
+	</ul>
 
 
 	
