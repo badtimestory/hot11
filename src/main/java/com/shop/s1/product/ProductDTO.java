@@ -7,7 +7,6 @@ public class ProductDTO {
 	private Long t_num;						// 카테고리번호
 	private String p_name;					// 상품명
 	private Long p_price;					// 상품가격
-	private Long p_count;					// 주문수량
 	private Long p_stock;					// 재고량
 	private String p_detail;				// 상품상세정보
 	
@@ -40,12 +39,7 @@ public class ProductDTO {
 	public void setP_price(Long p_price) {
 		this.p_price = p_price;
 	}
-	public Long getP_count() {
-		return p_count;
-	}
-	public void setP_count(Long p_count) {
-		this.p_count = p_count;
-	}
+
 	public Long getP_stock() {
 		return p_stock;
 	}

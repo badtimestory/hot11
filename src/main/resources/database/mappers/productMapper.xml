@@ -28,7 +28,6 @@
 		<result column="t_num" property="t_num"/>
 		<result column="p_name" property="p_name"/>
 		<result column="p_price" property="p_price"/>
-		<result column="p_count" property="p_count"/>
 		<result column="p_stock" property="p_stock"/>
 		<result column="p_detail" property="p_detail"/>
 		<!-- 1:1일 때 사용 -->
