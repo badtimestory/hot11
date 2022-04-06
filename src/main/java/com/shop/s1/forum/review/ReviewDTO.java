@@ -8,6 +8,7 @@ public class ReviewDTO extends ForumDTO {
 
 	private Long p_num;		// 상품번호
 	private Long o_num;		// 주문번호
+	private Long t_num;		// 카테고리번호
 	private String m_id;	// 아이디
 	
 	private Long ref;
@@ -25,6 +26,12 @@ public class ReviewDTO extends ForumDTO {
 	}
 	public void setO_num(Long o_num) {
 		this.o_num = o_num;
+	}
+	public Long getT_num() {
+		return t_num;
+	}
+	public void setT_num(Long t_num) {
+		this.t_num = t_num;
 	}
 	public String getM_id() {
 		return m_id;
