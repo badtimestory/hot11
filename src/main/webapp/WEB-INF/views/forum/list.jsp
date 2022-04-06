@@ -67,7 +67,12 @@
 				<a href="./list?page=${pager.lastNum+1}">NEXT</a>
 			</c:if>
 		</div>
+		<c:if test="${empty member}">
+		<a href="/s1/memberJoin/login">ADD</a>
+		</c:if>
+		<c:if test="${not empty member }">
 		<a href="./add">ADD</a>
+		</c:if>
 	</div>
 </body>
 </html>

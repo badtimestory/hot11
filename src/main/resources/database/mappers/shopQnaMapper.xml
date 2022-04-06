@@ -46,7 +46,7 @@
 		
 		<insert id="add" parameterType="ShopQnaDTO">
 			INSERT INTO SHOPQNA(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH, T_NUM)
-			VALUES (SHOPQNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, SHOPQNA_SEQ.NEXTVAL, 0, 0, 0, #{t_num})
+			VALUES (SHOPQNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{num}, 0, 0, #{t_num})
 		</insert>
 		
 		<delete id="delete" parameterType="ShopQnaDTO">

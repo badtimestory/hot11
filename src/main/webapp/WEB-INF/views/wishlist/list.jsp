@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -8,24 +7,29 @@
 <meta charset="UTF-8">
 <title>관심상품 목록</title>
 <c:import url="../template/shop_header_css.jsp"></c:import>
+<link rel="stylesheet" href="../resources/css/wishlist.css">
 </head>
 <body>
 	<c:import url="../template/shop_header.jsp"></c:import>
 
-	<h1>${sessionScope.member.m_name}님의관심상품목록</h1>
+	<h1>Wish List</h1>
 
 
 
-	<table>
-
-		<tbody>
+	
+	<div class="mi">
+		
 			<div class="rule-container">
+			
+			<div class="middle">
 				<div class="rule">
-					전체 체크<input type="checkbox" id="checkAll"> <span>이미지</span>
-					<span>상품정보</span> <span>판매가</span>
+					<span class="col1"><input type="checkbox" id="checkAll"></span> <span class="col2">이미지</span>
+					<span class="col3">상품정보</span> <span class="col4">판매가</span>
 
 				</div>
-
+			</div>
+			
+			<tbody>
 				<c:forEach items="${wishlistList}" var="wishlistList">
 					<div id="rules">
 						<div class="rule">
@@ -54,11 +58,11 @@
 			</div>
 			</c:forEach>
 		</tbody>
-
-	</table>
+		</div>
+	
 
 	<c:if test="${not empty member}">
-		<!--  <a href="./delete?num=${wishlist.num}">삭제</a>-->
+		<button type="button" id="btnDelete" >관심상품 비우기</button>
 	</c:if>
 	</div>
 

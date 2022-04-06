@@ -36,5 +36,6 @@ public class WishlistDAO {
 		return sqlSession.delete(NAMESPACE+"delete", wishlistDTO);
 	}
 	
+
 	
 }

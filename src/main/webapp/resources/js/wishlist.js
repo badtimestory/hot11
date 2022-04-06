@@ -66,5 +66,9 @@ del.addEventListener("click", function(event){
     
 });
 
-//--------------------------------
+//-----------전체 제거---------------------
+const btnDelete = document.getElementById("btnDelete");
 
+btnDelete.addEventListener("click", function(event){
+
+});
