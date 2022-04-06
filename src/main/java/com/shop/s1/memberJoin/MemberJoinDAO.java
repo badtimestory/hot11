@@ -11,6 +11,11 @@ public class MemberJoinDAO {
 	private SqlSession sqlSession;
 	private final String NAMESAPCE="com.shop.s1.memberJoin.MemberJoinDAO.";
 	
+	//아이디 확인
+	public MemberJoinDTO idCheck(String m_id) throws Exception{
+		return sqlSession.selectOne(NAMESAPCE+"idCheck",m_id); 
+	}
+	
 	public int delete(MemberJoinDTO memberJoinDTO) throws Exception{
 		return sqlSession.delete(NAMESAPCE+"delete",memberJoinDTO);
 	}

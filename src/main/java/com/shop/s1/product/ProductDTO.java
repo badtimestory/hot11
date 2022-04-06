@@ -1,6 +1,7 @@
 package com.shop.s1.product;
 
 public class ProductDTO {
+
 	
 	private Long p_num;						// 상품번호
 	private Long t_num;						// 카테고리번호
@@ -12,6 +13,8 @@ public class ProductDTO {
 	
 	// 상품이미지
 	private ProductFileDTO productFileDTO;	
+
+
 	
 	public Long getP_num() {
 		return p_num;
@@ -55,10 +58,14 @@ public class ProductDTO {
 	public void setP_detail(String p_detail) {
 		this.p_detail = p_detail;
 	}
+
 	public ProductFileDTO getProductFileDTO() {
 		return productFileDTO;
 	}
 	public void setProductFileDTO(ProductFileDTO productFileDTO) {
 		this.productFileDTO = productFileDTO;
 	}
+	
+	
+
 }

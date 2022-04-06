@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class FileManager {
-	
+
 	@Autowired
 	// Web application과 외부(OS)간의 연결정보를 담고 있는 객체
 	private ServletContext servletContext;
@@ -23,38 +23,36 @@ public class FileManager {
 		// path = resources/images/products
 		String realPath = servletContext.getRealPath(path);
 		System.out.println("realPath: " + realPath);
-		
+
 		// file 객체에 폴더의 정보를 담음
 		File file = new File(realPath);
-		
+
 		// 폴더가 없을 때
-		if(!file.exists()) {
-			file.mkdirs();	// 중간폴더가 없으면 중간폴더까지 같이 생성
+		if (!file.exists()) {
+			file.mkdirs(); // 중간폴더가 없으면 중간폴더까지 같이 생성
 		}
-		
-		String oriName = multipartFile.getOriginalFilename();	// iu.jpg
-		
+
+		String oriName = multipartFile.getOriginalFilename(); // iu.jpg
+
 		// UUID
 		String fileName = UUID.randomUUID().toString();
 		fileName = fileName + "_" + oriName;
 		System.out.println("파일이름: " + fileName);
-		
+
 		// file HDD에 저장
 		file = new File(file, fileName);
 		FileCopyUtils.copy(multipartFile.getBytes(), file);
-		
+
 		// 파일의 이름을 반환
 		return fileName;
 	}
-	
-	// 파일을 HDD에서 삭제
-	// 저장된 폴더명, 저장된 파일명
-	public boolean remove(String path, String fileName) throws Exception {
-		path = servletContext.getRealPath(path);		// 실제 경로를 받아옴
-		System.out.println("remove 메서드 경로 확인: " + path);
-		
-		File file = new File(path, fileName);
-		
+
+	// 파일 HDD에서 삭제
+	// 필요한 정보: 저장된 폴더명, 저장된 파일명
+	public boolean remove(String path, String fName) throws Exception {
+		path = servletContext.getRealPath(path);
+		File file = new File(path, fName);
 		return file.delete();
 	}
+
 }

@@ -10,20 +10,11 @@
 </head>
 <body>
 <c:import url="./template/shop_header.jsp"></c:import>
-	<h1>Home Page</h1>
-	<h3>${sessionScope.member.m_name}님</h3>
+
 	<div>
-		<c:if test="${empty member}">
-			<a href="./memberJoin/login">Login</a>
-			<a href="./memberJoin/join">Join</a>
-		</c:if>
-		
-		<c:if test="${not empty member }">
-			<a href="./memberJoin/mypage">My Page</a>
-			<a href="./memberJoin/logout">Logout</a>
-			<a href="./cart/list?m_id=${member.m_id}">장바구니</a>
-			<a href="./orders/add?m_id=${member.m_id}">주문하기</a>
-		</c:if>
+		<img alt="제품1_outer" src="./resources/images/product1_outer.jpg">
+		<img alt="제품2_top" src="./resources/images/product2_top.jpg">
+		<img alt="제품3_bottom" src="./resources/images/product3_bottom.jpg" style="width:620px;height:700px;">
 	</div>
 </body>
 </html>

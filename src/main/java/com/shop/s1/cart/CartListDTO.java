@@ -6,7 +6,7 @@ import java.sql.Date;
 import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.product.ProductDTO;
 
-public class CartDTO {
+public class CartListDTO {
 	
 	private Long c_num;    //장바구니 번호
 	private String m_id;   //회원 아이디
@@ -14,6 +14,15 @@ public class CartDTO {
 	private Long t_num;    //카테고리 번호
 	private Long c_stock;  
 	private Date addDate;
+	//product
+	private Long num;  
+	private String p_name;
+	private Long p_price;
+	
+	
+	private ProductDTO productDTO;
+	private MemberJoinDTO memberJoinDTO;
+	
 	public Long getC_num() {
 		return c_num;
 	}
@@ -50,8 +59,36 @@ public class CartDTO {
 	public void setAddDate(Date addDate) {
 		this.addDate = addDate;
 	}
-
-	
+	public Long getNum() {
+		return num;
+	}
+	public void setNum(Long num) {
+		this.num = num;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public Long getP_price() {
+		return p_price;
+	}
+	public void setP_price(Long p_price) {
+		this.p_price = p_price;
+	}
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
+	public MemberJoinDTO getMemberJoinDTO() {
+		return memberJoinDTO;
+	}
+	public void setMemberJoinDTO(MemberJoinDTO memberJoinDTO) {
+		this.memberJoinDTO = memberJoinDTO;
+	}
 	
 	
 

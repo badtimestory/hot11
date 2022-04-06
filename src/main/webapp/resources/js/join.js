@@ -76,7 +76,11 @@ id.addEventListener("blur",function(){
         idResult.innerHTML="";
     }
 })
-
+id.addEventListener("change",function(){
+    if(id.value!=''){
+        alert("아이디 중복을 확인해주세요.")
+    }
+})
 
 btn.addEventListener("click",function(){
 
@@ -85,7 +89,7 @@ btn.addEventListener("click",function(){
         id.focus();
         return;
     }
-
+  
     if(pw.value==""||pw.value.length<8||pw.value.length>12){
         alert("비밀번호를 바르게 입력하세요.");
         pw.focus();
@@ -148,3 +152,41 @@ btn.addEventListener("click",function(){
 function setEmailDomain(domain){
     $("#email_domain").val(domain);
 }
+
+
+// idCheck 아이디 중복 확인 ---------------------------
+
+const idCheck = document.querySelector(".idCheck");
+
+idCheck.addEventListener("click",function(event){
+    let m_id= id.value.trim();
+    console.log(m_id)
+    const xhttp=new XMLHttpRequest();
+
+    xhttp.open("POST","./idCheck");
+    xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+    xhttp.send("m_id="+m_id);
+
+    // 응답 처리
+    xhttp.onreadystatechange=function(){
+        if(this.readyState==4&&this.status==200){
+            console.log(this.responseText);
+            let result = this.responseText.trim();
+
+            if(result=='0'){
+                alert("사용가능한 아이디 입니다.")
+            }else if (result=='1'){
+                alert("아이디 중복으로 사용 불가능합니다.");
+
+            }else{
+                alert("아이디를 바르게 입력해주세요");
+            }
+
+        }
+    }
+
+
+})
+
+

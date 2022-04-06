@@ -5,12 +5,12 @@
     
     <mapper namespace="com.shop.s1.cart.CartDAO">
     
-    	<!-- m_id 가져오는 부분 수정 필요 -->
     	<insert id="add" parameterType="CartDTO">
-    		INSERT INTO CART 
-			VALUES (cart_seq.nextval,(select m_id from memberjoin WHERE M_ID=#{m_id}),product_seq.currval,1,#{c_amount})
+    		INSERT INTO CART (C_NUM,M_ID,P_NUM,T_NUM,C_STOCK)
+			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num},#{c_stock})
+			
     	</insert>
-    
+    	
     	<!-- 카트확인 detail -->
     	<select id="detail" parameterType="CartDTO" resultType="CartDTO">
     		SELECT * FROM CART 
@@ -18,12 +18,14 @@
     	</select>
     	
     	<delete id="delete" parameterType="CartDTO">
-    		DELETE CART WHERE C_NUM=#{c_num}
+    		DELETE CART WHERE C_NUM=#{c_num} AND M_ID=#{m_id}
     	</delete>
     	<!-- 카트목록 -->
-    	<select id="list" parameterType="CartDTO" resultType="CartDTO">
-			SELECT C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,P.P_NAME,P.P_PRICE,P_COUNT 
-			FROM CART C LEFT OUTER JOIN PRODUCT P 
-			ON (C.P_NUM=P.P_NUM) WHERE M_ID=#{m_id}
+    	<select id="cartList" resultType="CartListDTO">
+		SELECT  ROW_NUMBER() OVER(ORDER BY C.C_NUM DESC) AS NUM,
+		C.C_NUM, C.M_ID,C.P_NUM,C.C_STOCK,C.ADDDATE,C.T_NUM,
+		P.P_NAME,P.P_PRICE
+		FROM CART C INNER JOIN PRODUCT P ON C.P_NUM=P.P_NUM
+		WHERE C.M_ID=#{m_id}
     	</select>
     </mapper>

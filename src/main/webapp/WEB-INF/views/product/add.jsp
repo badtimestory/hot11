@@ -24,13 +24,14 @@
 		<input type="text" name="p_name">
 	</div>
 	<div>
-		<label>카테고리</label> 
+
 		<select name="t_num">
-			<option value="1">OUTER</option>
-			<option value="2">TOP</option>
-			<option value="3">BOTTOM</option>
-		</select>
+				<option value="1">OUTER</option>
+				<option value="2">TOP</option>
+				<option value="3">BOTTOM</option>
+			</select>
 	</div>
+	
 	<div>
 		<label>상품가격</label>
 		<input type="text" name="p_price">

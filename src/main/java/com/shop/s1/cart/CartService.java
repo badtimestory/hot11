@@ -23,8 +23,8 @@ public class CartService {
 		return cartDAO.delete(cartDTO);
 	}
 	
-	public List<CartDTO> list(CartDTO cartDTO) throws Exception{
-		List<CartDTO> ar = cartDAO.list(cartDTO);
+	public List<CartListDTO> cartList(CartListDTO cartListDTO) throws Exception{
+		List<CartListDTO> ar = cartDAO.cartList(cartListDTO);
 		return ar;
 	}
 }

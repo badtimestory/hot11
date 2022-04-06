@@ -5,6 +5,11 @@
     
     <mapper namespace="com.shop.s1.memberJoin.MemberJoinDAO">
     
+    	<!-- 아이디 확인 -->
+    	<select id="idCheck" resultType="MemberJoinDTO">
+    		SELECT M_ID FROM MEMBERJOIN WHERE M_ID=#{m_id}
+    	</select>
+    	
     	<update id="update" parameterType="MemberJoinDTO">
     		UPDATE MEMBERJOIN SET M_PW=#{m_pw},M_NAME=#{m_name},M_PHONE=#{m_phone},M_EMAIL=#{m_email},M_ADDRESS=#{m_address},M_BIRTH=#{m_birth}
 			WHERE M_ID=#{m_id}

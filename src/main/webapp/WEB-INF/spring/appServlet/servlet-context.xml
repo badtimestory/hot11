@@ -19,8 +19,10 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<!--기존 view의 우선순위를 수정, order라는 속성: 우선순위 숫자가 낮을 수록 순위가 높음, 기본값은 0  -->
 		<beans:property name="order" value="1"/>
 	</beans:bean>
+
 	
 	<!-- View의 이름이 객체의 이름과 같은게 있는지 체크 -->
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">

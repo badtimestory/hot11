@@ -10,28 +10,19 @@
 </head>
 <body>
 <c:import url="../template/shop_header.jsp"></c:import>
-	<h1>Product List page</h1>
+	<h1>카테고리</h1>
+	
 	<table>
 			<tr>
-				<th>상품번호</th>
-				<th>상품명</th>
-				<th>상품가격</th>
-				<th>장바구니 추가</th>
+				<th>카테고리번호</th>
+				<th>카테고리이름</th>
 			</tr>
-			<c:forEach items="${list}" var="product">
+			<c:forEach items="${list}" var="cate">
 			<tr>
-				<th>${product.p_num}</th>
-				<th><a href="./detail?p_num=${product.p_num}">${product.p_name}</a></th>
-				<th>${product.p_price}</th>
-				<th><input type="checkbox" class="check"></th>
+				<th>${cate.t_num}</th>
+				<th>${cate.t_name}</th>
 			</tr>
-			
 			</c:forEach>
-			
-		
 		</table>
-		<hr>
-		<a href="../cart/list?"></a>
-		<a href="./add">상품추가</a>
 </body>
 </html>

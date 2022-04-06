@@ -17,6 +17,10 @@ public class CartDAO {
 		return sqlSession.insert(NAMESPACE+"add",cartDTO);
 	}
 	
+	public int update(CartDTO cartDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"update",cartDTO);
+	}
+	
 	public CartDTO detail(CartDTO cartDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"detail",cartDTO);
 	}
@@ -24,8 +28,8 @@ public class CartDAO {
 	public int delete(CartDTO cartDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"delete",cartDTO);
 	}
-	public List<CartDTO> list(CartDTO cartDTO) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"list",cartDTO);
+	public List<CartListDTO> cartList(CartListDTO cartListDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"cartList",cartListDTO);
 	}
 	
 }

@@ -63,7 +63,7 @@
 	
 	<!-- Update Mapper -->
 	<update id="update" parameterType="ProductDTO">
-		UPDATE PRODUCT SET P_NAME = #{p_name}, T_NUM = #{t_num}, P_PRICE = #{p_price}, 
+		UPDATE PRODUCT SET P_NAME = #{p_name},T_NUM=#{t_num}, P_PRICE = #{p_price}, 
 		P_STOCK = #{p_stock}, P_DETAIL = #{p_detail} WHERE P_NUM = #{p_num}
 	</update>
 	

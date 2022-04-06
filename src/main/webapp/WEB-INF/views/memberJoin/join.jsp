@@ -8,8 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-crossorigin="anonymous"></script>
+
 <c:import url="../template/shop_header_css.jsp"></c:import>
 <link rel="stylesheet" href="../resources/css/join.css">
 </head>
@@ -27,6 +26,7 @@ crossorigin="anonymous"></script>
 					<th scope="row">ID <img src="../resources/images/ico_required.png" alt="필수"></th>
 					<td colspan="2"><input type="text" name="m_id" id="id"></td>
 					<td id="idResult"></td>
+					<td><button type="button" class="idCheck">아이디 확인</button></td>
 				</tr>
 
 
@@ -68,12 +68,11 @@ crossorigin="anonymous"></script>
 				<th>Birth</th>
 				<td><input type="date" name="m_birth" id="birth"></td>
 			</tr>
+
 			
 			</tbody>
 		</table>	
-			<div>
-				<button type="button" id="btn">JOIN</button>
-			</div>
+			<div><button type="button" id="btn">JOIN</button></div>
 
 		</form>
 
