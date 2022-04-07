@@ -16,8 +16,7 @@
 			<a href="/s1/memberJoin/login">장바구니</a>
 			<a href="/s1/memberJoin/login">관심상품</a>
 
-			<li><a href="#">주문조회</a></li>
-			<li><a href="/s1/memberJoin/login">주문하기</a></li>
+	
 		</c:if>
 		
 		<c:if test="${not empty member }">
@@ -27,8 +26,7 @@
 			<a href="/s1/cart/cartList?m_id=${member.m_id}">장바구니</a>
 			<a href="/s1/wishlist/wishlistList?m_id=${member.m_id}">관심상품</a>
 
-			<li><a href="#">주문조회</a></li>
-			<li><a href="/s1/orders/add?m_id=${member.m_id}">주문하기</a></li>
+			<li><a href="/s1/orders/list?m_id=${member.m_id}">주문조회</a></li>
 		</c:if>
 
           <!-- <li><a href="#">즐겨찾기</a></li> -->
