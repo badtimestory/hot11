@@ -19,7 +19,7 @@
 			<c:forEach items="${orderList}" var="orderList">
 				<li>
 					<div>
-						<p><span>주문번호</span><a href="/order/orderView?n=${orderList.orderid }">${orderList.orderid}</a></p>
+						<p><span>주문번호</span><a href="/orders/orderView?n=${orderList.orderid }">${orderList.orderid}</a></p>
 						<p><span>수령인</span>${orderList.o_name}</p>
 						<p><span>주소</span>${orderList.o_address}</p>
 						<p><span>금액</span>${orderList.o_amount}</p>

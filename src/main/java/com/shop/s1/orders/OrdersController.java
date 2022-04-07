@@ -40,6 +40,7 @@ public class OrdersController {
 		List<OrderListDTO> orderView= ordersService.orderView(ordersDetailDTO);
 		
 		model.addAttribute("orderView",orderView);
+		
 		return "orders/orderView";
 	}
 	

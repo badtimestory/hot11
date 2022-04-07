@@ -12,12 +12,12 @@
 </head>
 <body>
 <c:import url="../template/shop_header.jsp"></c:import>
-<form action="./list" method="get"></form>
+<form action="./orderView" method="get"></form>
 
 	<section id="content">
 		<div class="orderInfo">
 		<!-- varStatus 상태용 변수 -->
-			<c:forEach items="${orderView }" var="orderView" varStatus="status">
+			<c:forEach items="${orderView}" var="orderView" varStatus="status">
 			
 			<c:if test="${status.first}">
 				<p><span>수령인</span>${orderView.o_name}</p>
