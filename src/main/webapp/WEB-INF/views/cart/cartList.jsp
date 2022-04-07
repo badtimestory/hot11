@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,13 @@
 <title>Insert title here</title>
 <c:import url="../template/shop_header_css.jsp"></c:import>
 <link href="../resources/css/cart.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </head>
 <c:import url="../template/shop_header.jsp"></c:import>
+
 	<h3>${sessionScope.member.m_name}님의 장바구니 목록</h3>
+	<input type="hidden" id="m_id" name="m_id" value="${sessionScope.member.m_id}">
 	<ul>
 		<li>
 			<div class="allCheck">
@@ -39,6 +43,7 @@
 		</thead>
 
 		<tbody>
+			<c:set var="sum" value="0"/>
 			<c:forEach items="${cartList}" var="cartList">
 				<tr>
 					<td><input type="checkbox" name="check" class="check" data-c_num="${cartList.c_num}"> </td>
@@ -56,9 +61,62 @@
 			
 
 				</tr>
+				<c:set var="sum" value="${sum+(pageScope.cartList.p_price*pageScope.cartList.c_stock)}"/>
 			</c:forEach>
 		</tbody>
+		
 	</table>
+		<div class="listResult">
+			<div class="sum">
+			
+				총합계 :<fmt:formatNumber pattern="###,###,###" value="${sum}" />원
+			</div>
+			<div class="order">
+				<button type="button" class="orderInfo_btn">주문정보입력</button>
+				
+				<!-- $(선택자).동작함수 -->
+				<script>
+					$(".orderInfo_btn").click(function () {
+						$(".orderInfo").slideDown();
+						$(".orderInfo_btn").slideUp();
+					});
+				</script>
+			</div>
+		</div>
+		
+		<div class="orderInfo">
+			<form role="form" method="post" autocomplete="off">
+				<input type="hidden" name="o_amount" value="${sum}"/>
+				
+				<div class="inputArea">
+					<label for="">주문하는 사람</label>
+					<input type="text" name="o_name" id="o_name" required="required">
+				</div>
+				
+				<div class="inputArea">
+					<label for="o_phone">주문자 연락처</label>
+					<input type="text" name="o_phone" id="o_phone" required="required">
+				</div>
+				
+				<div class="inputArea">
+					<label for="o_address">주소</label>
+					<input type="text" name="o_address" id="o_address" required="required">
+				</div>
+				
+				<div class="inputArea">
+					<button type="submit" class="order_btn">주문</button>
+					<button type="button" class="cancel_btn">취소</button>
+					
+					<script>
+					$(".cancel_btn").click(function () {
+						$(".orderInfo").slideUp();
+						$(".orderInfo_btn").slideDown();
+						
+					});
+					</script>
+				</div>
+			</form>
+		</div>
 
 	<script type="text/javascript" src="../resources/js/cart.js"></script>
 </body>

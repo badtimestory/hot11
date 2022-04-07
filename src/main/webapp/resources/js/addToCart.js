@@ -5,22 +5,7 @@ const p_price=document.querySelector("#p_price");
 
 
 
-//**장바구니 추가 */
-function getCart(){
-
-    const xhttp2=new XMLHttpRequest();
-    xhttp2.open("GET","../product/list?p_num"+p_num.value);
-    xhttp2.send();
-    xhttp2.onreadystatechange=function(){
-        if(this.readyState==4&&this.status==200){
-            console.log(this.responseText);
-            
-        }
-    }
-}
-
-
-
+// 장바구니 추가****** 
 addCart_btn.addEventListener("click",function(event){
 
     // let gdsNum=p_num.value;
@@ -37,9 +22,9 @@ addCart_btn.addEventListener("click",function(event){
         let t_num=event.target.getAttribute("data-tNum");
         let c_stock=numBox.value;
       
-        console.log(gdsNum);
-        console.log(t_num);
-        console.log(c_stock);
+        // console.log(gdsNum);
+        // console.log(t_num);
+        // console.log(c_stock);
         
         
         

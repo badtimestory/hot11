@@ -84,6 +84,31 @@ public class CartController {
 		return mv;
 	}
 	
+	//선택삭제
+	@ResponseBody
+	@RequestMapping(value="selectDelete",method=RequestMethod.POST)
+	public ModelAndView delete(ModelAndView mv,HttpSession session,@RequestParam(value="ch[]") List<String> chArr,CartDTO cartDTO)throws Exception{
+		System.out.println("select delete");
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		
+		int result=0;
+		Long c_num=0L;
+		
+		if(memberJoinDTO!=null){
+			cartDTO.setM_id(memberJoinDTO.getM_id());
+			for(String i : chArr) {
+				c_num=Long.parseLong(i);
+				cartDTO.setC_num(c_num);
+				cartService.delete(cartDTO);
+			}
+			result=1;
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+			
+		}
+		return mv;
+	}
+	
 	@RequestMapping(value="cartList",method=RequestMethod.GET)
 	public ModelAndView cartList(ModelAndView mv, CartListDTO cartListDTO,HttpSession session) throws Exception{
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
