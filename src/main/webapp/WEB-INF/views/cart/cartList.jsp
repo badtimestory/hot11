@@ -25,6 +25,35 @@
 			
 			<div class="delBtn">
 				<button type="button" id="selectDelBtn" class="selectDelete_btn">선택 삭제</button>
+				
+				<script>
+					$(".selectDelete_btn").click(function () {
+						var confirm_val=confirm("삭제하면 복구가 불가능합니다. 삭제하시겠습니까?");
+
+						if(confirm_val){
+							var checkArr= new Array();
+							$("input[class='check']:checked").each(function () {
+								checkArr.push($(this).attr("data-c_num"));
+								
+							});
+							$.ajax({
+								url : "../cart/selectDelete",
+								type : "post",
+								data : {check : checkArr},
+								success : function (result) {
+									if(result == 1){
+									location.reload();
+									}else{
+										alert("삭제실패")
+									}
+		
+									}
+							});
+							
+						}
+						
+					})
+				</script>
 			</div>
 		</li>
 	</ul>

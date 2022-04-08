@@ -60,7 +60,7 @@ public class CartController {
 		return mv;
 	}
 	
-	// 카트 삭제
+	// 카트 삭제 낱개
 	@ResponseBody
 	@RequestMapping(value="deleteCart",method=RequestMethod.POST)
 	public ModelAndView delete(ModelAndView mv,HttpSession session,CartDTO cartDTO) throws Exception{
@@ -87,7 +87,7 @@ public class CartController {
 	//선택삭제
 	@ResponseBody
 	@RequestMapping(value="selectDelete",method=RequestMethod.POST)
-	public ModelAndView delete(ModelAndView mv,HttpSession session,@RequestParam(value="ch[]") List<String> chArr,CartDTO cartDTO)throws Exception{
+	public ModelAndView delete(ModelAndView mv,HttpSession session,@RequestParam(value="check[]") List<String> chArr,CartDTO cartDTO)throws Exception{
 		System.out.println("select delete");
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		
@@ -109,6 +109,8 @@ public class CartController {
 		return mv;
 	}
 	
+	
+	//카트목록
 	@RequestMapping(value="cartList",method=RequestMethod.GET)
 	public ModelAndView cartList(ModelAndView mv, CartListDTO cartListDTO,HttpSession session) throws Exception{
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");

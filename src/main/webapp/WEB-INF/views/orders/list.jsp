@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
 						<p><span>주문번호</span><a href="./orderView?n=${orderList.orderid }">${orderList.orderid}</a></p>
 						<p><span>수령인</span>${orderList.o_name}</p>
 						<p><span>주소</span>${orderList.o_address}</p>
-						<p><span>금액</span>${orderList.o_amount}</p>
+						<p><span>금액</span><fmt:formatNumber pattern="###,###,###" value="${orderList.o_amount}"/>원</p>
 						
 					</div>
 				</li>

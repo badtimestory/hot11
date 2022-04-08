@@ -11,21 +11,7 @@
 	</update>
 
 
-	<insert id="add" parameterType="OrdersDTO">
-		<selectKey keyProperty="c_num" keyColumn="c_num" order="BEFORE" resultType="Long">
-			SELECT C_NUM FROM CART WHERE M_ID=#{m_id}
-		</selectKey>
-		INSERT INTO ORDERS
-		VALUES (ORDERS_SEQ.NEXTVAL,#{m_id},#{p_num},#{c_num},#{o_name},sysdate,
-		#{o_phone},#{o_address},#{o_amount},#{o_price},#{o_message},#{o_pay})
-		
-		<!--  SELECT 
-		C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,
-		P.P_NAME,P.P_PRICE,P.P_COUNT 
-		FROM CART C LEFT OUTER JOIN PRODUCT P 
-		ON (C.P_NUM=P.P_NUM) 
-		WHERE M_ID=#{m_id}, C_NUM=#{c_num} -->
-	</insert>
+	
 	
 	<!-- 주문정보 ordersDetail -->
 	<insert id="ordersDetail" parameterType="OrdersDetailDTO">
@@ -49,6 +35,7 @@
 		SELECT ORDERID,M_ID,O_NAME,O_ADDRESS,O_PHONE,O_AMOUNT,O_DATE
 		FROM ORDERS_DETAIL 
 		WHERE M_ID=#{m_id}
+		ORDER BY O_DATE DESC
 	</select>
 	
 	<!-- 주문목록에서 특정상품 상세보기 -->
