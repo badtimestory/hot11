@@ -11,12 +11,9 @@
 } 
 
 .delBtn{
-    float: right; width: 300px; text-align: right;
+    float: right; width: 400px; text-align: right;
 }
  
-.delBtn button{
-    font-size: 18px; padding: 5px 10px; border: 1px solid #eee; background: #eee; 
-}
 
 .checkBox{
     float: left; width: 30px;
@@ -33,3 +30,434 @@
 
 .orderInfo .inputArea:last-child { margin-top:30px; }
 .orderInfo .inputArea button { font-size:20px; border:2px solid #ccc; padding:5px 10px; background:#fff; margin-right:20px;}
+
+.mi{
+    border-bottom-color :rgb(231, 231, 231);
+    border-bottom-style :solid;
+    border-bottom-width :1px;
+    border-collapse: collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source :none;
+    border-image-width: 1;
+    border-left-color: rgb(53, 53, 53);
+    border-left-style :none;
+    border-left-width: 0px;
+    border-right-color: rgb(53, 53, 53);
+    border-right-style: none;
+    border-right-width :0px;
+    border-top-color: rgb(231, 231, 231);
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-sizing :border-box;
+    color: rgb(53, 53, 53);
+    display: table;
+    font-family: "Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    height: 151px;
+    line-height :16.5px;
+    table-layout: fixed;
+    text-indent: 0px;
+    width: 1100px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing :antialiased;
+}
+
+.middle{
+    border-bottom-color: rgb(231, 231, 231);
+    border-collapse: collapse;
+    border-left-color: rgb(53, 53, 53);
+    border-right-color: rgb(53, 53, 53);
+    border-top-color: rgb(231, 231, 231);
+    color: rgb(53,53,53);
+    display: table-row;
+    font-family: "Nanum Gothic","Malgun Gothic","맑은 고딕","돋움","Dotum","Apple Gothic","Apple SD Gothic Neo",sans-serif;
+    font-size: 11px;
+    height: 45px;
+    line-height: 16.5px;
+    text-indent: 0px;
+    vertical-align: middle;
+    width: 1100px;
+    -webkit-font-smoothing: antialiased;
+    
+}
+
+.allCheck{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background: repeat x 0;
+    background: repeat y 0;
+    background-size: auto;
+    border-bottom-color: rgb(53, 53, 53);
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-collapse: collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(53, 53, 53);
+    border-left-style: none;
+    border-left-width: 0px;
+    border-right-color: rgb(53, 53, 53);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgb(53, 53, 53);
+    border-top-style: none;
+    border-top-width: 0px;
+    color: rgb(53, 53, 53);
+    display: table-cell;
+    font-family: "Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    height: 44px;
+    line-height: 44px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-align: center;
+    text-indent: 0px;
+    vertical-align: middle;
+    width: 92px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+}
+
+.rules{
+    border-bottom-color: rgb(231, 231, 231);
+    border-collapse: collapse;
+    border-left-color: rgb(53, 53, 53);
+    border-right-color: rgb(53, 53, 53);
+    border-top-color: rgb(231, 231, 231);
+    color: rgb(53, 53, 53);
+    display: table-row-group;
+    font-family: "Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    height: 105px;
+    line-height: 16.5px;
+    text-indent: 0px;
+    vertical-align: middle;
+    width: 1100px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing :antialiased;
+}
+
+.col2{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background: repeat x 0;
+    background: repeat y 0;
+    background-size: auto;
+    border-bottom-color: rgb(53, 53, 53);
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-collapse :collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(53, 53, 53);
+    border-left-style: none;
+    border-left-width: 0px;
+    border-right-color: rgb(53, 53, 53);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgb(53, 53, 53);
+    border-top-style: none;
+    border-top-width: 0px;
+    color: rgb(53, 53, 53);
+    display: table-cell;
+    font-family: "Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    height: 44px;
+    line-height: 44px;
+    margin-bottom :0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-align: center;
+    text-indent: 0px;
+    vertical-align: middle;
+    width: 92px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+                
+}
+
+.col3{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background: repeat x 0;
+    background: repeat y 0;
+    background-size: auto;
+    border-bottom-color: rgb(53, 53, 53);
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-collapse: collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(53, 53, 53);
+    border-left-style: none;
+    border-left-width: 0px;
+    border-right-color: rgb(53, 53, 53);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgb(53, 53, 53);
+    border-top-style: none;
+    border-top-width: 0px;
+    color: rgb(53, 53, 53);
+    display: table-cell;
+    font-family: "Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    height: 44px;
+    line-height: 44px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top:0px;
+    text-align: center;
+    text-indent: 0px;
+    vertical-align: middle;
+    width: 419px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.col4{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background: repeat x 0;
+    background: repeat y 0;
+    background-size: auto;
+    border-bottom-color: rgb(53, 53, 53);
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-collapse: collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(53, 53, 53);
+    border-left-style: none;
+    border-left-width :0px;
+    border-right-color: rgb(53, 53, 53);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgb(53, 53, 53);
+    border-top-style: none;
+    border-top-width: 0px;
+    color: rgb(53, 53, 53);
+    display: table-cell;
+    font-family: "Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    height: 44px;
+    line-height: 44px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-align: center;
+    text-indent :0px;
+    vertical-align: middle;
+    width :95px;
+    -webkit-border-horizontal-spacing :0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing: antialias;
+}
+
+.delete_btn{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background: repeat x 0;
+    background: repeat y 0;
+    background-size: auto;
+    border-bottom-color: rgb(199, 199, 199);
+    border-bottom-left-radius: 3.3px;
+    border-bottom-right-radius :3.3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-collapse: collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(227, 227, 227);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(227, 227, 227);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgb(227, 227, 227);
+    border-top-left-radius: 3.3px;
+    border-top-right-radius: 3.3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 2px 0px;
+    box-sizing: content-box;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+    display: block;
+    font-family :"Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    height: 24px;
+    line-height: 23px;
+    margin-bottom: 0px;
+    margin-left :0px;
+    margin-right: 0px;
+    margin-top: 4px;
+    outline-color :rgb(102, 102, 102);
+    outline-style :none;
+    outline-width: 0px;
+    overflow-wrap: break-word;
+    padding-bottom: 0px;
+    padding-left: 9.35px;
+    padding-right: 9.35px;
+    padding-top :0px;
+    text-align :center;
+    text-decoration-color: rgb(102, 102, 102);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-indent: 0px;
+    transition-delay :0s;
+    transition-duration: 0.1s;
+    transition-property: all;
+    transition-timing-function :ease-in-out;
+    vertical-align :middle;
+    width:79.3125px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+.selectDelete_btn{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background: repeat x 0;
+    background: repeat y 0;
+    background-size: auto;
+    border-bottom-color: rgb(199, 199, 199);
+    border-bottom-left-radius: 3.3px;
+    border-bottom-right-radius :3.3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-collapse: collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(227, 227, 227);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(227, 227, 227);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgb(227, 227, 227);
+    border-top-left-radius: 3.3px;
+    border-top-right-radius: 3.3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 2px 0px;
+    box-sizing: content-box;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+    display: block;
+    font-family :"Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    height: 24px;
+    line-height: 23px;
+    margin-bottom: 0px;
+    margin-left :0px;
+    margin-right: 0px;
+    margin-top: 4px;
+    outline-color :rgb(102, 102, 102);
+    outline-style :none;
+    outline-width: 0px;
+    overflow-wrap: break-word;
+    padding-bottom: 0px;
+    padding-left: 9.35px;
+    padding-right: 9.35px;
+    padding-top :0px;
+    text-align :center;
+    text-decoration-color: rgb(102, 102, 102);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-indent: 0px;
+    transition-delay :0s;
+    transition-duration: 0.1s;
+    transition-property: all;
+    transition-timing-function :ease-in-out;
+    width:79.3125px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+
+}

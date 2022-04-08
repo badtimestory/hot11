@@ -16,6 +16,7 @@
 
 	<h3>${sessionScope.member.m_name}님의 장바구니 목록</h3>
 	<input type="hidden" id="m_id" name="m_id" value="${sessionScope.member.m_id}">
+<div class="mi">
 	<ul>
 		<li>
 			<div class="allCheck">
@@ -31,13 +32,13 @@
 	
 	<table class="list">
 		<thead>
-			<tr>
+			<tr class="middle">
 				<th>선택</th>
-				<th>이미지</th>
-				<th>상품정보</th>
-				<th>판매가</th>
-				<th>수량</th>
-				<th>합계</th>
+				<th class="col3">이미지</th>
+				<th class="col3">상품정보</th>
+				<th class="col3">판매가</th>
+				<th class="col3">수량</th>
+				<th class="col4">합계</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -45,7 +46,7 @@
 		<tbody>
 			<c:set var="sum" value="0"/>
 			<c:forEach items="${cartList}" var="cartList">
-				<tr>
+				<tr id="rules">
 					<td><input type="checkbox" name="check" class="check" data-c_num="${cartList.c_num}"> </td>
 					<td>이미지</td>
 					<td><a href="../product/detail?p_num=${pageScope.cartList.p_num}">${pageScope.cartList.p_name}</a></td>
@@ -66,6 +67,7 @@
 		</tbody>
 		
 	</table>
+</div>
 		<div class="listResult">
 			<div class="sum">
 			

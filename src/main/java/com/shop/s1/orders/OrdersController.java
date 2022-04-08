@@ -91,7 +91,7 @@ public class OrdersController {
 		
 		ordersService.cartAllDelete(ordersDetailDTO);
 		
-		return "redirect:../order/list";
+		return "redirect:../orders/list";
 	}
 	
 	
