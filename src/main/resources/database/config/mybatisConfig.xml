@@ -17,6 +17,7 @@
   			<typeAlias type="com.shop.s1.wishlist.WishlistDAO" alias="WishlistDAO"/>
   			<typeAlias type="com.shop.s1.wishlist.WishlistListDTO" alias="WishlistListDTO"/>
   			
+  			
 
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDTO" alias="MemberJoinDTO"/>
   			<typeAlias type="com.shop.s1.memberJoin.MemberJoinDAO" alias="MemberJoinDAO"/>

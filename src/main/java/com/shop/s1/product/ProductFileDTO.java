@@ -7,6 +7,10 @@ public class ProductFileDTO {
 	private String pf_fileName;		// 파일 이름
 	private String pf_oriName;		// 원본파일 이름
 	
+	
+	
+
+	
 	public Long getPf_num() {
 		return pf_num;
 	}

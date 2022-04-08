@@ -42,8 +42,8 @@
 			<c:forEach items="${cartList}" var="cartList">
 				<tr>
 					<td><input type="checkbox" class="check" data-c_num="${cartList.c_num}"> </td>
-					<td>이미지</td>
-					<td><a href="./detail?p_num=${pageScope.cartList.p_num}">${pageScope.cartList.p_name}</a></td>
+					<td><div><img alt="상품이미지"	src="../resources/images/products/${dto.productFileDTO.pf_fileName}"></div></td>
+					<td><a href="../product/detail?p_num=${pageScope.cartList.p_num}">${pageScope.cartList.p_name}</a></td>
 					<td><input type="number" readonly id="p_price" name="p_price" value="${pageScope.cartList.p_price}"></td>
 					<td> 
 					<input type="number" class="count" name="c_stock" readonly="readonly" id="c_stock" value="${pageScope.cartList.c_stock}">

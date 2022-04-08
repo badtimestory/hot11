@@ -1,5 +1,7 @@
 package com.shop.s1.wishlist;
 
+import java.util.List;
+
 import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.product.ProductDTO;
 
@@ -12,6 +14,8 @@ public class WishlistDTO {
 	
 	private ProductDTO productDTO;
 	private MemberJoinDTO memberJoinDTO;
+	
+	 
 	
 	
 	public Long getW_num() {

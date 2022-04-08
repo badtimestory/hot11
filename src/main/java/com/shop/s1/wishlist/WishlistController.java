@@ -26,6 +26,8 @@ public class WishlistController {
 	@Autowired
 	private WishlistService wishlistService;
 	
+	
+	//list
 	@RequestMapping(value="wishlistList", method = RequestMethod.GET)
 	public ModelAndView wishlistList(ModelAndView mv, WishlistListDTO wishlistListDTO, HttpSession session) throws Exception{
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
@@ -38,6 +40,7 @@ public class WishlistController {
 		return mv;
 	}
 	
+
 	
 	@RequestMapping(value="detail", method =  RequestMethod.GET)
 	public ModelAndView detail(ModelAndView mv, WishlistDTO wishlistDTO) throws Exception{
@@ -75,6 +78,9 @@ public class WishlistController {
 		return mv;
 	}
 	
+
+	
+	
 	@ResponseBody
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public ModelAndView add(HttpSession session, WishlistDTO wishlistDTO) throws Exception{
@@ -93,4 +99,6 @@ public class WishlistController {
 			}
 		return mv;
 	}
+	
+
 }

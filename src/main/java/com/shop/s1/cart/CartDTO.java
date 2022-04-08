@@ -14,6 +14,7 @@ public class CartDTO {
 	private Long t_num;    //카테고리 번호
 	private Long c_stock;  
 	private Date addDate;
+	
 	public Long getC_num() {
 		return c_num;
 	}

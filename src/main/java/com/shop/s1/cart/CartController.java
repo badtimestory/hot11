@@ -31,7 +31,7 @@ public class CartController {
 	@ResponseBody
 	@RequestMapping(value="add",method=RequestMethod.POST)
 	public ModelAndView add(HttpSession session,CartDTO cartDTO) throws Exception{
-		
+		System.out.println("add!!");
 	
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		ModelAndView mv= new ModelAndView();

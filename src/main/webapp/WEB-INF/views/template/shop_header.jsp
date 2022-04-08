@@ -41,7 +41,7 @@
           <li><a href="/s1/shopQna/list">QNA</a></li>
           <li><a href="/s1/product/list">제품</a></li>
           <li><a href="/s1/review/list">REVIEW</a></li>
-          <li><a href="#">MODEL</a></li>
+          
         </ul>
       </div>  
     </div>

@@ -10,6 +10,8 @@ public class ProductDTO {
 	private Long p_stock;					// 재고량
 	private String p_detail;				// 상품상세정보
 	
+	
+
 	// 상품이미지
 	private ProductFileDTO productFileDTO;	
 
