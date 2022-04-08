@@ -52,7 +52,7 @@
 	</select>
 	
 	<!-- 주문목록에서 특정상품 상세보기 -->
-	<select id="orderView" parameterType="OrdersDetailDTO" resultType="OrderListDTO">
+	<select id="orderView" resultType="OrderListDTO">
 		SELECT D.ORDERID, D.M_ID, D.O_NAME, D.O_ADDRESS, D.O_PHONE, D.O_AMOUNT, D.O_DATE,
         		O.O_NUM, O.P_NUM, O.C_STOCK,
         		P.P_NAME, P.P_PRICE

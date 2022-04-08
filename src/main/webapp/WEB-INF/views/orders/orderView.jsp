@@ -18,7 +18,7 @@
 		<div class="orderInfo">
 		<!-- varStatus 상태용 변수 -->
 			<c:forEach items="${orderView}" var="orderView" varStatus="status">
-			
+			<!-- 첫번째인지 여부 -->
 			<c:if test="${status.first}">
 				<p><span>수령인</span>${orderView.o_name}</p>
 				<p><span>주소</span>${orderView.o_address}</p>
