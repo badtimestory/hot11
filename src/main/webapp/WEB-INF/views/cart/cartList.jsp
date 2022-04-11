@@ -63,6 +63,7 @@
 		<thead>
 			<tr class="middle">
 				<th>선택</th>
+		
 				<th class="col3">이미지</th>
 				<th class="col3">상품정보</th>
 				<th class="col3">판매가</th>
@@ -74,10 +75,11 @@
 
 		<tbody>
 			<c:set var="sum" value="0"/>
-			<c:forEach items="${cartList}" var="cartList">
+			<c:forEach items="${requestScope.cartList}" var="cartList">
 				<tr id="rules">
 					<td><input type="checkbox" name="check" class="check" data-c_num="${cartList.c_num}"> </td>
-					<td>이미지</td>
+					<td><img alt="상품이미지"
+			src="../resources/images/products/${pageScope.cartList.fileDTOs[0].pf_fileName}" width="120"></td>
 					<td><a href="../product/detail?p_num=${pageScope.cartList.p_num}">${pageScope.cartList.p_name}</a></td>
 					<td><input type="number" readonly id="p_price" name="p_price" value="${pageScope.cartList.p_price}"></td>
 					<td> 

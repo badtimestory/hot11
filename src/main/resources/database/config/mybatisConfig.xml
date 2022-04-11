@@ -34,7 +34,8 @@
   			<typeAlias type="com.shop.s1.cart.CartDTO" alias="CartDTO"/>
   			<typeAlias type="com.shop.s1.cart.CartListDTO" alias="CartListDTO"/>
   			<typeAlias type="com.shop.s1.cart.CartDAO" alias="CartDAO"/>
-  			
+			<typeAlias type="com.shop.s1.cart.CartFileDTO" alias="CartFileDTO"/>
+
   			<typeAlias type="com.shop.s1.orders.OrdersDTO" alias="OrdersDTO"/>
   			<typeAlias type="com.shop.s1.orders.OrdersDetailDTO" alias="OrdersDetailDTO"/>
   			<typeAlias type="com.shop.s1.orders.OrderListDTO" alias="OrderListDTO"/>
