@@ -57,6 +57,21 @@
 
 				</tr>
 			</c:forEach>
+			
+			<c:forEach items="${cartWish}" var="cartWish">
+				<tr>
+					<td><input type="checkbox" class="check" data-c_num="${cartWish.c_num}"> </td>
+					<td><div><img alt="상품이미지"	src="../resources/images/products/${dto.productFileDTO.pf_fileName}"></div></td>
+					<td><a href="../product/detail?p_num=${pageScope.cartWish.p_num}">${pageScope.cartWish.p_name}</a></td>
+					<td><input type="number" readonly id="p_price" name="p_price" value="${pageScope.cartWish.p_price}"></td>
+					<td> 
+					<input type="number" class="count" name="c_stock" readonly="readonly" id="c_stock" value="${pageScope.cartWish.c_stock}">
+					</td> 
+					<td><input type="number" id="c_amount" value="${pageScope.cartWish.p_price * pageScope.cartWish.c_stock}" readonly></td> 
+					
+					<td><button type="button" class="delete_btn" data-c_num="${cartWish.c_num }">삭제</button></td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 

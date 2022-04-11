@@ -14,16 +14,28 @@
 
 	<h1>Wish List</h1>
 	<div class="mi">
-
+	<ul>
+		<li>
+			<div class="checkAll">
+				모두 선택<input type="checkbox" id="checkAll">
+			</div>
+			
+			<div class="delBtn">
+				<button type="button" id="DelBtn" class="Delete_btn">선택 삭제</button>
+			</div>
+		</li>
+	</ul>
 
 		<table class="table">
 
 			<thead class="dle">
 				<tr class="middle">
 
-					<th class="checkAll"><input type="checkbox" id="checkAll"></th>
+					<th></th>
 					<th class="col2">이미지</th>
 					<th class="col3">상품정보</th>
+					<th>상품번호</th>
+					<th>카트리스트 번호</th>
 					<th class="col3">판매가</th>
 					<th class="col4">선택</th>
 
@@ -34,26 +46,18 @@
 				<c:forEach items="${wishlistList}" var="wishlistList">
 					<tr id="rules">
 
-						<td><input type="checkbox" class="check"></td>
+						<td><input type="checkbox" class="check" data-w_num="${wishlistList.w_num}"> </td>
 						<td><a href="../product/detail?p_num=${pageScope.wishlistList.p_num}">이미지
 						<img alt src="../resources/images/products/${dto.productFileDTO.pf_fileName}"></a></td>
 						<td><a href="../product/detail?p_num=${pageScope.wishlistList.p_num}">${pageScope.wishlistList.p_name}</a></td>
+						<td><a href="../product/detail?p_num=${pageScope.wishlistList.p_num}">${pageScope.wishlistList.p_num}</a></td>
+						<td><a href="../product/detail?p_num=${pageScope.wishlistList.p_num}">${pageScope.wishlistList.t_num}</a></td>
 						<td><input type="number" readonly id="p_price" name="p_price"	value="${pageScope.wishlistList.p_price}"></td>
-
-						<p class="delToWish">
-						<td><button class="del" type="button"data-w_num="${wishlistList.w_num}">삭제</button></td>
-						<td><button type="button" class="addCart_btn" data-pNum="${wishlistList.p_num}">장바구니 추가</button></td>
-						</p>
 						
-					
-
-
-
-
-
-
-					</tr>
-					</div>
+						<td><button class="del" type="button"data-w_num="${wishlistList.w_num}">삭제</button></td>
+						<td><button type="button" class="addCart_btn" data-pNum="${wishlistList.p_num}" data-tNum="${wishlistList.t_num}">장바구니 추가</button></td>			
+						
+					</tr>					
 				</c:forEach>
 			</tbody>
 

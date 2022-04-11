@@ -8,7 +8,6 @@
     	<insert id="add" parameterType="CartDTO">
     		INSERT INTO CART (C_NUM,M_ID,P_NUM,T_NUM,C_STOCK)
 			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num},#{c_stock})
-			
     	</insert>
     	
     	<!-- 카트확인 detail -->
@@ -23,9 +22,23 @@
     	<!-- 카트목록 -->
     	<select id="cartList" resultType="CartListDTO">
 		SELECT  ROW_NUMBER() OVER(ORDER BY C.C_NUM DESC) AS NUM,
-		C.C_NUM, C.M_ID,C.P_NUM,C.C_STOCK,C.ADDDATE,C.T_NUM,
-		P.P_NAME,P.P_PRICE
-		FROM CART C INNER JOIN PRODUCT P ON C.P_NUM=P.P_NUM
+		C.C_NUM, C.M_ID,C.P_NUM,C.C_STOCK,C.ADDDATE,C.T_NUM,C.W_NUM,
+		P.P_NAME,P.P_PRICE,
+		W.P_NUM,W.T_NUM
+		FROM CART C 
+		INNER JOIN PRODUCT P 
+		ON C.P_NUM=P.P_NUM
+		INNER JOIN WISHLIST W
+		ON P.P_NUM=W.P_NUM
 		WHERE C.M_ID=#{m_id}
     	</select>
+    	
+    	<insert id="add2" parameterType="CartListDTO">
+    		INSERT INTO CART (C_NUM,M_ID,P_NUM,T_NUM)
+			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num})
+    	</insert>
+		
+    	
     </mapper>
+    
+   

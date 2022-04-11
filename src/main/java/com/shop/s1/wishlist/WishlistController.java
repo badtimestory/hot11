@@ -83,7 +83,7 @@ public class WishlistController {
 	
 	@ResponseBody
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public ModelAndView add(HttpSession session, WishlistDTO wishlistDTO) throws Exception{
+	public ModelAndView add2(HttpSession session, WishlistDTO wishlistDTO) throws Exception{
 		
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		ModelAndView mv = new ModelAndView();

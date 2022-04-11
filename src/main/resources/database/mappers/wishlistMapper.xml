@@ -6,7 +6,7 @@
 <mapper namespace="com.shop.s1.wishlist.WishlistDAO">
 
 	<select id="wishlistList" resultType="WishlistListDTO">
-		SELECT W.W_NUM, W.M_ID, W.P_NUM,
+		SELECT W.W_NUM, W.M_ID, W.P_NUM,W.T_NUM,
 		P.P_NAME, P.P_PRICE
 		FROM WISHLIST W
 		INNER JOIN PRODUCT P 

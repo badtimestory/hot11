@@ -14,6 +14,22 @@ const left=document.querySelector(".left");
 const addToCart=document.querySelector(".addToCart");
 const addCart_btn=document.querySelector(".addCart_btn");
 const p_price=document.querySelector("#p_price");
+const table=document.querySelector(".table");
+const delBtn=document.querySelector(".delBtn");
+
+delBtn.addEventListener("click",function(event){
+    let confirm_val=confirm("삭제하시겠습니까?");
+    if(confirm_val){
+        list.addEventListener("click",function(event){
+            let check=event.target;
+            //선택자
+            for(let i=0;i<check.length;i++){
+                console.log();
+   
+            }
+        })
+    }
+});
 
 
 checkAll.addEventListener("click", function(){
@@ -38,8 +54,10 @@ rules.addEventListener("click", function(){
 
 
 //삭제
-del.addEventListener("click", function(event){
+table.addEventListener("click", function(event){
+    let del=event.target
     
+    if(del.classList.contains("del")){
     let w_num= event.target.getAttribute("data-w_num");
     
     
@@ -69,6 +87,7 @@ del.addEventListener("click", function(event){
             }
         }
     }
+    }
     
     
 });
@@ -77,7 +96,7 @@ del.addEventListener("click", function(event){
 function getCart(){
 
     const xhttp2=new XMLHttpRequest();
-    xhttp2.open("GET","../product/list?p_num"+p_num.value);
+    xhttp2.open("GET","../wishlis/wishlistList?p_num"+p_num.value);
     xhttp2.send();
     xhttp2.onreadystatechange=function(){
         if(this.readyState==4&&this.status==200){
@@ -95,10 +114,15 @@ addCart_btn.addEventListener("click",function(event){
     
         
         let gdsNum=event.target.getAttribute("data-pNum");
+        //let p_num= event.target.getAttribute("data-pNum")
+        let t_num=event.target.getAttribute("data-tNum")
+        
         
        
       
         console.log(gdsNum);
+        console.log(t_num);
+        //console.log(p_num);
         
         
         
@@ -109,16 +133,15 @@ addCart_btn.addEventListener("click",function(event){
 
         //요청정보 입력
         //open("method형식","url주소")
-        xhttp.open("POST","../cart/add");
+        xhttp.open("POST","../cartList/add2");
 
         //요청 header정보
         xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 
         //요청 전송
         //post 요청시 파라미터 
-        xhttp.send("p_num="+gdsNum);
-        // xhttp.send("p_num="+gdsNum);
-        // xhttp.send("c_amount="+c_amount);
+        xhttp.send("p_num="+gdsNum+"t_num="+t_num);
+       
 
         //응답 처리
         xhttp.onreadystatechange=function(){

@@ -32,4 +32,6 @@ public class WishlistService {
 	public int delete(WishlistDTO wishlistDTO) throws Exception{		
 		return wishlistDAO.delete(wishlistDTO);
 	}
+	
+	
 }

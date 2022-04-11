@@ -5,7 +5,8 @@ import java.sql.Date;
 
 import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.product.ProductDTO;
-import com.shop.s1.wishlist.WishlistDTO;
+import com.shop.s1.wishlist.WishlistListDTO;
+
 
 public class CartListDTO {
 	
@@ -15,28 +16,35 @@ public class CartListDTO {
 	private Long t_num;    //카테고리 번호
 	private Long c_stock;  
 	private Date addDate;
-	//product
-	private Long num;  
-	private String p_name;
-	private Long p_price;
-	
 	private Long w_num;
 	
-	private WishlistDTO wishlistDTO;
-	
-
 	public Long getW_num() {
 		return w_num;
 	}
 	public void setW_num(Long w_num) {
 		this.w_num = w_num;
 	}
-	public WishlistDTO getWishlistDTO() {
-		return wishlistDTO;
+	//product
+	private Long num;  
+	private String p_name;
+	private Long p_price;
+	
+	//wishlist
+	
+	private WishlistListDTO wishlistListDTO;
+	
+
+	
+	
+
+	
+	public WishlistListDTO getWishlistListDTO() {
+		return wishlistListDTO;
 	}
-	public void setWishlistDTO(WishlistDTO wishlistDTO) {
-		this.wishlistDTO = wishlistDTO;
+	public void setWishlistListDTO(WishlistListDTO wishlistListDTO) {
+		this.wishlistListDTO = wishlistListDTO;
 	}
+	
 	private ProductDTO productDTO;
 	private MemberJoinDTO memberJoinDTO;
 	
