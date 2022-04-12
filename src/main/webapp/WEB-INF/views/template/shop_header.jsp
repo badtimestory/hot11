@@ -46,7 +46,9 @@
     <div class="spot">
       <div class="up_banner">
         <div class="img">
-          <img src="/s1/resources/images/banner.jpg" alt="banner">
+          	<a href="/s1">
+            <img src="/s1/resources/images/banner.jpg" alt="banner">
+          	</a>
         </div>
 
       </div>
