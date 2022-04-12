@@ -18,7 +18,6 @@ public class CartListDTO {
 	private Long t_num;    //카테고리 번호
 	private Long c_stock;  
 	private Date addDate;
-	private Long w_num;
 	
 	//product
 	private Long num;  
@@ -33,12 +32,7 @@ public class CartListDTO {
 	private String pf_oriName;		// 원본파일 이름
 	
 	
-	public Long getW_num() {
-		return w_num;
-	}
-	public void setW_num(Long w_num) {
-		this.w_num = w_num;
-	}
+
 	
 	public List<CartFileDTO> getFileDTOs() {
 		return fileDTOs;

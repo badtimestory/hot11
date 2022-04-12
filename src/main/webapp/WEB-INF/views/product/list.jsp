@@ -10,6 +10,7 @@
 </head>
 <body>
 <c:import url="../template/shop_header.jsp"></c:import>
+
 	<h1>Product List page</h1>
 	<table>
 			<tr>
