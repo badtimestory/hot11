@@ -15,7 +15,7 @@
 	<!-- cart에 있는거 가져오는 주문정보 orders -->
 	<insert id="orders" parameterType="OrdersDTO">
 		INSERT INTO ORDERS(O_NUM,ORDERID,P_NUM,C_STOCK)
-		SELECT ORDERS_SEQ.NEXTVAL,#{orderid},P_NUM,C_STOCK FROM CART
+		SELECT ORDERS_SEQ.NEXTVAL,#{orderid},P_NUM,C_STOCK FROM CART WHERE M_ID=#{m_id}
 	</insert>
 	
 	<!-- 카트 비우기 -->
@@ -44,6 +44,7 @@
 		WHERE D.M_ID=#{m_id} AND D.ORDERID=#{orderid}
 		
 	</select>
+	
 	
 	
 	<delete id="delete" parameterType="OrdersDTO">

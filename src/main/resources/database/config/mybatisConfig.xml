@@ -40,6 +40,7 @@
   			<typeAlias type="com.shop.s1.orders.OrdersDetailDTO" alias="OrdersDetailDTO"/>
   			<typeAlias type="com.shop.s1.orders.OrderListDTO" alias="OrderListDTO"/>
   			<typeAlias type="com.shop.s1.orders.OrdersDAO" alias="OrdersDAO"/>
+  			<typeAlias type="com.shop.s1.orders.OrderFileDTO" alias="OrderFileDTO"/>
   			
   		</typeAliases>
   </configuration>

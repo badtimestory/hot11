@@ -14,6 +14,8 @@
 <c:import url="../template/shop_header.jsp"></c:import>
 <form action="./orderView" method="get"></form>
 
+<h3>${sessionScope.member.m_name}님의 주문내역</h3>
+<input type="hidden" name="m_id" value="${sessionScope.member.m_id}" >
 	<section id="content">
 		<div class="orderInfo">
 		<!-- varStatus 상태용 변수 -->
@@ -29,8 +31,11 @@
 		</div>
 		
 		<ul class="orderView">
-			<c:forEach items="${orderView}" var="orderView">
+			<c:forEach items="${requestScope.orderView}" var="orderView">
 				<li>
+					<span>
+					이미지
+					</span>
 					<div class="gdsInfo">
 					<p>
 						<span>상품명</span>${orderView.p_name }<br />

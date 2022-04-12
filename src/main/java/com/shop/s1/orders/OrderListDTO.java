@@ -1,6 +1,7 @@
 package com.shop.s1.orders;
 
 import java.sql.Date;
+import java.util.List;
 
 public class OrderListDTO {
 
@@ -22,7 +23,38 @@ public class OrderListDTO {
 	private String p_name;
 	private Long p_price;
 	
+	//productFileDTO
+	private List<OrderFileDTO> orderfileDTOs;
+	private Long pf_num;			// 파일 번호
+	private String pf_fileName;		// 파일 이름
+	private String pf_oriName;		// 원본파일 이름
 	
+	
+	
+	public Long getPf_num() {
+		return pf_num;
+	}
+	public void setPf_num(Long pf_num) {
+		this.pf_num = pf_num;
+	}
+	public String getPf_fileName() {
+		return pf_fileName;
+	}
+	public void setPf_fileName(String pf_fileName) {
+		this.pf_fileName = pf_fileName;
+	}
+	public String getPf_oriName() {
+		return pf_oriName;
+	}
+	public void setPf_oriName(String pf_oriName) {
+		this.pf_oriName = pf_oriName;
+	}
+	public List<OrderFileDTO> getOrderfileDTOs() {
+		return orderfileDTOs;
+	}
+	public void setOrderfileDTOs(List<OrderFileDTO> orderfileDTOs) {
+		this.orderfileDTOs = orderfileDTOs;
+	}
 	public String getOrderid() {
 		return orderid;
 	}

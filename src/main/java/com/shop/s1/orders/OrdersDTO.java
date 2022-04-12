@@ -12,6 +12,9 @@ public class OrdersDTO {
 	private Long p_num;
 	private Long c_stock;
 	
+	
+	private String m_id;
+	
 	public Long getO_num() {
 		return o_num;
 	}
@@ -35,6 +38,12 @@ public class OrdersDTO {
 	}
 	public void setC_stock(Long c_stock) {
 		this.c_stock = c_stock;
+	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
 	
 	
