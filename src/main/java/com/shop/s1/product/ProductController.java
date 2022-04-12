@@ -1,5 +1,8 @@
 package com.shop.s1.product;
 
+import java.io.File;
+import java.lang.System.Logger;
+import java.net.http.HttpRequest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,12 +69,19 @@ public class ProductController {
 	
 	// update DB
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public String update(ProductDTO productDTO) throws Exception {
-		int result = productService.update(productDTO);
+	public String update(ProductDTO productDTO, MultipartFile photo) throws Exception {
+		// 파일이 등록되어있는지 확인
+		if(photo.getOriginalFilename() != null && photo.getOriginalFilename() != "") {
+			System.out.println("수정파일의 원본이름: " + photo.getOriginalFilename());
+			System.out.println("수정파일의 크기: " + photo.getSize());			
+			
+			int result = productService.update(productDTO, photo);
+		}	
+		
 		
 		return "redirect:./list";
 	}
-	
+		
 	// delete
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String delete(ProductDTO productDTO) throws Exception {

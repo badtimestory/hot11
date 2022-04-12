@@ -18,7 +18,7 @@
 <body>
 	<c:import url="../template/shop_header.jsp"></c:import>
 	<h1>Product Update Page</h1>
-	<form action="./update" method="POST">
+	<form action="./update" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="p_num" readonly="readonly"
 			value="${dto.p_num}">
 		<div id="file">

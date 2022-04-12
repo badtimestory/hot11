@@ -46,8 +46,20 @@ public class ProductService {
 	}
 	
 	// update
-	public int update(ProductDTO productDTO) throws Exception {
-		return productDAO.update(productDTO);
+	public int update(ProductDTO productDTO, MultipartFile photo) throws Exception {
+		int result = productDAO.update(productDTO);
+		
+		// 1. 파일을 HDD 저장
+		String fileName = fileManager.save(photo, "resources/images/products/");
+			
+		// 2. 파일정보를 DB에 저장
+		ProductFileDTO productFileDTO = new ProductFileDTO();
+		productFileDTO.setP_num(productDTO.getP_num());
+		productFileDTO.setPf_fileName(fileName);
+		productFileDTO.setPf_oriName(photo.getOriginalFilename());
+		result = productDAO.addFile(productFileDTO);
+		
+		return result;
 	}
 	
 	// delete
