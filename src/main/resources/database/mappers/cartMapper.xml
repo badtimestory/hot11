@@ -11,6 +11,8 @@
 			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num},#{c_stock})
     	</insert>
     	
+
+    	
     	<!-- 카트확인 detail -->
     	<select id="detail" parameterType="CartDTO" resultType="CartDTO">
     		SELECT * FROM CART 
@@ -20,6 +22,9 @@
     	<delete id="delete" parameterType="CartDTO">
     		DELETE CART WHERE C_NUM=#{c_num} AND M_ID=#{m_id}
     	</delete>
+    	
+       	
+    	
     	<!-- 카트목록 -->
     	<select id="cartList" resultType="CartListDTO" resultMap="CartListImage">
 		SELECT  ROW_NUMBER() OVER(ORDER BY C.C_NUM DESC) AS NUM,

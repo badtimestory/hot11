@@ -14,14 +14,7 @@ public class CartDTO {
 	private Long t_num;    //카테고리 번호
 	private Long c_stock;  
 	private Date addDate;
-	private Long w_num;
-	
-	public Long getW_num() {
-		return w_num;
-	}
-	public void setW_num(Long w_num) {
-		this.w_num = w_num;
-	}
+
 	public Long getC_num() {
 		return c_num;
 	}

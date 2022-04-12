@@ -16,7 +16,7 @@
   			<typeAlias type="com.shop.s1.wishlist.WishlistDTO" alias="WishlistDTO"/>
   			<typeAlias type="com.shop.s1.wishlist.WishlistDAO" alias="WishlistDAO"/>
   			<typeAlias type="com.shop.s1.wishlist.WishlistListDTO" alias="WishlistListDTO"/>
-  			
+  			<typeAlias type="com.shop.s1.wishlist.WishlsitFileDTO" alias="WishlsitFileDTO"/>
   			
   			
 
@@ -37,6 +37,7 @@
   			<typeAlias type="com.shop.s1.cart.CartListDTO" alias="CartListDTO"/>
   			<typeAlias type="com.shop.s1.cart.CartDAO" alias="CartDAO"/>
 			<typeAlias type="com.shop.s1.cart.CartFileDTO" alias="CartFileDTO"/>
+			
 
 
   			<typeAlias type="com.shop.s1.orders.OrdersDTO" alias="OrdersDTO"/>

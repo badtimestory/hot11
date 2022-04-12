@@ -23,7 +23,7 @@
 
 		<thead class="dle">
 			<tr class="middle">
-				<th class="col3">
+				<th class="product">
 					<ul>
 						<li>
 							<div class="checkAll">
@@ -33,27 +33,30 @@
 						</li>
 					</ul>
 				</th>
-				<th class="col3">상품정보</th>
+				<th class="product">이미지</th>
+				<th class="product">상품정보</th>
 				<th class="col3">판매가</th>
-				<th class="col3">선택</th>
+				<th class="product">선택</th>
 
 
 			</tr>
 		</thead>
 
 		<tbody class="xas">
-			<c:forEach items="${wishlistList}" var="wishlistList">
+			<c:forEach items="${requestScope.wishlistList}" var="wishlistList">
 				<tr id="rules">
 
 					<td class="product"><input type="checkbox" class="check" 
 						data-w_num="${wishlistList.w_num}"></td>
+						<td class="product"><img alt="상품이미지"
+			src="../resources/images/products/${pageScope.wishlistList.fileDTOs[0].pf_fileName}" width="120"></td>
 					<td class="product"><a
 						href="../product/detail?p_num=${pageScope.wishlistList.p_num}">${pageScope.wishlistList.p_name}</a></td>
 					<td class="number"><input type="number" readonly id="p_price" name="p_price"
 						value="${pageScope.wishlistList.p_price}"></td>
 					<td class="product"><button class="del" type="button"
-							data-w_num="${wishlistList.w_num}">삭제</button></td>
-
+							data-w_num="${wishlistList.w_num}">삭제</button></td>			
+					
 				</tr>
 
 			</c:forEach>
