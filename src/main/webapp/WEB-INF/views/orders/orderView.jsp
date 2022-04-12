@@ -34,7 +34,8 @@
 			<c:forEach items="${requestScope.orderView}" var="orderView">
 				<li>
 					<span>
-					이미지
+					<img alt="상품이미지"
+			src="../resources/images/products/${pageScope.orderView.fileDTOs[0].pf_fileName}" width="120">
 					</span>
 					<div class="gdsInfo">
 					<p>

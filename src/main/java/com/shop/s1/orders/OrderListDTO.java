@@ -24,7 +24,7 @@ public class OrderListDTO {
 	private Long p_price;
 	
 	//productFileDTO
-	private List<OrderFileDTO> orderfileDTOs;
+	private List<OrderFileDTO> fileDTOs;
 	private Long pf_num;			// 파일 번호
 	private String pf_fileName;		// 파일 이름
 	private String pf_oriName;		// 원본파일 이름
@@ -49,11 +49,12 @@ public class OrderListDTO {
 	public void setPf_oriName(String pf_oriName) {
 		this.pf_oriName = pf_oriName;
 	}
-	public List<OrderFileDTO> getOrderfileDTOs() {
-		return orderfileDTOs;
+	
+	public List<OrderFileDTO> getFileDTOs() {
+		return fileDTOs;
 	}
-	public void setOrderfileDTOs(List<OrderFileDTO> orderfileDTOs) {
-		this.orderfileDTOs = orderfileDTOs;
+	public void setFileDTOs(List<OrderFileDTO> fileDTOs) {
+		this.fileDTOs = fileDTOs;
 	}
 	public String getOrderid() {
 		return orderid;

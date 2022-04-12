@@ -32,19 +32,41 @@
 	</select>
 	
 	<!-- 주문목록에서 특정상품 상세보기 -->
-	<select id="orderView" resultType="OrderListDTO">
+	<select id="orderView" resultType="OrderListDTO" resultMap="OrderListImage">
 		SELECT D.ORDERID, D.M_ID, D.O_NAME, D.O_ADDRESS, D.O_PHONE, D.O_AMOUNT, D.O_DATE,
         		O.O_NUM, O.P_NUM, O.C_STOCK,
-        		P.P_NAME, P.P_PRICE
+        		P.P_NAME, P.P_PRICE,
+				PF.*
 		FROM ORDERS_DETAIL D
     		INNER JOIN ORDERS O
      			ON D.ORDERID=O.ORDERID
     		INNER JOIN PRODUCT P
      			ON O.P_NUM=P.P_NUM
+     		INNER JOIN PRODUCTFILE PF
+     			ON O.P_NUM=PF.PF_NUM
 		WHERE D.M_ID=#{m_id} AND D.ORDERID=#{orderid}
-		
+	
 	</select>
 	
+	<resultMap type="OrderListDTO" id="OrderListImage">
+		<id column="o_num" property="o_num"/>
+		<result column="p_num" property="p_num"/>
+		<result column="c_stock" property="c_stock"/>
+		<result column="p_name" property="p_name"/>
+		<result column="p_price" property="p_price"/>
+		<result column="orderid" property="orderid"/>
+		<result column="m_id" property="m_id"/>
+		<result column="o_name" property="o_name"/>
+		<result column="o_address" property="o_address"/>
+		<result column="o_phone" property="o_phone"/>
+		<result column="o_amount" property="o_amount"/>
+		
+	<collection property="fileDTOs" javaType="List" ofType="OrderFileDTO">
+    	<id column="pf_num" property="pf_num"/>
+    	<result column="pf_fileName" property="pf_fileName"/>
+    	<result column="pf_oriName" property="pf_oriName"/>
+		</collection>
+	</resultMap>
 	
 	
 	<delete id="delete" parameterType="OrdersDTO">
