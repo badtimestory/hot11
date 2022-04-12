@@ -7,11 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/shop_header_css.jsp"></c:import>
+<link href="../resources/css/login.css" rel="stylesheet">
 </head>
 <body>
 <c:import url="../template/shop_header.jsp"></c:import>
 	<h1>Login</h1>
+
 	<form action="./login" method="post">
+	<div class="loginbox">
 		<fieldset>
 			<legend>ID</legend>
 			<input type="text" name="m_id" value="${cookie.remember.value}">
@@ -30,6 +33,7 @@
 		<fieldset>
 			<button type="submit">Login</button>
 		</fieldset>
+	</div>
 	</form>
 </body>
 </html>
