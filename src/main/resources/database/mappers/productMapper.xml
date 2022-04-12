@@ -10,6 +10,11 @@
 		SELECT * FROM PRODUCT ORDER BY P_NUM DESC
 	</select>
 	
+	<!-- File Lookup -->
+	<select id="lookUpFile" parameterType="ProductDTO" resultType="ProductFileDTO">
+		SELECT * FROM PRODUCTFILE WHERE P_NUM = #{p_num}
+	</select>
+	
 	<!-- Detail Mapper -->
 	<select id="detail" parameterType="ProductDTO" resultMap="ProductDetailResult">
 		SELECT P.*, PF.*
@@ -55,11 +60,6 @@
 		VALUES (PRODUCTFILE_SEQ.NEXTVAL, #{p_num}, #{pf_fileName}, #{pf_oriName})
 	</insert>
 	
-	<!-- File Lookup -->
-	<select id="lookUpFile" parameterType="ProductDTO" resultType="ProductFileDTO">
-		SELECT * FROM PRODUCTFILE WHERE P_NUM = #{p_num}
-	</select>
-	
 	<!-- Update Mapper -->
 	<update id="update" parameterType="ProductDTO">
 		UPDATE PRODUCT SET P_NAME = #{p_name},T_NUM=#{t_num}, P_PRICE = #{p_price}, 
@@ -69,6 +69,11 @@
 	<!-- Delete Mapper -->
 	<delete id="delete" parameterType="ProductDTO">
 		DELETE FROM PRODUCT WHERE P_NUM = #{p_num}
+	</delete>
+	
+	<!-- File Delete Mapper -->
+	<delete id="fileDelete" parameterType="ProductFileDTO">
+		DELETE FROM PRODUCTFILE WHERE PF_NUM = #{pf_num}
 	</delete>
 	
 </mapper>

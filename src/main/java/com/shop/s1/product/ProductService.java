@@ -54,7 +54,13 @@ public class ProductService {
 	public int delete(ProductDTO productDTO) throws Exception {
 		// 글 번호로 HDD에 저장된 파일명 조회
 		ProductFileDTO pf = productDAO.lookUpFile(productDTO);
-		System.out.println("delete 메서드: " + pf.getPf_fileName());
+		
+		// 글은 존재하는데 이미지가 없으면 삭제 가능하게 처리
+		if(pf == null) {
+			return productDAO.delete(productDTO);
+		} else {
+			System.out.println("delete 메서드: " + pf.getPf_fileName());			
+		}
 		
 		int result = productDAO.delete(productDTO);
 		System.out.println("삭제실행 체크: " + result);
@@ -62,8 +68,17 @@ public class ProductService {
 		if(result > 0) {
 			boolean check = fileManager.remove("/resources/images/products/", pf.getPf_fileName());
 			System.out.println("파일삭제 체크: " + check);
-		}
+		} 
 		
 		return result;
+	}
+	
+	// delete file
+	public int fileDelete(ProductFileDTO productFileDTO) throws Exception {
+		
+		// HDD에 존재하는 파일을 삭제함
+		fileManager.remove("/resources/images/products/", productFileDTO.getPf_fileName());
+		
+		return productDAO.fileDelete(productFileDTO);
 	}
 }

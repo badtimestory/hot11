@@ -43,6 +43,11 @@ public class ProductDAO {
 		return sqlSession.insert(NAMESPACE+"addFile", productFileDTO);
 	}
 	
+	// delete file
+	public int fileDelete(ProductFileDTO productFileDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"fileDelete", productFileDTO);
+	}
+	
 	// File Lookup
 	public ProductFileDTO lookUpFile(ProductDTO productDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"lookUpFile", productDTO);

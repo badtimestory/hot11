@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.s1.board.BoardDTO;
 
@@ -76,6 +78,21 @@ public class ProductController {
 		int result = productService.delete(productDTO);
 		
 		return "redirect:./list";	
+	}
+	
+	// file delete
+	@PostMapping("fileDelete")
+	public ModelAndView fileDelete(ProductFileDTO productFileDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("ProductController fileDelete Method 파일삭제번호: " + productFileDTO.getPf_num());
+		System.out.println("ProductContorller fileDelete Method 파일이름: " + productFileDTO.getPf_fileName());
+		int result = productService.fileDelete(productFileDTO);
+		System.out.println("삭제여부 확인: " + result);
+		
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		
+		return mv;
 	}
 	
 }

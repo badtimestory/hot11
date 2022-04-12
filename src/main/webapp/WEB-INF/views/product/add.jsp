@@ -24,21 +24,21 @@
 		<input type="text" name="p_name">
 	</div>
 	<div>
-
-		<select name="t_num">
-				<option value="1">OUTER</option>
-				<option value="2">TOP</option>
-				<option value="3">BOTTOM</option>
+		<label>카테고리</label>
+			<select name="t_num">
+					<option value="1">OUTER</option>
+					<option value="2">TOP</option>
+					<option value="3">BOTTOM</option>
 			</select>
 	</div>
 	
 	<div>
 		<label>상품가격</label>
-		<input type="text" name="p_price">
+		<input type="number" min="0" name="p_price">
 	</div>
 	<div>
 		<label>재고량</label> 
-		<input type="text" name="p_stock">
+		<input type="number" min="0" name="p_stock">
 	</div>
 	<div>
 		<label>상품정보</label>

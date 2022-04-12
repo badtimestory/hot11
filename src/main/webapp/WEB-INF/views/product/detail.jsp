@@ -15,7 +15,7 @@
 	<h1>Product Detail Page</h1>
 	<input type="hidden" readonly id="p_num" name="p_num" value="${dto.p_num}">
 	<div>
-		<img alt="상품이미지"
+		<img alt="상품이미지" width="500px" height="500px"
 			src="../resources/images/products/${dto.productFileDTO.pf_fileName}">
 	</div>
 	<h3>원본이미지 이름 : ${dto.productFileDTO.pf_oriName}</h3>

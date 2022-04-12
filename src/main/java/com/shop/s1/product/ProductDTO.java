@@ -13,8 +13,6 @@ public class ProductDTO {
 	// 상품이미지
 	private ProductFileDTO productFileDTO;	
 
-
-	
 	public Long getP_num() {
 		return p_num;
 	}
