@@ -16,14 +16,13 @@
 				<th>상품번호</th>
 				<th>상품명</th>
 				<th>상품가격</th>
-				<th>장바구니 추가</th>
+				
 			</tr>
 			<c:forEach items="${list}" var="product">
 			<tr>
 				<th>${product.p_num}</th>
 				<th><a href="./detail?p_num=${product.p_num}">${product.p_name}</a></th>
 				<th>${product.p_price}</th>
-				<th><input type="checkbox" class="check"></th>
 			</tr>
 			
 			</c:forEach>
