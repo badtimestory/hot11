@@ -49,9 +49,9 @@ public class FileManager {
 
 	// 파일 HDD에서 삭제
 	// 필요한 정보: 저장된 폴더명, 저장된 파일명
-	public boolean remove(String path, String fName) throws Exception {
+	public boolean remove(String path, String fileName) throws Exception {
 		path = servletContext.getRealPath(path);
-		File file = new File(path, fName);
+		File file = new File(path, fileName);
 		return file.delete();
 	}
 
