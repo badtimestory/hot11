@@ -5,15 +5,39 @@
     
 <mapper namespace="com.shop.s1.wishlist.WishlistDAO">
 
-	<select id="wishlistList" resultType="WishlistListDTO">
+	<select id="Filelist" parameterType="WishlistFileDTO" resultType="WishlistFileDTO">
+		SELECT * FROM WISHLISTFILE
+		WHERE NUM=#{num}
+	</select>
+
+
+	<select id="wishlistList" resultType="WishlistListDTO" resultMap="WishlistListImg">
 		SELECT W.W_NUM, W.M_ID, W.P_NUM,W.T_NUM,
-		P.P_NAME, P.P_PRICE
+		P.P_NAME, P.P_PRICE,
+		PF.*
 		FROM WISHLIST W
-		INNER JOIN PRODUCT P 
-		ON W.P_NUM=P.P_NUM
-		WHERE W.M_ID=#{m_id}
+			INNER JOIN PRODUCT P 
+				ON W.P_NUM=P.P_NUM
+			INNER JOIN PRODUCTFILE PF
+				ON W.P_NUM = PF.PF_NUM
+			WHERE W.M_ID=#{m_id}
 	</select>
 		
+	<resultMap type="WishlistListDTO" id="WishlistListImg">
+		<id column="w_num" property="w_num"/>
+		<result column="p_num" property="p_num"/>
+		<result column="m_id" property="m_id"/>
+		<result column="t_num" property="t_num"/>
+			<result column="p_name" property="p_name"/>
+			<result column="p_price" property="p_price"/>
+		
+		<collection property="fileDTOs" javaType="List" ofType="WishlistFileDTO">
+			<id column="pf_num" property="pf_num"/>
+			<result column="pf_fileName" property="pf_fileName"/>
+    		<result column="pf_oriName" property="pf_oriName"/>
+		</collection>
+	</resultMap>
+	
 	<select id="detail" parameterType="WishlistDTO" resultType="WishlistDTO">
 		SELECT*FROM WISHLIST WHERE M_ID=#{m_id}
 	</select>

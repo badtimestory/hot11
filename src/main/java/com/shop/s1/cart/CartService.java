@@ -27,9 +27,6 @@ public class CartService {
 		List<CartListDTO> ar = cartDAO.cartList(cartListDTO);
 		return ar;
 	}
-	
-	public int add2(CartListDTO cartListDTO) throws Exception{
-		return cartDAO.add2(cartListDTO);
-	}
+
 }
 

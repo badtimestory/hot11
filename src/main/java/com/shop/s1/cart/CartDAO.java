@@ -32,9 +32,7 @@ public class CartDAO {
 		return sqlSession.selectList(NAMESPACE+"cartList",cartListDTO);
 	}
 	
-	public int add2(CartListDTO cartListDTO) throws Exception{
-		return sqlSession.insert(NAMESPACE+"add2",cartListDTO);
-	}
+
 	
 
 	

@@ -50,28 +50,7 @@ public class CartController {
 		return mv;
 	}
 	
-	//위시->장바구니
-	@ResponseBody
-	@RequestMapping(value="add2",method=RequestMethod.POST)
-	public ModelAndView add2(HttpSession session,CartListDTO cartListDTO) throws Exception{
-		
-	
-		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
-		//System.out.println("getM_id : " + memberJoinDTO.getM_id());
-		ModelAndView mv= new ModelAndView();
-		if(memberJoinDTO!=null) {
-			cartListDTO.setM_id(memberJoinDTO.getM_id());		
-			int result=cartService.add2(cartListDTO);
-			mv.addObject("result",result);
-			mv.setViewName("common/ajaxResult");
-			
-		}else {
-		int result=0;
-		mv.addObject("result",result);
-		mv.setViewName("common/ajaxResult");
-		}
-		return mv;
-	}
+
 	
 	
 	

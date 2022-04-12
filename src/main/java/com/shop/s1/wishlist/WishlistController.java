@@ -30,13 +30,16 @@ public class WishlistController {
 	//list
 	@RequestMapping(value="wishlistList", method = RequestMethod.GET)
 	public ModelAndView wishlistList(ModelAndView mv, WishlistListDTO wishlistListDTO, HttpSession session) throws Exception{
+		
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		String m_id=memberJoinDTO.getM_id();
-		
+	
 		List<WishlistListDTO> wishlistList = wishlistService.list(wishlistListDTO);
 		
 		mv.addObject("wishlistList", wishlistList);
+		
 		mv.setViewName("wishlist/list");
+		
 		return mv;
 	}
 	
@@ -83,19 +86,27 @@ public class WishlistController {
 	
 	@ResponseBody
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public ModelAndView add2(HttpSession session, WishlistDTO wishlistDTO) throws Exception{
+	public ModelAndView add(HttpSession session, WishlistDTO wishlistDTO) throws Exception{
 		
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		
 		ModelAndView mv = new ModelAndView();
+	
 		if(memberJoinDTO!=null) {
 			wishlistDTO.setM_id(memberJoinDTO.getM_id());
+		
 			int result = wishlistService.add(wishlistDTO);
+			
 			mv.addObject("result",result);
+			
 			mv.setViewName("common/ajaxResult");
 			}else {
 			int result=0;
+		
 			mv.addObject("result",result);
+			
 			mv.setViewName("common/ajaxResult");
+		
 			}
 		return mv;
 	}

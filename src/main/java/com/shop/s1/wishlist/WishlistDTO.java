@@ -12,10 +12,7 @@ public class WishlistDTO {
 	private Long p_num;
 	private Long t_num;
 	
-	private ProductDTO productDTO;
-	private MemberJoinDTO memberJoinDTO;
-	
-	 
+
 	
 	
 	public Long getW_num() {
@@ -42,19 +39,7 @@ public class WishlistDTO {
 	public void setT_num(Long t_num) {
 		this.t_num = t_num;
 	}
-	public ProductDTO getProductDTO() {
-		return productDTO;
-	}
-	public void setProductDTO(ProductDTO productDTO) {
-		this.productDTO = productDTO;
-	}
-	public MemberJoinDTO getMemberJoinDTO() {
-		return memberJoinDTO;
-	}
-	public void setMemberJoinDTO(MemberJoinDTO memberJoinDTO) {
-		this.memberJoinDTO = memberJoinDTO;
-	}
-	
+
 	
 	
 

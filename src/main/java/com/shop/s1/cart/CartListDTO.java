@@ -29,21 +29,11 @@ public class CartListDTO {
 	private String p_name;
 	private Long p_price;
 	
-	//wishlist
-	
-	private WishlistListDTO wishlistListDTO;
+
 	
 
 	
-	
 
-	
-	public WishlistListDTO getWishlistListDTO() {
-		return wishlistListDTO;
-	}
-	public void setWishlistListDTO(WishlistListDTO wishlistListDTO) {
-		this.wishlistListDTO = wishlistListDTO;
-	}
 	
 	private ProductDTO productDTO;
 	private MemberJoinDTO memberJoinDTO;
