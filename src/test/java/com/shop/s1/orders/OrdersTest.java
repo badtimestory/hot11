@@ -26,7 +26,7 @@ public class OrdersTest extends MyjunitTest {
 	//@Test
 	public void detail() throws Exception{
 		OrdersDTO ordersDTO = new OrdersDTO();
-		ordersDTO.setM_id("jae");
+//		ordersDTO.setM_id("jae");
 		ordersDAO.detail(ordersDTO);
 		assertNotNull(ordersDTO);
 	}
@@ -37,23 +37,23 @@ public class OrdersTest extends MyjunitTest {
 //			#{o_phone},#{o_address},#{o_amount},#{o_price},#{o_message},#{o_pay})
 //		</insert>
 	//@Test
-	public void add() throws Exception{
-		OrdersDTO ordersDTO=new OrdersDTO();
-		ordersDTO.setM_id("jae");
-		ordersDTO.setP_num(1L);
-		ordersDTO.setC_num(1L);
-		ordersDTO.setO_name("hu");
-		ordersDTO.setO_phone("010");
-		ordersDTO.setO_address("경기도");
-		ordersDTO.setO_amount(10L);
-		ordersDTO.setO_price(35000L);
-		ordersDTO.setO_message("경비실에 맡겨주세요.");
-		ordersDTO.setO_pay("카드");
-		int result = ordersDAO.add(ordersDTO);
-		
-		assertEquals(1, result);
-		
-	}
+//	public void add() throws Exception{
+//		OrdersDTO ordersDTO=new OrdersDTO();
+//		ordersDTO.setM_id("jae");
+//		ordersDTO.setP_num(1L);
+//		ordersDTO.setC_num(1L);
+//		ordersDTO.setO_name("hu");
+//		ordersDTO.setO_phone("010");
+//		ordersDTO.setO_address("경기도");
+//		ordersDTO.setO_amount(10L);
+//		ordersDTO.setO_price(35000L);
+//		ordersDTO.setO_message("경비실에 맡겨주세요.");
+//		ordersDTO.setO_pay("카드");
+//		int result = ordersDAO.add(ordersDTO);
+//		
+//		assertEquals(1, result);
+//		
+//	}
 	
 	
 	//@Test

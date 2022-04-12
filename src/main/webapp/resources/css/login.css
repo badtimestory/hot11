@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+fieldset{
+
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    outline: none;
+    background: linear-gradient();
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.4),-3px -3px 5px rgba(0,0,0,0.1);
+    letter-spacing: 3px;
+    font-size: 15px;
+
+}
+.loginbox{
+
+    width: 300px;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0px 0px -200px;
+}
+h1{
+   
+    font-size: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: -150px 0px 0px -200px;
+    
+}
+
+button{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background: repeat x 0;
+    background: repeat y 0;
+    background-size: auto;
+    border-bottom-color: rgb(199, 199, 199);
+    border-bottom-left-radius: 3.3px;
+    border-bottom-right-radius :3.3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-collapse: collapse;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(227, 227, 227);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(227, 227, 227);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgb(227, 227, 227);
+    border-top-left-radius: 3.3px;
+    border-top-right-radius: 3.3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 2px 0px;
+    box-sizing: content-box;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+    display: block;
+    font-family :"Nanum Gothic", "Malgun Gothic", "맑은 고딕", 돋움, Dotum, "Apple Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    height: 24px;
+    line-height: 23px;
+    margin-bottom: 0px;
+    margin-left :0px;
+    margin-right: 0px;
+    margin-top: 4px;
+    outline-color :rgb(102, 102, 102);
+    outline-style :none;
+    outline-width: 0px;
+    overflow-wrap: break-word;
+    padding-bottom: 0px;
+    padding-left: 9.35px;
+    padding-right: 9.35px;
+    padding-top :0px;
+    text-align :center;
+    text-decoration-color: rgb(102, 102, 102);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-indent: 0px;
+    transition-delay :0s;
+    transition-duration: 0.1s;
+    transition-property: all;
+    transition-timing-function :ease-in-out;
+    vertical-align :middle;
+    width:79.3125px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+}

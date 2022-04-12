@@ -34,4 +34,30 @@ public class OrdersDAO {
 	public List<OrdersDTO> list() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"list");
 	}
+	//주문 상세정보->orders
+	public int orders(OrdersDTO ordersDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"orders",ordersDTO);
+	}
+	
+	//주문 정보->ordersDetail
+	public int ordersDetail(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"ordersDetail",ordersDetailDTO);
+		
+	}
+	
+	//카트 비우기
+	public int cartAllDelete(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"cartAllDelete",ordersDetailDTO);
+	}
+	
+	//주문 목록
+	public List<OrdersDetailDTO> orderList(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"orderList",ordersDetailDTO);
+	}
+
+	//특정 주문 목록
+	public List<OrderListDTO> orderView(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"orderView",ordersDetailDTO);
+	}
+	
 }

@@ -5,6 +5,7 @@
     
     <mapper namespace="com.shop.s1.cart.CartDAO">
     
+    	
     	<insert id="add" parameterType="CartDTO">
     		INSERT INTO CART (C_NUM,M_ID,P_NUM,T_NUM,C_STOCK)
 			VALUES (cart_seq.nextval,#{m_id},#{p_num},#{t_num},#{c_stock})
@@ -20,19 +21,34 @@
     		DELETE CART WHERE C_NUM=#{c_num} AND M_ID=#{m_id}
     	</delete>
     	<!-- 카트목록 -->
-    	<select id="cartList" resultType="CartListDTO">
+    	<select id="cartList" resultType="CartListDTO" resultMap="CartListImage">
 		SELECT  ROW_NUMBER() OVER(ORDER BY C.C_NUM DESC) AS NUM,
 		C.C_NUM, C.M_ID,C.P_NUM,C.C_STOCK,C.ADDDATE,C.T_NUM,
-		P.P_NAME,P.P_PRICE		
+		P.P_NAME,P.P_PRICE,
+		PF.*
 		FROM CART C 
-		INNER JOIN PRODUCT P 
-		ON C.P_NUM=P.P_NUM		
+			INNER JOIN PRODUCT P 
+				ON C.P_NUM=P.P_NUM
+			INNER JOIN PRODUCTFILE PF
+				ON C.P_NUM = PF.PF_NUM
 		WHERE C.M_ID=#{m_id}
     	</select>
     	
- 
-		
+    	<resultMap type="CartListDTO" id="CartListImage">
+    		<id column="c_num" property="c_num"/>
+    		<result column="p_num" property="p_num"/>
+    		<result column="m_id" property="m_id"/>
+    		<result column="c_stock" property="c_stock"/>
+			<result column="t_num" property="t_num"/>
+			<result column="p_name" property="p_name"/>
+			<result column="p_price" property="p_price"/>
+    		
+    		<collection property="fileDTOs" javaType="List" ofType="CartFileDTO">
+    		<id column="pf_num" property="pf_num"/>
+    		<result column="pf_fileName" property="pf_fileName"/>
+    		<result column="pf_oriName" property="pf_oriName"/>
+    		</collection>
+    	</resultMap>
     	
     </mapper>
-    
-   
+

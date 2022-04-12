@@ -4,55 +4,70 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.shop.s1.orders.OrdersDAO">
-
-	<update id="update" parameterType="OrdersDTO">
-		UPDATE ORDERS SET O_ADDRESS=#{o_address}
-		WHERE O_NUM=#{o_num} AND M_ID=#{m_id}
-	</update>
-
-	<insert id="add" parameterType="OrdersDTO">
-		<selectKey keyProperty="p_num,c_num" keyColumn="p_num,c_num" order="BEFORE" resultType="Long">
-			SELECT P_NUM,C_NUM FROM CART WHERE M_ID=#{m_id}
-		</selectKey>
-		INSERT INTO ORDERS
-		VALUES (ORDERS_SEQ.NEXTVAL,#{m_id},#{p_num},#{c_num},#{o_name},sysdate,
-		#{o_phone},#{o_address},#{o_amount},#{o_price},#{o_message},#{o_pay})
-		
-		<!--  SELECT 
-		C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,
-		P.P_NAME,P.P_PRICE,P.P_COUNT 
-		FROM CART C LEFT OUTER JOIN PRODUCT P 
-		ON (C.P_NUM=P.P_NUM) 
-		WHERE M_ID=#{m_id}, C_NUM=#{c_num} -->
+	
+	
+	<!-- 주문정보 ordersDetail -->
+	<insert id="ordersDetail" parameterType="OrdersDetailDTO">
+		INSERT INTO ORDERS_DETAIL(ORDERID,M_ID,O_NAME,O_ADDRESS,O_PHONE,O_AMOUNT)
+		VALUES(#{orderid},#{m_id},#{o_name},#{o_address},#{o_phone},#{o_amount})
 	</insert>
 	
-	<select id="detail" parameterType="OrdersDTO" resultMap="detailResult">
-		SELECT 
-			C.C_NUM,C.M_ID,C.P_NUM,(P.P_PRICE * P.P_COUNT) C_AMOUNT,
-			P.P_NAME,P.P_PRICE,P.P_COUNT 
-		FROM CART C LEFT OUTER JOIN PRODUCT P 
-		ON (C.P_NUM=P.P_NUM) 
-		WHERE M_ID=#{m_id} and C_NUM=#{c_num}
+	<!-- cart에 있는거 가져오는 주문정보 orders -->
+	<insert id="orders" parameterType="OrdersDTO">
+		INSERT INTO ORDERS(O_NUM,ORDERID,P_NUM,C_STOCK)
+		SELECT ORDERS_SEQ.NEXTVAL,#{orderid},P_NUM,C_STOCK FROM CART WHERE M_ID=#{m_id}
+	</insert>
+	
+	<!-- 카트 비우기 -->
+	<delete id="cartAllDelete" parameterType="OrdersDetailDTO">
+		DELETE CART WHERE M_ID=#{m_id}
+	</delete>
+	
+	<!-- 특정 유저의 주문 목록 -->
+	<select id="orderList" parameterType="OrdersDetailDTO" resultType="OrdersDetailDTO">
+		SELECT ORDERID,M_ID,O_NAME,O_ADDRESS,O_PHONE,O_AMOUNT,O_DATE
+		FROM ORDERS_DETAIL 
+		WHERE M_ID=#{m_id}
+		ORDER BY O_DATE DESC
+	</select>
+	
+	<!-- 주문목록에서 특정상품 상세보기 -->
+	<select id="orderView" resultType="OrderListDTO" resultMap="OrderListImage">
+		SELECT D.ORDERID, D.M_ID, D.O_NAME, D.O_ADDRESS, D.O_PHONE, D.O_AMOUNT, D.O_DATE,
+        		O.O_NUM, O.P_NUM, O.C_STOCK,
+        		P.P_NAME, P.P_PRICE,
+				PF.*
+		FROM ORDERS_DETAIL D
+    		INNER JOIN ORDERS O
+     			ON D.ORDERID=O.ORDERID
+    		INNER JOIN PRODUCT P
+     			ON O.P_NUM=P.P_NUM
+     		INNER JOIN PRODUCTFILE PF
+     			ON O.P_NUM=PF.PF_NUM
+		WHERE D.M_ID=#{m_id} AND D.ORDERID=#{orderid}
 	
 	</select>
 	
-	<resultMap type="OrdersDTO" id="detailResult">
-		<id column="p_num" property="p_num"/>
-	
-	<collection property="cartDTOs" javaType="List" ofType="CartDTO">
-		<id column="c_num" property="c_num"/>
-		<result column="c_amount" property="c_amount"/>
-		<result column="m_id" property="m_id"/>
-		<result column="p_price" property="p_price"/>
-		<result column="p_count" property="p_count"/>
+	<resultMap type="OrderListDTO" id="OrderListImage">
+		<id column="o_num" property="o_num"/>
+		<result column="p_num" property="p_num"/>
+		<result column="c_stock" property="c_stock"/>
 		<result column="p_name" property="p_name"/>
-	</collection>
+		<result column="p_price" property="p_price"/>
+		<result column="orderid" property="orderid"/>
+		<result column="m_id" property="m_id"/>
+		<result column="o_name" property="o_name"/>
+		<result column="o_address" property="o_address"/>
+		<result column="o_phone" property="o_phone"/>
+		<result column="o_amount" property="o_amount"/>
 		
+	<collection property="fileDTOs" javaType="List" ofType="OrderFileDTO">
+    	<id column="pf_num" property="pf_num"/>
+    	<result column="pf_fileName" property="pf_fileName"/>
+    	<result column="pf_oriName" property="pf_oriName"/>
+		</collection>
 	</resultMap>
 	
-	<!--  <select id="detail" parameterType="OrdersDTO" resultType="OrdersDTO">
-		SELECT * FROM ORDERS WHERE M_ID=#{m_id}
-	</select>-->
 	
 	<delete id="delete" parameterType="OrdersDTO">
 		DELETE ORDERS WHERE O_NUM=#{o_num}

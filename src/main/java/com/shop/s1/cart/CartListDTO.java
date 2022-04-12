@@ -2,10 +2,12 @@ package com.shop.s1.cart;
 
 
 import java.sql.Date;
+import java.util.List;
 
 import com.shop.s1.memberJoin.MemberJoinDTO;
 import com.shop.s1.product.ProductDTO;
 import com.shop.s1.wishlist.WishlistListDTO;
+import com.shop.s1.product.ProductFileDTO;
 
 
 public class CartListDTO {
@@ -18,26 +20,32 @@ public class CartListDTO {
 	private Date addDate;
 	private Long w_num;
 	
+	//product
+	private Long num;  
+	private String p_name;
+	private Long p_price;
+	
+	//productfileDTO
+	private List<CartFileDTO> fileDTOs;
+	private MemberJoinDTO memberJoinDTO;
+	private Long pf_num;			// 파일 번호
+	private String pf_fileName;		// 파일 이름
+	private String pf_oriName;		// 원본파일 이름
+	
+	
 	public Long getW_num() {
 		return w_num;
 	}
 	public void setW_num(Long w_num) {
 		this.w_num = w_num;
 	}
-	//product
-	private Long num;  
-	private String p_name;
-	private Long p_price;
 	
-
-	
-
-	
-
-	
-	private ProductDTO productDTO;
-	private MemberJoinDTO memberJoinDTO;
-	
+	public List<CartFileDTO> getFileDTOs() {
+		return fileDTOs;
+	}
+	public void setFileDTOs(List<CartFileDTO> fileDTOs) {
+		this.fileDTOs = fileDTOs;
+	}
 	public Long getC_num() {
 		return c_num;
 	}
@@ -92,17 +100,32 @@ public class CartListDTO {
 	public void setP_price(Long p_price) {
 		this.p_price = p_price;
 	}
-	public ProductDTO getProductDTO() {
-		return productDTO;
-	}
-	public void setProductDTO(ProductDTO productDTO) {
-		this.productDTO = productDTO;
-	}
+	
 	public MemberJoinDTO getMemberJoinDTO() {
 		return memberJoinDTO;
 	}
 	public void setMemberJoinDTO(MemberJoinDTO memberJoinDTO) {
 		this.memberJoinDTO = memberJoinDTO;
+	}
+	
+
+	public Long getPf_num() {
+		return pf_num;
+	}
+	public void setPf_num(Long pf_num) {
+		this.pf_num = pf_num;
+	}
+	public String getPf_fileName() {
+		return pf_fileName;
+	}
+	public void setPf_fileName(String pf_fileName) {
+		this.pf_fileName = pf_fileName;
+	}
+	public String getPf_oriName() {
+		return pf_oriName;
+	}
+	public void setPf_oriName(String pf_oriName) {
+		this.pf_oriName = pf_oriName;
 	}
 	
 	

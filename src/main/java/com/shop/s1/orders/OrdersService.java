@@ -32,4 +32,30 @@ public class OrdersService {
 		List<OrdersDTO> ar = ordersDAO.list();
 		return ar;
 	}
+	
+	//주문 상세 정보 -> orders
+	public int orders(OrdersDTO ordersDTO)throws Exception{
+		return ordersDAO.orders(ordersDTO);
+	}
+
+	//주문 정보 -> ordersDetail
+	public int ordersDetail(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return ordersDAO.ordersDetail(ordersDetailDTO);
+	}
+	
+	//카트 비우기
+	public int cartAllDelete(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return ordersDAO.cartAllDelete(ordersDetailDTO);
+	}
+	
+	//주문 목록
+	public List<OrdersDetailDTO> orderList(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return ordersDAO.orderList(ordersDetailDTO);
+	}
+	
+	//특정 주문 목록
+	public List<OrderListDTO> orderView(OrdersDetailDTO ordersDetailDTO) throws Exception{
+		return ordersDAO.orderView(ordersDetailDTO);
+	}
+	
 }
