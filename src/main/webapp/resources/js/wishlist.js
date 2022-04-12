@@ -17,19 +17,19 @@ const p_price=document.querySelector("#p_price");
 const table=document.querySelector(".table");
 const delBtn=document.querySelector(".delBtn");
 
-delBtn.addEventListener("click",function(event){
-    let confirm_val=confirm("삭제하시겠습니까?");
-    if(confirm_val){
-        list.addEventListener("click",function(event){
-            let check=event.target;
-            //선택자
-            for(let i=0;i<check.length;i++){
-                console.log();
+// delBtn.addEventListener("click",function(event){
+//     let confirm_val=confirm("삭제하시겠습니까?");
+//     if(confirm_val){
+//         list.addEventListener("click",function(event){
+//             let check=event.target;
+//             //선택자
+//             for(let i=0;i<check.length;i++){
+//                 console.log();
    
-            }
-        })
-    }
-});
+//             }
+//         })
+//     }
+// });
 
 
 checkAll.addEventListener("click", function(){

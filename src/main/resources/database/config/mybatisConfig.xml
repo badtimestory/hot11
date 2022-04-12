@@ -16,7 +16,7 @@
   			<typeAlias type="com.shop.s1.wishlist.WishlistDTO" alias="WishlistDTO"/>
   			<typeAlias type="com.shop.s1.wishlist.WishlistDAO" alias="WishlistDAO"/>
   			<typeAlias type="com.shop.s1.wishlist.WishlistListDTO" alias="WishlistListDTO"/>
-  			<typeAlias type="com.shop.s1.wishlist.WishlistFileDTO" alias="WishlistFileDTO"/>
+  			
   			
   			
 

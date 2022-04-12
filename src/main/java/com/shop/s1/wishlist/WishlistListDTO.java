@@ -18,35 +18,13 @@ public class WishlistListDTO {
 	
 	
 	private MemberJoinDTO memberJoinDTO;
+	private ProductDTO productDTO;
 	
-	private List<WishlistFileDTO> fileDTOs;
-	private Long pf_num;
-	private String pf_fileName;
-	private String pf_oriName;
-	
-	public List<WishlistFileDTO> getFileDTOs() {
-		return fileDTOs;
+	public ProductDTO getProductDTO() {
+		return productDTO;
 	}
-	public void setFileDTOs(List<WishlistFileDTO> fileDTOs) {
-		this.fileDTOs = fileDTOs;
-	}
-	public Long getPf_num() {
-		return pf_num;
-	}
-	public void setPf_num(Long pf_num) {
-		this.pf_num = pf_num;
-	}
-	public String getPf_fileName() {
-		return pf_fileName;
-	}
-	public void setPf_fileName(String pf_fileName) {
-		this.pf_fileName = pf_fileName;
-	}
-	public String getPf_oriName() {
-		return pf_oriName;
-	}
-	public void setPf_oriName(String pf_oriName) {
-		this.pf_oriName = pf_oriName;
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
 	}
 	public Long getW_num() {
 		return w_num;

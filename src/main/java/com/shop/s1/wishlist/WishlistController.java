@@ -53,6 +53,29 @@ public class WishlistController {
 		return mv;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="seleDelet",method=RequestMethod.POST)
+	public ModelAndView delete(ModelAndView mv,HttpSession session,@RequestParam(value="check[]") List<String> chArr,WishlistDTO wishlistDTO)throws Exception{
+		System.out.println("select delete");
+		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
+		
+		int result=0;
+		Long w_num=0L;
+		
+		if(memberJoinDTO!=null){
+			wishlistDTO.setM_id(memberJoinDTO.getM_id());
+			for(String i : chArr) {
+				w_num=Long.parseLong(i);
+				wishlistDTO.setW_num(w_num);
+				wishlistService.delete(wishlistDTO);
+			}
+			result=1;
+			mv.addObject("result",result);
+			mv.setViewName("common/ajaxResult");
+			
+		}
+		return mv;
+	}
 
 //	@RequestMapping(value="delete", method = RequestMethod.GET)
 //	public String delete(WishlistDTO wishlistDTO) throws Exception{
