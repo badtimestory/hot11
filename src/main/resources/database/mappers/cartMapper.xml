@@ -30,7 +30,7 @@
 			INNER JOIN PRODUCT P 
 				ON C.P_NUM=P.P_NUM
 			INNER JOIN PRODUCTFILE PF
-				ON C.P_NUM = PF.PF_NUM
+				ON C.P_NUM = PF.P_NUM
 		WHERE C.M_ID=#{m_id}
     	</select>
     	
