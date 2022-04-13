@@ -59,7 +59,7 @@
 		</update>
 		
 		<insert id="reply" parameterType="ShopQnaDTO">
-			INSERT INTO SHOPQNA(NUM, TITLE,	WRITER, CONTENTS, REGDATE, HIT, REF, STEP, DEPTH, T_NUM)
+			INSERT INTO SHOPQNA(NUM, TITLE,	WRITER, CONTENTS, REGDATE, HIT, REF, STEP, DEPTH,T_NUM)
 			VALUES (SHOPQNA_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, SYSDATE, 0, #{ref}, #{step}, #{depth}, #{t_num})
 		</insert>
 	
