@@ -32,7 +32,7 @@
 		</table>
 		<hr>
 		<a href="../cart/list?"></a>
-		<c:if test="${member.m_id != admin}">
+		<c:if test="${member.m_id eq 'admin'}">
 			<a href="./add">상품추가</a>
 		</c:if>
 </body>
