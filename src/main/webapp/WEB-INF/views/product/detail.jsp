@@ -44,9 +44,9 @@
 
 	<h3>상품상세정보 : ${dto. p_detail}</h3>
 	
-	<c:if test="${member.m_id eq 'admin'}">
-		<a href="./update?p_num=${dto.p_num}">수정</a>
-		<a href="./delete?p_num=${dto.p_num}">삭제</a>
+	<c:if test="${member.m_id eq 'admin'}">	
+		<button><a href="./update?p_num=${dto.p_num}">수정</a></button>
+		<button><a href="./delete?p_num=${dto.p_num}">삭제</a></button>
 	</c:if>
 
 	<p class="addToCart">
