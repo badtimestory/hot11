@@ -18,7 +18,6 @@
 		<img alt="상품이미지" width="500px" height="500px"
 			src="../resources/images/products/${dto.productFileDTO.pf_fileName}">
 	</div>
-	<h3>원본이미지 이름 : ${dto.productFileDTO.pf_oriName}</h3>
 	<h3>상품번호 : ${dto.p_num}</h3>
 	<h3>카테고리: ${dto.t_num}</h3>
 	<h3>상품명 : ${dto.p_name}</h3>
