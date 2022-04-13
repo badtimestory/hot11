@@ -62,7 +62,7 @@ public class ReviewController {
 	@GetMapping("update")
 	public String update(ReviewDTO reviewDTO, Model model) throws Exception {
 		ForumDTO forumDTO = reviewService.detail(reviewDTO);
-		model.addAttribute("update", forumDTO);
+		model.addAttribute("dto", forumDTO);
 		
 		return "forum/update";
 	}
@@ -86,7 +86,7 @@ public class ReviewController {
 	// Reply
 	@GetMapping("reply")
 	public String reply(ReviewDTO reviewDTO, Model model) throws Exception {
-		model.addAttribute("reply", reviewDTO);
+		model.addAttribute("dto", reviewDTO);
 		
 		return "forum/reply";
 	}
