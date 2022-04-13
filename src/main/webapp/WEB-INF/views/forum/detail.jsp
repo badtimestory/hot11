@@ -17,7 +17,7 @@
 	<h3>Title: ${dto.title}</h3>
 	<h3>Writer: ${dto.writer}</h3>
 	<h3>Date: ${dto.regDate}</h3>
-	
+	<h3>질문내역: ${dto.t_num}</h3>
 	<a href="./list">목록</a>
 	<a href="./update?num=${dto.num}">글 수정</a>
 	<a href="./delete?num=${dto.num}">글 삭제</a>

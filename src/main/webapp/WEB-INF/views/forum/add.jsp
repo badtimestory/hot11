@@ -17,9 +17,10 @@
 		<div>
 			Category 
 			<select name="t_num">
-				<option value="1">OUTER</option>
-				<option value="2">TOP</option>
-				<option value="3">BOTTOM</option>
+				<option value="1">배송문제</option>
+				<option value="2">환불/교환</option>
+				<option value="3">입금확인</option>
+				<option value="4">기타문의</option>
 			</select>
 		</div>
 		Contents<textarea name="contents" rows="" cols="" ></textarea>		
