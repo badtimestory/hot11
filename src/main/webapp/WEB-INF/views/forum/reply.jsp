@@ -12,9 +12,17 @@
 	
 	<form action="./reply" method="post">
 		<input type="hidden" value="${dto.num}" name="num">
-		Title<input type="text" name="title">
-		Writer<input type="text" name="writer">
-		Contents<textarea name="contents" rows="" cols=""></textarea>
+		제목<input type="text" name="title">
+		작성자<input type="text" name="writer" value="${member.m_id}">
+		내용<textarea name="contents" rows="" cols=""></textarea>
+		<div>
+			Category 
+			<select name="t_num">
+				<option value="1">OUTER</option>
+				<option value="2">TOP</option>
+				<option value="3">BOTTOM</option>
+			</select>
+		</div>
 		<button type="submit">추가</button>
 		
 	</form>
