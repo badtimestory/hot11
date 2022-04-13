@@ -21,7 +21,7 @@
 							</otherwise>
 						</choose>
 						LIKE '%'||#{search}||'%'
-			 		ORDER BY NUM DESC
+			 		ORDER BY REF DESC, STEP ASC
 				) B
 			)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}

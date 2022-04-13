@@ -12,6 +12,7 @@
 	
 	<form action="./reply" method="post">
 		<input type="hidden" value="${dto.num}" name="num">
+		<input type="hidden" name="m_id" value="${member.m_id}">
 		제목<input type="text" name="title">
 		작성자<input type="text" name="writer" value="${member.m_id}">
 		내용<textarea name="contents" rows="" cols=""></textarea>
