@@ -32,6 +32,8 @@
 		</table>
 		<hr>
 		<a href="../cart/list?"></a>
-		<a href="./add">상품추가</a>
+		<c:if test="${member.m_id != admin}">
+			<a href="./add">상품추가</a>
+		</c:if>
 </body>
 </html>
