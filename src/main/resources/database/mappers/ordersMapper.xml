@@ -18,7 +18,7 @@
 		SELECT ORDERS_SEQ.NEXTVAL,#{orderid},P_NUM,C_STOCK FROM CART WHERE M_ID=#{m_id}
 	</insert>
 	
-	<!-- 카트 비우기 -->
+	<!-- 카트 전체 비우기 -->
 	<delete id="cartAllDelete" parameterType="OrdersDetailDTO">
 		DELETE CART WHERE M_ID=#{m_id}
 	</delete>

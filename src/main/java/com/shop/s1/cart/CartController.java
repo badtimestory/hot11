@@ -53,7 +53,7 @@ public class CartController {
 	
 	
 	
-	
+	//카트확인 detail -> 카트목록으로 변경 
 	@RequestMapping(value="detail",method=RequestMethod.GET)
 	public ModelAndView cartList(ModelAndView mv,CartDTO cartDTO) throws Exception{
 		cartDTO = cartService.detail(cartDTO);

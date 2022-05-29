@@ -10,24 +10,29 @@
     		SELECT M_ID FROM MEMBERJOIN WHERE M_ID=#{m_id}
     	</select>
     	
+    	<!-- 회원 정보 수정 -->
     	<update id="update" parameterType="MemberJoinDTO">
     		UPDATE MEMBERJOIN SET M_PW=#{m_pw},M_NAME=#{m_name},M_PHONE=#{m_phone},M_EMAIL=#{m_email},M_ADDRESS=#{m_address},M_BIRTH=#{m_birth}
 			WHERE M_ID=#{m_id}
     	</update>
     	
+    	<!-- 회원 정보 상세 (마이 페이지) -->
     	<select id="mypage" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
     		SELECT M_ID,M_PW,M_NAME,M_PHONE,M_EMAIL,M_ADDRESS,M_BIRTH FROM MEMBERJOIN WHERE M_ID=#{m_id}
     	</select>
     
+    	<!-- 로그인 -->
     	<select id="login" parameterType="MemberJoinDTO" resultType="MemberJoinDTO">
     		SELECT * FROM MEMBERJOIN WHERE M_ID=#{m_id} AND M_PW=#{m_pw}
     	</select>
     	
+    	<!-- 회원가입 -->
     	<insert id="join" parameterType="MemberJoinDTO">
     		INSERT INTO MEMBERJOIN (M_ID,M_PW,M_NAME,M_PHONE,M_EMAIL,M_ADDRESS,M_BIRTH)
     		VALUES (#{m_id},#{m_pw},#{m_name},#{m_phone},#{m_email},#{m_address},#{m_birth})
     	</insert>
     
+    	<!-- 회원탈퇴 -->
     	<delete id="delete" parameterType="MemberJoinDTO">
     		DELETE MEMBERJOIN WHERE M_ID=#{m_id}
     	</delete>

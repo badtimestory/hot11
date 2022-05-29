@@ -27,7 +27,7 @@ public class OrdersController {
 	private OrdersService ordersService;
 	
 	
-	//주문 상세 목록
+	//주문목록에서 특정상품 상세보기
 	@RequestMapping(value="/orders/orderView",method=RequestMethod.GET)
 	public String orderView(HttpSession session, @RequestParam("n") String orderid, OrdersDetailDTO ordersDetailDTO, Model model) throws Exception{
 		System.out.println("get order view");
@@ -44,7 +44,7 @@ public class OrdersController {
 		return "orders/orderView";
 	}
 	
-	//주문 목록
+	//특정 유저의 주문 목록
 	@RequestMapping(value="/orders/list",method=RequestMethod.GET)
 	public String orderList(HttpSession session, OrdersDetailDTO ordersDetailDTO, Model model) throws Exception{
 		System.out.println("get order list");
@@ -60,9 +60,9 @@ public class OrdersController {
 	}
 	
 	
-	//주문
+	//주문 주문번호 생성
 	@RequestMapping(value="/cart/cartList",method=RequestMethod.POST)
-	public String order(HttpSession session, OrdersDetailDTO ordersDetailDTO, OrdersDTO ordersDTO) throws Exception{
+	public String orders(HttpSession session, OrdersDetailDTO ordersDetailDTO, OrdersDTO ordersDTO) throws Exception{
 		System.out.println("order");
 		MemberJoinDTO memberJoinDTO=(MemberJoinDTO)session.getAttribute("member");
 		String m_id = memberJoinDTO.getM_id();
@@ -102,12 +102,14 @@ public class OrdersController {
 		return "redirect:./detail";
 	}
 	
+	
 	@GetMapping(value="update")
 	public void update(OrdersDTO ordersDTO,Model model) throws Exception{
 		ordersDTO=ordersService.detail(ordersDTO);
 		model.addAttribute("dto",ordersDTO);
 	}
 	
+	//주문 상세
 	@GetMapping(value="detail")
 	public ModelAndView detail(ModelAndView mv,OrdersDTO ordersDTO) throws Exception{
 		ordersDTO=ordersService.detail(ordersDTO);
@@ -115,7 +117,8 @@ public class OrdersController {
 		mv.setViewName("orders/detail");
 		return mv;
 	}
-
+	
+	//주문 추가
 	@PostMapping(value="add")
 	public String add(OrdersDTO ordersDTO) throws Exception{
 		int result=ordersService.add(ordersDTO);
